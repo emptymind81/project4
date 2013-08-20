@@ -232,14 +232,14 @@ typedef enum
         [color_buttons addObject:color_button];
     }
     
-    NSString* share_button_pic = [NSString stringWithFormat:@"seri%d-shareweibo.png", self.seriIndex+1];
+    NSString* share_button_pic = @"shareweibo.png";
     UIImage* share_button_image = [UIImage imageNamed:share_button_pic];
     UIButton* share_button = [[UIButton alloc] init];
     [share_button setImage:share_button_image forState:UIControlStateNormal];
     [share_button addTarget:self action:@selector(startDetail:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:share_button];
     
-    NSString* dulux_icon_pic = [NSString stringWithFormat:@"seri%d-duluxicon.png", self.seriIndex+1];
+    NSString* dulux_icon_pic = @"duluxicon.png";
     UIImageView* dulux_icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:dulux_icon_pic]];
     [self.view addSubview:dulux_icon];
     

@@ -74,7 +74,7 @@ typedef enum
     [right_button addTarget:self action:@selector(goRight:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:right_button];
     
-    NSString* center_button_pic = [NSString stringWithFormat:@"seri%d-centerbutton.png", self.seriIndex+1];
+    NSString* center_button_pic = @"centerbutton.png";
     UIImage* center_button_image = [UIImage imageNamed:center_button_pic];
     UIButton* center_button = [[UIButton alloc] init];
     [center_button setImage:center_button_image forState:UIControlStateNormal];
