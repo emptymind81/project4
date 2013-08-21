@@ -34,6 +34,8 @@
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
         [view addGestureRecognizer:singleTap];
     }
+    
+    [self removeFlashAndKV];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -56,6 +58,22 @@
       button.frame = CGRectMake(0, 0,100, 20);
    }];*/
    
+    [self removeFlashAndKV];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self removeFlashAndKV];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void) removeFlashAndKV
+{
     if (m_flash_view)
     {
         [m_flash_view removeFromSuperview];
@@ -66,13 +84,6 @@
         [m_kv_view removeFromSuperview];
         m_kv_view = nil;
     }
-
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void) switchToFlash:(int)seriIndex flashImageName:(NSString*)flashImageName

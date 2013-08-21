@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RoomViewController : UIViewController
+@interface RoomViewController : UIViewController<UIActionSheetDelegate>
 
 @property int seriIndex;
 @property int roomIndex;

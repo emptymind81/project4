@@ -236,7 +236,7 @@ typedef enum
     UIImage* share_button_image = [UIImage imageNamed:share_button_pic];
     UIButton* share_button = [[UIButton alloc] init];
     [share_button setImage:share_button_image forState:UIControlStateNormal];
-    [share_button addTarget:self action:@selector(startDetail:) forControlEvents:UIControlEventTouchUpInside];
+    [share_button addTarget:self action:@selector(shareButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:share_button];
     
     NSString* dulux_icon_pic = @"duluxicon.png";
@@ -422,15 +422,53 @@ typedef enum
 
 
 
+- (void) shareButtonClicked:(id)sender
+{
+    UIActionSheet *action_sheet = [[UIActionSheet alloc] init];
+                                  /*initWithTitle:@"选择分享平台"
+                                  delegate:self
+                                  cancelButtonTitle:@"新浪微博"
+                                  destructiveButtonTitle:@"腾讯微博"
+                                  otherButtonTitles:@"微信朋友圈", nil];*/
+    action_sheet.delegate = self;
+    [action_sheet addButtonWithTitle:@"新浪微博"];
+    [action_sheet addButtonWithTitle:@"腾讯微博"];
+    [action_sheet addButtonWithTitle:@"微信朋友圈"];
+    action_sheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [action_sheet showInView:self.view];
+}
 
+- (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        [self shareToSinaWeibo:self.view];
+    }
+    else if(buttonIndex == 1) {
+        [self shareToTencentWeibo:self.view];
+    }
+    else if(buttonIndex == 2) {
+        [self shareToWeixinTimeline:self.view];
+    }
+}
+- (void) actionSheetCancel:(UIActionSheet *)actionSheet{
+    
+}
+
+-(void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    
+}
+
+-(void) actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex{
+    
+}
 
 
 -(id) getOneKeyShareList
 {
     NSMutableArray* array = [[NSMutableArray alloc] initWithObjects:
-                             SHARE_TYPE_NUMBER(ShareTypeSinaWeibo),
+                             /*SHARE_TYPE_NUMBER(ShareTypeSinaWeibo),
                              SHARE_TYPE_NUMBER(ShareTypeTencentWeibo),
-                             SHARE_TYPE_NUMBER(ShareTypeRenren),
+                             SHARE_TYPE_NUMBER(ShareTypeRenren),*/
                              nil];
     return array;
                               
@@ -633,4 +671,58 @@ typedef enum
     
     
 }
+
+- (void)shareToWeixinTimeline:(id)sender
+{
+    //创建分享内容
+    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"room1colored" ofType:@"png"];
+    id<ISSContent> publishContent = [ShareSDK content:@"test1"
+                                       defaultContent:@"test1"
+                                                image:[ShareSDK imageWithPath:imagePath]
+                                                title:@"ShareSDK"
+                                                  url:@"http://www.sharesdk.cn"
+                                          description:@"Hello 人人网"
+                                            mediaType:SSPublishContentMediaTypeNews];
+    
+    id<ISSAuthOptions> authOptions = [ShareSDK authOptionsWithAutoAuth:YES
+                                                         allowCallback:YES
+                                                         authViewStyle:SSAuthViewStyleFullScreenPopup
+                                                          viewDelegate:nil
+                                               authManagerViewDelegate:m_app_delegate.viewDelegate];
+    
+    //在授权页面中添加关注官方微博
+    /*[authOptions setFollowAccounts:[NSDictionary dictionaryWithObjectsAndKeys:
+                                    [ShareSDK userFieldWithType:SSUserFieldTypeName value:@"ShareSDK"],
+                                    SHARE_TYPE_NUMBER(ShareTypeSinaWeibo),
+                                    [ShareSDK userFieldWithType:SSUserFieldTypeName value:@"ShareSDK"],
+                                    SHARE_TYPE_NUMBER(ShareTypeTencentWeibo),
+                                    nil]];*/
+    
+    //显示分享菜单
+    [ShareSDK showShareViewWithType:ShareTypeWeixiTimeline
+                          container:nil
+                            content:publishContent
+                      statusBarTips:YES
+                        authOptions:authOptions
+                       shareOptions:[ShareSDK defaultShareOptionsWithTitle:nil
+                                                           oneKeyShareList:[self getOneKeyShareList]//[NSArray defaultOneKeyShareList]
+                                                            qqButtonHidden:YES
+                                                     wxSessionButtonHidden:YES
+                                                    wxTimelineButtonHidden:YES
+                                                      showKeyboardOnAppear:NO
+                                                         shareViewDelegate:m_app_delegate.viewDelegate
+                                                       friendsViewDelegate:m_app_delegate.viewDelegate
+                                                     picViewerViewDelegate:nil]
+                             result:^(ShareType type, SSPublishContentState state, id<ISSStatusInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+                                 if (state == SSPublishContentStateSuccess)
+                                 {
+                                     NSLog(@"发表成功");
+                                 }
+                                 else if (state == SSPublishContentStateFail)
+                                 {
+                                     NSLog(@"发布失败!error code == %d, error code == %@", [error errorCode], [error errorDescription]);
+                                 }
+                             }];
+}
+
 @end

@@ -27,6 +27,8 @@
 			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>wb801402304</string>
+				<string>wx4c060f2542dfb0bc</string>
 				<string>sinaweibosso.1181359548</string>
 			</array>
 		</dict>
