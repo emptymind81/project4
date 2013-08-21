@@ -156,6 +156,7 @@
 		B772D14F17C529A500C7AC4C /* seri1-room3-wall2.png in Resources */ = {isa = PBXBuildFile; fileRef = B772D14B17C529A500C7AC4C /* seri1-room3-wall2.png */; };
 		B772D15017C529A500C7AC4C /* seri1-room3-wall1.png in Resources */ = {isa = PBXBuildFile; fileRef = B772D14C17C529A500C7AC4C /* seri1-room3-wall1.png */; };
 		B772D15117C529A500C7AC4C /* seri1-room3-floating.png in Resources */ = {isa = PBXBuildFile; fileRef = B772D14D17C529A500C7AC4C /* seri1-room3-floating.png */; };
+		B772D15417C52FD200C7AC4C /* UIDraggableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B772D15317C52FD200C7AC4C /* UIDraggableView.m */; };
 		B7898CEF17B22BBF00B1D3EC /* DoorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7898CED17B22BBF00B1D3EC /* DoorsViewController.m */; };
 		B7898CF017B22BBF00B1D3EC /* DoorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7898CEE17B22BBF00B1D3EC /* DoorsViewController.xib */; };
 		B7898CF317B382EC00B1D3EC /* AutoLayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B7898CF217B382EC00B1D3EC /* AutoLayoutHelper.m */; };
@@ -341,6 +342,8 @@
 		B772D14B17C529A500C7AC4C /* seri1-room3-wall2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room3-wall2.png"; path = "final/seri1/seri1-room3-wall2.png"; sourceTree = "<group>"; };
 		B772D14C17C529A500C7AC4C /* seri1-room3-wall1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room3-wall1.png"; path = "final/seri1/seri1-room3-wall1.png"; sourceTree = "<group>"; };
 		B772D14D17C529A500C7AC4C /* seri1-room3-floating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room3-floating.png"; path = "final/seri1/seri1-room3-floating.png"; sourceTree = "<group>"; };
+		B772D15217C52FD200C7AC4C /* UIDraggableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDraggableView.h; sourceTree = "<group>"; };
+		B772D15317C52FD200C7AC4C /* UIDraggableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDraggableView.m; sourceTree = "<group>"; };
 		B7898CEC17B22BBF00B1D3EC /* DoorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoorsViewController.h; sourceTree = "<group>"; };
 		B7898CED17B22BBF00B1D3EC /* DoorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoorsViewController.m; sourceTree = "<group>"; };
 		B7898CEE17B22BBF00B1D3EC /* DoorsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoorsViewController.xib; sourceTree = "<group>"; };
@@ -738,6 +741,8 @@
 				B7B1224017B13A3B00A6A1D4 /* ViewController.xib */,
 				B7B1225017B1427400A6A1D4 /* resource */,
 				B7B1222C17B13A3A00A6A1D4 /* Supporting Files */,
+				B772D15217C52FD200C7AC4C /* UIDraggableView.h */,
+				B772D15317C52FD200C7AC4C /* UIDraggableView.m */,
 			);
 			path = Dulux;
 			sourceTree = "<group>";
@@ -962,6 +967,7 @@
 				B772D14717C5288D00C7AC4C /* MyCategoryIVars.mm in Sources */,
 				B772D14817C5288D00C7AC4C /* UIImage+Alpha.m in Sources */,
 				B772D14917C5288D00C7AC4C /* UIImage+ColorAtPixel.m in Sources */,
+				B772D15417C52FD200C7AC4C /* UIDraggableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

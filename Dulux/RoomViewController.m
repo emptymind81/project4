@@ -20,6 +20,7 @@
 #import "QuartzCore/QuartzCore.h"
 #import "UIImage+ColorAtPixel.h"
 #import "UIImage+Tint.h"
+#import "UIImage+Alpha.h"
 
 @interface RoomViewController ()
 
@@ -46,6 +47,12 @@ typedef enum
     AppDelegate* m_app_delegate;
     
     NSMutableArray* m_wall_views;
+    NSMutableArray* m_wall_color_button_indexs;
+    
+    NSMutableArray* m_color_buttons;
+    
+    bool m_is_dragging_color_button;
+    int m_previous_wall_index;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -104,6 +111,12 @@ typedef enum
         
         m_app_delegate = (AppDelegate *)([UIApplication sharedApplication].delegate);
         m_wall_views = [[NSMutableArray alloc] init];
+        m_wall_color_button_indexs = [[NSMutableArray alloc] init];
+        m_is_dragging_color_button = false;
+        m_previous_wall_index = -1;
+        
+        m_color_buttons = [[NSMutableArray alloc] init];
+        
     }
     return self;
 }
@@ -139,6 +152,7 @@ typedef enum
             UIImageView* wall_image_view = [[UIImageView alloc] initWithImage:image];
             [self.view addSubview:wall_image_view];
             [m_wall_views addObject:wall_image_view];
+            [m_wall_color_button_indexs addObject:[NSNumber numberWithInt:-1]];
         }
     }
     
@@ -147,7 +161,7 @@ typedef enum
     if (floating_image)
     {
         UIImageView* floating_image_view = [[UIImageView alloc] initWithImage:floating_image];
-        [self.view addSubview:floating_image_view];
+        //[self.view addSubview:floating_image_view];
     }
     
     
@@ -177,18 +191,23 @@ typedef enum
     UIImageView* color_band_hint_button = [[UIImageView alloc] initWithImage:[UIImage imageNamed:color_band_hint_pic]];
     [self.view addSubview:color_band_hint_button];
     
-    NSMutableArray* color_buttons = [[NSMutableArray alloc] init];
+    m_color_buttons = [[NSMutableArray alloc] init];
     int color_button_num = 5;
     for (int i=0; i<color_button_num; i++)
     {
         NSString* color_button_pic = [NSString stringWithFormat:@"seri%d-colorbutton%d.png", self.seriIndex+1, i+1];
         UIImage* color_button_image = [UIImage imageNamed:color_button_pic];
-        UIButton* color_button = [[UIButton alloc] init];
+        /*UIButton* color_button = [[UIButton alloc] init];
         [color_button setImage:color_button_image forState:UIControlStateNormal];
         [color_button addTarget:self action:@selector(colorButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:color_button];
+        [self.view addSubview:color_button];*/
         
-        [color_buttons addObject:color_button];
+        UIDraggableView* color_button_view = [[UIDraggableView alloc] initWithImage:color_button_image];
+        color_button_view.userInteractionEnabled = true;
+        color_button_view.delegate = self;
+        [self.view addSubview:color_button_view];
+        
+        [m_color_buttons addObject:color_button_view];
     }
     
     NSString* share_button_pic = @"shareweibo.png";
@@ -224,18 +243,18 @@ typedef enum
     
     for (int i=0; i<color_button_num-1; i++)
     {
-        UIButton* buttoni = (UIButton*)color_buttons[i];
-        UIButton* buttonj = (UIButton*)color_buttons[i+1];
+        UIButton* buttoni = (UIButton*)m_color_buttons[i];
+        UIButton* buttonj = (UIButton*)m_color_buttons[i+1];
         [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:buttonj another:buttoni attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeRight offset:15]];
         [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:buttonj another:buttoni attr:NSLayoutAttributeBottom anotherAttr:NSLayoutAttributeBottom offset:0]];
     }
-    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:(UIButton*)color_buttons[0] another:self.view attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeLeft offset:100]];
-    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:(UIButton*)color_buttons[0] another:self.view attr:NSLayoutAttributeBottom anotherAttr:NSLayoutAttributeBottom offset:-85]];
+    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:(UIButton*)m_color_buttons[0] another:self.view attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeLeft offset:100]];
+    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:(UIButton*)m_color_buttons[0] another:self.view attr:NSLayoutAttributeBottom anotherAttr:NSLayoutAttributeBottom offset:-85]];
     
-    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:share_button another:(UIButton*)color_buttons[color_button_num-1] attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeRight offset:25]];
+    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:share_button another:(UIButton*)m_color_buttons[color_button_num-1] attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeRight offset:25]];
     [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:dulux_icon another:share_button attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeRight offset:25]];
     
-    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:(UIButton*)color_buttons[0] another:share_button attr:NSLayoutAttributeBottom anotherAttr:NSLayoutAttributeBottom offset:-10]];
+    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:(UIButton*)m_color_buttons[0] another:share_button attr:NSLayoutAttributeBottom anotherAttr:NSLayoutAttributeBottom offset:-10]];
     [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:dulux_icon another:share_button attr:NSLayoutAttributeBottom anotherAttr:NSLayoutAttributeBottom offset:0]];
     
     
@@ -255,6 +274,101 @@ typedef enum
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(UIColor*) getColorByButtonIndex:(int)index
+{
+    UIDraggableView* color_button = m_color_buttons[index];
+    UIColor* color = [color_button.image colorAtPixel:CGPointMake(10, 10)];
+    return color;
+}
+
+-(void) dragView:(UIDraggableView*)dragView startDragAtParentViewPoint:(CGPoint)pt
+{
+    m_previous_wall_index = -1;
+}
+
+-(void) dragView:(UIDraggableView*)dragView draggingAtParentViewPoint:(CGPoint)pt
+{
+    /*int color_button_index = 0;
+    for (int i=0; i<m_wall_views.count; i++)
+    {
+        if (dragView == m_wall_views[i])
+        {
+            color_button_index = i;
+            break;
+        }
+    }*/
+    
+    m_is_dragging_color_button = true;
+    
+    UIImage* image = dragView.image;
+    UIColor* color = [image colorAtPixel:CGPointMake(10, 10)];
+    float r,g,b,a;
+    [color getRed:&r green:&g blue:&b alpha:&a];
+    
+    int wall_index = -1;
+    for (int i=0; i<m_wall_views.count; i++)
+    {
+        UIImageView* wall_view = m_wall_views[i];
+        UIImage* image = wall_view.image;
+        
+        NSString* wall_pic = [NSString stringWithFormat:@"seri%d-room%d-wall%d.png", self.seriIndex+1, self.roomIndex+1, i+1];
+        UIImage* wall_white_image = [UIImage imageNamed:wall_pic];
+        
+        bool isTransparent = [wall_white_image isPointTransparent:pt];
+        if (!isTransparent)
+        {
+            wall_index = i;
+            break;
+        }
+        else
+        {
+            int mm=0;
+        }
+        /*UIColor* color = [image colorAtPixel:pt];
+        float r,g,b,a;
+        [color getRed:&r green:&g blue:&b alpha:&a];
+        if (a >= 0.001f)
+        {
+            wall_index = i;
+            break;
+        }*/
+    }
+    
+    NSLog(@"pt=(%.1f,%.1f), wall_index=%d", pt.x, pt.y, wall_index);
+    
+    if(m_previous_wall_index != wall_index)
+    {
+        if (m_previous_wall_index >= 0)
+        {
+            NSString* previous_wall_pic = [NSString stringWithFormat:@"seri%d-room%d-wall%d.png", self.seriIndex+1, self.roomIndex+1, m_previous_wall_index+1];
+            UIImage* previous_wall_white_image = [UIImage imageNamed:previous_wall_pic];
+            UIImageView* previous_wall = m_wall_views[m_previous_wall_index];
+            previous_wall.image = previous_wall_white_image;
+        }
+        if (wall_index >= 0)
+        {
+            NSString* wall_pic = [NSString stringWithFormat:@"seri%d-room%d-wall%d.png", self.seriIndex+1, self.roomIndex+1, wall_index+1];
+            UIImage* wall_white_image = [UIImage imageNamed:wall_pic];
+            UIImageView* wall = m_wall_views[wall_index];
+            wall.image = [wall_white_image imageWithGradientTintColor:color];
+        }
+        else
+        {
+            NSString* wall_pic = [NSString stringWithFormat:@"seri%d-room%d-wall%d.png", self.seriIndex+1, self.roomIndex+1, wall_index+1];
+            UIImage* wall_white_image = [UIImage imageNamed:wall_pic];
+            UIImageView* wall = m_wall_views[wall_index];
+        }
+    }
+    
+    
+    m_previous_wall_index = wall_index;
+}
+
+-(void) dragView:(UIDraggableView*)dragView dropAtParentViewPoint:(CGPoint)pt
+{
+    m_is_dragging_color_button = false;
 }
 
 - (void) colorButtonClicked:(id)sender
@@ -337,12 +451,20 @@ typedef enum
 
 - (void)handleSwipeLeft:(UISwipeGestureRecognizer *)swipeRecognizer
 {
+    if (m_is_dragging_color_button)
+    {
+        return;
+    }
     self.roomIndex = (self.roomIndex-1+3) % 3;
     [self reInitSubViews:InitReason_GoLeft];
 }
 
 - (void)handleSwipeRight:(UISwipeGestureRecognizer *)swipeRecognizer
 {
+    if (m_is_dragging_color_button)
+    {
+        return;
+    }
     self.roomIndex = (self.roomIndex+1+3) % 3;
     [self reInitSubViews:InitReason_GoRight];
 }

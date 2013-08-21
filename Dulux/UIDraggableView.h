@@ -8,6 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIDraggableView : UIView
+@class UIDraggableView;
+
+@protocol UIDraggableViewDelegate <NSObject>
+
+@required
+-(void) dragView:(UIDraggableView*)dragView startDragAtParentViewPoint:(CGPoint)pt ;
+-(void) dragView:(UIDraggableView*)dragView draggingAtParentViewPoint:(CGPoint)pt ;
+-(void) dragView:(UIDraggableView*)dragView dropAtParentViewPoint:(CGPoint)pt ;
+@end
+
+
+
+@interface UIDraggableView : UIImageView
+
+@property NSObject<UIDraggableViewDelegate>* delegate;
 
 @end

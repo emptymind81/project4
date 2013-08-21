@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIDraggableView.h"
 
-@interface RoomViewController : UIViewController<UIActionSheetDelegate>
+@interface RoomViewController : UIViewController<UIActionSheetDelegate, UIDraggableViewDelegate>
 
 @property int seriIndex;
 @property int roomIndex;

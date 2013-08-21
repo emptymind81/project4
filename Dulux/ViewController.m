@@ -127,7 +127,7 @@
                          image_view.alpha = 1.0;
                      }
                      completion:^(BOOL finished){
-                         sleep(2);
+                         sleep(1);
                          
                          //[image_view removeFromSuperview];
                          
