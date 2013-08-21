@@ -28,7 +28,7 @@
     UIRectFill(bounds);
     
     //Draw the tinted image in context
-    [self drawInRect:bounds blendMode:blendMode alpha:1.0f];
+    [self drawInRect:bounds blendMode:blendMode alpha:0.4f];
     
     if (blendMode != kCGBlendModeDestinationIn) {
         [self drawInRect:bounds blendMode:kCGBlendModeDestinationIn alpha:1.0f];

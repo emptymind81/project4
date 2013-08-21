@@ -18,6 +18,8 @@
 #import <TencentOpenAPI/QQApiInterface.h>
 #import <TencentOpenAPI/TencentOAuth.h>
 #import "QuartzCore/QuartzCore.h"
+#import "UIImage+ColorAtPixel.h"
+#import "UIImage+Tint.h"
 
 @interface RoomViewController ()
 
@@ -42,6 +44,8 @@ typedef enum
     NSMutableArray* m_colored_room_picture_names;
     
     AppDelegate* m_app_delegate;
+    
+    NSMutableArray* m_wall_views;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -99,6 +103,7 @@ typedef enum
         }
         
         m_app_delegate = (AppDelegate *)([UIApplication sharedApplication].delegate);
+        m_wall_views = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -106,76 +111,6 @@ typedef enum
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    //[self reInitSubViews];
-    
-    /*m_image_view_room = [[UIImageView alloc] initWithImage:[UIImage imageNamed:m_room_picture_name]];
-    m_image_view_room.translatesAutoresizingMaskIntoConstraints = false;
-    m_image_view_room.contentMode = UIViewContentModeScaleToFill;
-    m_image_view_room.userInteractionEnabled = true;
-    [self.view addSubview:m_image_view_room];
-    
-    m_button_views = [[NSMutableArray alloc] init];
-    for (int i=0; i<m_colors.count; i++)
-    {
-        UIColor* fill_color = m_colors[i];
-        UIRoundRectView* button = [[UIRoundRectView alloc] init];
-        button.frame = CGRectMake(0, 0, 100, 100);
-        button.fillColor = fill_color;
-        button.strokeColor = [UIColor clearColor];
-        button.backgroundColor = [UIColor clearColor];
-        
-        button.translatesAutoresizingMaskIntoConstraints = false;
-        button.contentMode = UIViewContentModeScaleToFill;
-        button.userInteractionEnabled = true;
-        
-        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
-        [button addGestureRecognizer:singleTap];
-        
-        [self.view addSubview:button];
-        [m_button_views addObject:button];
-    }
-    
-    for (int i=0; i<m_button_views.count-1; i++)
-    {
-        UIView* button1 = m_button_views[i];
-        UIView* button2 = m_button_views[i+1];
-        [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:button1 another:button2 attr:NSLayoutAttributeWidth]];
-        [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:button1 another:button2 attr:NSLayoutAttributeHeight]];
-        [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:button1 another:button2 attr:NSLayoutAttributeLeft]];
-        [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:button2 another:button1 attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeBottom offset:50]];
-    }
-    [self.view addConstraint:[AutoLayoutHelper viewEqualsToNumber:m_button_views[0] number:100 attr:NSLayoutAttributeWidth]];
-    [self.view addConstraint:[AutoLayoutHelper viewEqualsToNumber:m_button_views[0] number:100 attr:NSLayoutAttributeHeight]];
-    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:m_button_views[0] another:self.view attr:NSLayoutAttributeRight anotherAttr:NSLayoutAttributeRight offset:-100]];
-    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:m_button_views[0] another:self.view attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeTop offset:100]];
-    
-    //constraints for room image:
-    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:m_image_view_room another:self.view attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeLeft offset:100]];
-    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:m_image_view_room another:self.view attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeTop offset:200]];
-    [self.view addConstraint:[AutoLayoutHelper viewEqualsToNumber:m_image_view_room number:400 attr:NSLayoutAttributeWidth]];
-    [self.view addConstraint:[AutoLayoutHelper viewEqualsToNumber:m_image_view_room number:250 attr:NSLayoutAttributeHeight]];
-
-    UIButton* sina_weibo_button = [[UIButton alloc] init];
-    sina_weibo_button.frame = CGRectMake(0, 0, 150, 30);
-    sina_weibo_button.backgroundColor = [UIColor grayColor];
-    [sina_weibo_button setTitle:@"Sina Weibo" forState:UIControlStateNormal];
-    [sina_weibo_button addTarget:self action:@selector(shareToSinaWeibo:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:sina_weibo_button];
-    
-    UIButton* tencent_weibo_button = [[UIButton alloc] init];
-    tencent_weibo_button.frame = CGRectMake(160, 0, 150, 30);
-    tencent_weibo_button.backgroundColor = [UIColor grayColor];
-    [tencent_weibo_button setTitle:@"Tencent Weibo" forState:UIControlStateNormal];
-    [tencent_weibo_button addTarget:self action:@selector(shareToTencentWeibo:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:tencent_weibo_button];
-    
-    UIButton* renren_weibo_button = [[UIButton alloc] init];
-    renren_weibo_button.frame = CGRectMake(320, 0, 150, 30);
-    renren_weibo_button.backgroundColor = [UIColor grayColor];
-    [renren_weibo_button setTitle:@"RenRen" forState:UIControlStateNormal];
-    [renren_weibo_button addTarget:self action:@selector(shareToRenRenWeibo:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:renren_weibo_button];*/
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -192,6 +127,30 @@ typedef enum
     NSString* back_pic = [NSString stringWithFormat:@"seri%d-room%d-paint.jpg", self.seriIndex+1, self.roomIndex+1];
     m_back_image_view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:back_pic]];
     [self.view addSubview:m_back_image_view];
+    
+    int nMaxWall = 5;
+    
+    for(int i=0; i<nMaxWall; i++)
+    {
+        NSString* wall_pic = [NSString stringWithFormat:@"seri%d-room%d-wall%d.png", self.seriIndex+1, self.roomIndex+1, i+1];
+        UIImage* image = [UIImage imageNamed:wall_pic];
+        if (image)
+        {
+            UIImageView* wall_image_view = [[UIImageView alloc] initWithImage:image];
+            [self.view addSubview:wall_image_view];
+            [m_wall_views addObject:wall_image_view];
+        }
+    }
+    
+    NSString* flating_pic = [NSString stringWithFormat:@"seri%d-room%d-floating.png", self.seriIndex+1, self.roomIndex+1];
+    UIImage* floating_image = [UIImage imageNamed:flating_pic];
+    if (floating_image)
+    {
+        UIImageView* floating_image_view = [[UIImageView alloc] initWithImage:floating_image];
+        [self.view addSubview:floating_image_view];
+    }
+    
+    
     
     //add animation
     [self addSwitchViewAnimation:initReason];
@@ -226,7 +185,7 @@ typedef enum
         UIImage* color_button_image = [UIImage imageNamed:color_button_pic];
         UIButton* color_button = [[UIButton alloc] init];
         [color_button setImage:color_button_image forState:UIControlStateNormal];
-        [color_button addTarget:self action:@selector(startDetail:) forControlEvents:UIControlEventTouchUpInside];
+        [color_button addTarget:self action:@selector(colorButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:color_button];
         
         [color_buttons addObject:color_button];
@@ -296,6 +255,22 @@ typedef enum
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) colorButtonClicked:(id)sender
+{
+    UIButton* button = sender;
+    UIImage* image = [button imageForState:UIControlStateNormal];
+    UIColor* color = [image colorAtPixel:CGPointMake(10, 10)];
+    float r,g,b,a;
+    [color getRed:&r green:&g blue:&b alpha:&a];
+    
+    int wall_index = 2;
+    NSString* wall_pic = [NSString stringWithFormat:@"seri%d-room%d-wall%d.png", self.seriIndex+1, self.roomIndex+1, wall_index+1];
+    UIImage* wall_white_image = [UIImage imageNamed:wall_pic];
+    
+    UIImageView* wall = m_wall_views[wall_index];
+    wall.image = [wall_white_image imageWithGradientTintColor:color];
 }
 
 - (void)handleTap:(UITapGestureRecognizer *)tapRecognizer
@@ -431,6 +406,7 @@ typedef enum
                                   destructiveButtonTitle:@"腾讯微博"
                                   otherButtonTitles:@"微信朋友圈", nil];*/
     action_sheet.delegate = self;
+    action_sheet.title = @"选择分享平台";
     [action_sheet addButtonWithTitle:@"新浪微博"];
     [action_sheet addButtonWithTitle:@"腾讯微博"];
     [action_sheet addButtonWithTitle:@"微信朋友圈"];

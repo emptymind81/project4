@@ -10,6 +10,7 @@
 #import "AutoLayoutHelper.h"
 #import "RoomViewController.h"
 #import "DoorsBigViewController.h"
+#import "UIImage+Tint.h"
 
 @interface DoorsViewController ()
 
@@ -39,7 +40,10 @@
     [super viewDidLoad];
    
     NSString* back_pic = [NSString stringWithFormat:@"seri%d-back.jpg", self.seriIndex+1];
-   m_icon_image_view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:back_pic]];
+    UIImage* image = [UIImage imageNamed:back_pic];
+    /*NSString* back_pic = @"whitewall.png";
+    image = [image imageWithGradientTintColor:[UIColor orangeColor]];*/
+   m_icon_image_view = [[UIImageView alloc] initWithImage:image];
    
     NSString* room1_pic = [NSString stringWithFormat:@"seri%d-room%d.jpg", self.seriIndex+1, 1];
     NSString* room2_pic = [NSString stringWithFormat:@"seri%d-room%d.jpg", self.seriIndex+1, 2];

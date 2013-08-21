@@ -147,6 +147,15 @@
 		B740890317C2749C008FAF50 /* DoorsBigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B740890017C2749C008FAF50 /* DoorsBigViewController.xib */; };
 		B740890E17C27997008FAF50 /* leftbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = B740890817C27997008FAF50 /* leftbutton.png */; };
 		B740890F17C27997008FAF50 /* rightbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = B740890917C27997008FAF50 /* rightbutton.png */; };
+		B772D13C17C51AC400C7AC4C /* whitewall.png in Resources */ = {isa = PBXBuildFile; fileRef = B772D13B17C51AC400C7AC4C /* whitewall.png */; };
+		B772D13F17C51F0400C7AC4C /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = B772D13E17C51F0400C7AC4C /* UIImage+Tint.m */; };
+		B772D14717C5288D00C7AC4C /* MyCategoryIVars.mm in Sources */ = {isa = PBXBuildFile; fileRef = B772D14217C5288D00C7AC4C /* MyCategoryIVars.mm */; };
+		B772D14817C5288D00C7AC4C /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = B772D14417C5288D00C7AC4C /* UIImage+Alpha.m */; };
+		B772D14917C5288D00C7AC4C /* UIImage+ColorAtPixel.m in Sources */ = {isa = PBXBuildFile; fileRef = B772D14617C5288D00C7AC4C /* UIImage+ColorAtPixel.m */; };
+		B772D14E17C529A500C7AC4C /* seri1-room3-wall3.png in Resources */ = {isa = PBXBuildFile; fileRef = B772D14A17C529A500C7AC4C /* seri1-room3-wall3.png */; };
+		B772D14F17C529A500C7AC4C /* seri1-room3-wall2.png in Resources */ = {isa = PBXBuildFile; fileRef = B772D14B17C529A500C7AC4C /* seri1-room3-wall2.png */; };
+		B772D15017C529A500C7AC4C /* seri1-room3-wall1.png in Resources */ = {isa = PBXBuildFile; fileRef = B772D14C17C529A500C7AC4C /* seri1-room3-wall1.png */; };
+		B772D15117C529A500C7AC4C /* seri1-room3-floating.png in Resources */ = {isa = PBXBuildFile; fileRef = B772D14D17C529A500C7AC4C /* seri1-room3-floating.png */; };
 		B7898CEF17B22BBF00B1D3EC /* DoorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7898CED17B22BBF00B1D3EC /* DoorsViewController.m */; };
 		B7898CF017B22BBF00B1D3EC /* DoorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7898CEE17B22BBF00B1D3EC /* DoorsViewController.xib */; };
 		B7898CF317B382EC00B1D3EC /* AutoLayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B7898CF217B382EC00B1D3EC /* AutoLayoutHelper.m */; };
@@ -319,6 +328,19 @@
 		B740890117C2749C008FAF50 /* DoorsBigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoorsBigViewController.h; sourceTree = "<group>"; };
 		B740890817C27997008FAF50 /* leftbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leftbutton.png; path = final/leftbutton.png; sourceTree = "<group>"; };
 		B740890917C27997008FAF50 /* rightbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rightbutton.png; path = final/rightbutton.png; sourceTree = "<group>"; };
+		B772D13B17C51AC400C7AC4C /* whitewall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whitewall.png; path = final/whitewall.png; sourceTree = "<group>"; };
+		B772D13D17C51F0400C7AC4C /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Tint.h"; path = "../UIImage+Tint.h"; sourceTree = "<group>"; };
+		B772D13E17C51F0400C7AC4C /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Tint.m"; path = "../UIImage+Tint.m"; sourceTree = "<group>"; };
+		B772D14117C5288D00C7AC4C /* MyCategoryIVars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCategoryIVars.h; sourceTree = "<group>"; };
+		B772D14217C5288D00C7AC4C /* MyCategoryIVars.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MyCategoryIVars.mm; sourceTree = "<group>"; };
+		B772D14317C5288D00C7AC4C /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		B772D14417C5288D00C7AC4C /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		B772D14517C5288D00C7AC4C /* UIImage+ColorAtPixel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorAtPixel.h"; sourceTree = "<group>"; };
+		B772D14617C5288D00C7AC4C /* UIImage+ColorAtPixel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorAtPixel.m"; sourceTree = "<group>"; };
+		B772D14A17C529A500C7AC4C /* seri1-room3-wall3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room3-wall3.png"; path = "final/seri1/seri1-room3-wall3.png"; sourceTree = "<group>"; };
+		B772D14B17C529A500C7AC4C /* seri1-room3-wall2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room3-wall2.png"; path = "final/seri1/seri1-room3-wall2.png"; sourceTree = "<group>"; };
+		B772D14C17C529A500C7AC4C /* seri1-room3-wall1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room3-wall1.png"; path = "final/seri1/seri1-room3-wall1.png"; sourceTree = "<group>"; };
+		B772D14D17C529A500C7AC4C /* seri1-room3-floating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room3-floating.png"; path = "final/seri1/seri1-room3-floating.png"; sourceTree = "<group>"; };
 		B7898CEC17B22BBF00B1D3EC /* DoorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoorsViewController.h; sourceTree = "<group>"; };
 		B7898CED17B22BBF00B1D3EC /* DoorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoorsViewController.m; sourceTree = "<group>"; };
 		B7898CEE17B22BBF00B1D3EC /* DoorsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoorsViewController.xib; sourceTree = "<group>"; };
@@ -407,6 +429,10 @@
 		B70B9A3A17C3962C0099DF51 /* seri1 */ = {
 			isa = PBXGroup;
 			children = (
+				B772D14A17C529A500C7AC4C /* seri1-room3-wall3.png */,
+				B772D14B17C529A500C7AC4C /* seri1-room3-wall2.png */,
+				B772D14C17C529A500C7AC4C /* seri1-room3-wall1.png */,
+				B772D14D17C529A500C7AC4C /* seri1-room3-floating.png */,
 				B70B9A3B17C3964B0099DF51 /* seri1-room2-paint.jpg */,
 				B70B9A3C17C3964B0099DF51 /* seri1-room3-paint.jpg */,
 				B70B9A3D17C3964B0099DF51 /* seri1-room1-paint.jpg */,
@@ -611,6 +637,7 @@
 		B74088DE17C254A5008FAF50 /* final */ = {
 			isa = PBXGroup;
 			children = (
+				B772D13B17C51AC400C7AC4C /* whitewall.png */,
 				B70B9A9217C3C89A0099DF51 /* seri4 */,
 				B70B9A9117C3C88C0099DF51 /* seri3 */,
 				B70B9A6817C3BBE40099DF51 /* seri2 */,
@@ -629,6 +656,21 @@
 				B74088EA17C26305008FAF50 /* final-seri1.jpg */,
 			);
 			name = final;
+			sourceTree = "<group>";
+		};
+		B772D14017C5288D00C7AC4C /* UIImage+ColorAtPixel */ = {
+			isa = PBXGroup;
+			children = (
+				B772D13D17C51F0400C7AC4C /* UIImage+Tint.h */,
+				B772D13E17C51F0400C7AC4C /* UIImage+Tint.m */,
+				B772D14117C5288D00C7AC4C /* MyCategoryIVars.h */,
+				B772D14217C5288D00C7AC4C /* MyCategoryIVars.mm */,
+				B772D14317C5288D00C7AC4C /* UIImage+Alpha.h */,
+				B772D14417C5288D00C7AC4C /* UIImage+Alpha.m */,
+				B772D14517C5288D00C7AC4C /* UIImage+ColorAtPixel.h */,
+				B772D14617C5288D00C7AC4C /* UIImage+ColorAtPixel.m */,
+			);
+			path = "UIImage+ColorAtPixel";
 			sourceTree = "<group>";
 		};
 		B7B1221917B13A3A00A6A1D4 = {
@@ -673,6 +715,7 @@
 				B71A602B17BE1E9300C04BE9 /* ShareSDK_v2.3.1 */,
 				B7898CF117B382EB00B1D3EC /* AutoLayoutHelper.h */,
 				B7898CF217B382EC00B1D3EC /* AutoLayoutHelper.m */,
+				B772D14017C5288D00C7AC4C /* UIImage+ColorAtPixel */,
 				B71A609A17BE309E00C04BE9 /* AGViewDelegate.h */,
 				B71A609B17BE309E00C04BE9 /* AGViewDelegate.m */,
 				B70B9A6517C39DAA0099DF51 /* CommonFeatureViewController.h */,
@@ -890,6 +933,11 @@
 				B70B9AD417C3C8D20099DF51 /* seri4-room1.jpg in Resources */,
 				B70B9AD517C3C8D20099DF51 /* seri4-kv.jpg in Resources */,
 				B70B9AD617C3C8D20099DF51 /* seri4-flash.jpg in Resources */,
+				B772D13C17C51AC400C7AC4C /* whitewall.png in Resources */,
+				B772D14E17C529A500C7AC4C /* seri1-room3-wall3.png in Resources */,
+				B772D14F17C529A500C7AC4C /* seri1-room3-wall2.png in Resources */,
+				B772D15017C529A500C7AC4C /* seri1-room3-wall1.png in Resources */,
+				B772D15117C529A500C7AC4C /* seri1-room3-floating.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -910,6 +958,10 @@
 				B71A609C17BE309E00C04BE9 /* AGViewDelegate.m in Sources */,
 				B740890217C2749C008FAF50 /* DoorsBigViewController.m in Sources */,
 				B70B9A6717C39DAA0099DF51 /* CommonFeatureViewController.m in Sources */,
+				B772D13F17C51F0400C7AC4C /* UIImage+Tint.m in Sources */,
+				B772D14717C5288D00C7AC4C /* MyCategoryIVars.mm in Sources */,
+				B772D14817C5288D00C7AC4C /* UIImage+Alpha.m in Sources */,
+				B772D14917C5288D00C7AC4C /* UIImage+ColorAtPixel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1010,6 +1062,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dulux/Dulux-Prefix.pch";
 				INFOPLIST_FILE = "Dulux/Dulux-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Dulux/ShareSDK_v2.3.1/Extend/SDKExport\"",
@@ -1039,6 +1092,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dulux/Dulux-Prefix.pch";
 				INFOPLIST_FILE = "Dulux/Dulux-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Dulux/ShareSDK_v2.3.1/Extend/SDKExport\"",
