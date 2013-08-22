@@ -33,8 +33,10 @@
 }
 */
 
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    NSLog(@"begin touchesBegan");
     UITouch *aTouch = [touches anyObject];
     
     m_offset = [aTouch locationInView: self];
@@ -45,24 +47,28 @@
       CGPoint location_in_parent_view = [aTouch locationInView:self.superview];
       [self.delegate dragView:self startDragAtParentViewPoint:location_in_parent_view];
    }
+    NSLog(@"end touchesBegan");
 }
 
 - (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    NSLog(@"begin moveto");
     if (!has_moved)
     {
         m_origin_frame = self.frame;
     }
     UITouch *aTouch = [touches anyObject];
-    CGPoint location = [aTouch locationInView:self];
-    CGPoint previousLocation = [aTouch previousLocationInView:self];
+    //CGPoint location = [aTouch locationInView:self];
+    //CGPoint previousLocation = [aTouch previousLocationInView:self];
     //self.frame = CGRectOffset(self.frame, location.x-previousLocation.x, location.y- previousLocation.y);
     
     if (self.delegate)
     {
         CGPoint location_in_parent_view = [aTouch locationInView:self.superview];
         CGPoint previous_locationin_parent_view = [aTouch previousLocationInView:self.superview];
+        NSLog(@"move to (%.1f,%.1f)", location_in_parent_view.x, location_in_parent_view.y);
         [self.delegate dragView:self draggingAtParentViewPoint:location_in_parent_view previousPoint:previous_locationin_parent_view];
+        NSLog(@"end moveto");
     }
 }
 
@@ -79,7 +85,9 @@
     {
         UITouch *aTouch = [touches anyObject];
         CGPoint location_in_parent_view = [aTouch locationInView:self.superview];
+        NSLog(@"touchend at (%.1f,%.1f)", location_in_parent_view.x, location_in_parent_view.y);
         [self.delegate dragView:self dropAtParentViewPoint:location_in_parent_view];
+        NSLog(@"end touchend");
     }
 }
 
@@ -94,12 +102,22 @@
 -(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *aTouch = [touches anyObject];
-    CGPoint location = [aTouch locationInView:self.superview];
+    
+    CGPoint location = [aTouch locationInView:self.superView];
+    
+    NSLog(@"touch count %d, (%.1f, %.1f)", touches.count, location.x, location.y);
     
     [UIView beginAnimations:@"Dragging A DraggableView" context:nil];
-    self.frame = CGRectMake(location.x-m_offset.x, location.y-m_offset.y,
-                            self.frame.size.width, self.frame.size.height);
+    self.frame = CGRectMake(location.x-m_offset.x, location.y-m_offset.y, self.frame.size.width, self.frame.size.height);
     [UIView commitAnimations];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *aTouch = [touches anyObject];
+    CGPoint location = [aTouch locationInView:self];
+    
+    NSLog(@"end, touch count %d, (%.1f, %.1f)", touches.count, location.x, location.y);
 }*/
 
 @end

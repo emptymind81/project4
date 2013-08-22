@@ -36,6 +36,7 @@ typedef enum
 @implementation RoomViewController
 {
     UIImageView* m_back_image_view;
+    UIImageView* m_floating_image_view;
     
     UIImageView* m_image_view_room;
     NSString* m_room_picture_name;
@@ -113,12 +114,7 @@ typedef enum
         }
         
         m_app_delegate = (AppDelegate *)([UIApplication sharedApplication].delegate);
-        m_wall_views = [[NSMutableArray alloc] init];
-        m_wall_color_button_indexs = [[NSMutableArray alloc] init];
-        m_is_dragging_color_button = false;
-        m_previous_wall_index = -1;
         
-        m_color_buttons = [[NSMutableArray alloc] init];
         
     }
     return self;
@@ -161,11 +157,8 @@ typedef enum
     
     NSString* flating_pic = [NSString stringWithFormat:@"seri%d-room%d-floating.png", self.seriIndex+1, self.roomIndex+1];
     UIImage* floating_image = [UIImage imageNamed:flating_pic];
-    if (floating_image)
-    {
-        UIImageView* floating_image_view = [[UIImageView alloc] initWithImage:floating_image];
-        //[self.view addSubview:floating_image_view];
-    }
+    m_floating_image_view = [[UIImageView alloc] initWithImage:floating_image];
+    [self.view addSubview:m_floating_image_view];
     
     
     
@@ -217,10 +210,10 @@ typedef enum
     UIImage* share_button_image = [UIImage imageNamed:share_button_pic];
     UIButton* share_button = [[UIButton alloc] init];
     [share_button setImage:share_button_image forState:UIControlStateNormal];
-    [share_button addTarget:self action:@selector(shareButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [share_button addTarget:self action:@selector(shareToSinaWeibo:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:share_button];
     
-    NSString* dulux_icon_pic = @"duluxicon.png";
+    NSString* dulux_icon_pic = @"newduluxicon.png";
     UIImageView* dulux_icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:dulux_icon_pic]];
     [self.view addSubview:dulux_icon];
     
@@ -281,12 +274,12 @@ typedef enum
 
 -(UIColor*) getColorByButtonIndex:(int)index
 {
-    UIDraggableView* color_button = m_color_buttons[index];
+    UIImageView* color_button = m_color_buttons[index];
     UIColor* color = [color_button.image colorAtPixel:CGPointMake(10, 10)];
     return color;
 }
 
--(UIColor*) getColorByColorButton:(UIDraggableView*)colorButton
+-(UIColor*) getColorByColorButton:(UIImageView*)colorButton
 {
    UIImage* image = colorButton.image;
    UIColor* color = [image colorAtPixel:CGPointMake(10, 10)];
@@ -294,6 +287,24 @@ typedef enum
    [color getRed:&r green:&g blue:&b alpha:&a];
    return color;
 }
+
+-(UIImage*) getFinalImage
+{
+    UIImage* back_image = m_back_image_view.image;
+    
+    UIImage* final_image = back_image;
+    for (int i=0; i<m_wall_views.count; i++)
+    {
+        UIImageView* wall_view = m_wall_views[i];
+        final_image = [final_image imageWithAnotherImageOn:wall_view.image blendMode:kCGBlendModeNormal];
+    }
+    
+    final_image = [final_image imageWithAnotherImageOn:m_floating_image_view.image blendMode:kCGBlendModeNormal];
+    
+    return final_image;
+}
+
+
 
 -(void) dragView:(UIDraggableView*)dragView startDragAtParentViewPoint:(CGPoint)pt
 {
@@ -306,17 +317,22 @@ typedef enum
    
    UIColor* color = [self getColorByColorButton:dragView];
    
-   UIImage* image = [UIImage imageNamed:@"topleft-normal"];
-   //image = [image imageWithGradientTintColor:color];
-   m_paint_tool_view = [[UIImageView alloc] initWithImage:image];
+    UIImage* body_image = [UIImage imageNamed:@"paint-tool-small-body.png"];
+    UIImage* head_image = [UIImage imageNamed:@"paint-tool-small-head.png"];
+    UIImage* head_color_image = [head_image imageWithGradientTintColor:color];
+    UIImage* image = [body_image imageWithAnotherImageOn:head_color_image blendMode:kCGBlendModeNormal];
+    
+    m_paint_tool_view = [[UIImageView alloc] initWithImage:image];
+    
    m_paint_tool_view.frame = dragView.frame;
-   //m_paint_tool_view.frame = CGRectMake(225, 452, dragView.frame.size.width, dragView.frame.size.height);
+   //m_paint_tool_view.frame = CGRectMake(dragView.frame.origin.x, dragView.frame.origin.y-40, dragView.frame.size.width/2, dragView.frame.size.height/2);
    m_paint_tool_view.layer.borderColor = [UIColor blackColor].CGColor;
    m_paint_tool_view.layer.borderWidth = 1;
+    [self.view addSubview:m_paint_tool_view];
    
-   [self.view addSubview:m_paint_tool_view];
+   [self disableRecognizers];
    
-   bool isTransparent1 = [m_paint_tool_view.image isPointTransparent:CGPointMake(20, 20)];
+   /*bool isTransparent1 = [m_paint_tool_view.image isPointTransparent:CGPointMake(20, 20)];
    isTransparent1 = [m_paint_tool_view.image isPointTransparent:CGPointMake(140, 20)];
    isTransparent1 = [m_paint_tool_view.image isPointTransparent:CGPointMake(140, 140)];
    isTransparent1 = [m_paint_tool_view.image isPointTransparent:CGPointMake(20, 140)];
@@ -326,7 +342,7 @@ typedef enum
    isTransparent2 = [wall_image isPointTransparent:CGPointMake(500, 500)];
    
    bool intersect = [self isViewIntersects:m_paint_tool_view withAnother:m_wall_views[0] ];
-   int mm=0;
+   int mm=0;*/
 }
 
 -(bool) isViewIntersects:(UIImageView*)view1 withAnother:(UIImageView*)view2
@@ -346,9 +362,6 @@ typedef enum
       {
          for (int j=0; j<view1.frame.size.height; j++)
          {
-            if (i==50 && j==50) {
-               int mm=0;
-            }
             point1.x = i;
             point1.y = j;
             point1.x *= ((bSize1.width != 0) ? width_scale1 : 1);
@@ -363,17 +376,25 @@ typedef enum
       }
    }
    
+    /*int color_button_index = 0;
+    for (int i=0; i<m_wall_views.count; i++)
+    {
+        if (view2 == m_wall_views[i])
+        {
+            color_button_index = i;
+            break;
+        }
+    }
+   NSString* wall_pic = [NSString stringWithFormat:@"seri%d-room%d-wall%d.png", self.seriIndex+1, self.roomIndex+1, color_button_index+1];
+   UIImage* wall_white_image = [UIImage imageNamed:wall_pic];*/
    
-   NSString* wall_pic = [NSString stringWithFormat:@"seri%d-room%d-wall%d.png", self.seriIndex+1, self.roomIndex+1, 1];
-   UIImage* wall_white_image = [UIImage imageNamed:wall_pic];
+   UIImage* image2 = view2.image;//
    
-   UIImage* image2 = view2.image;//wall_white_image;
+   //CGSize iSize2 = image2.size;
+   //CGSize bSize2 = view2.frame.size;
    
-   CGSize iSize2 = image2.size;
-   CGSize bSize2 = view2.frame.size;
-   
-   double width_scale2 = iSize2.width / bSize2.width;
-   double height_scale2 = iSize2.height / bSize2.height;
+   //double width_scale2 = iSize2.width / bSize2.width;
+   //double height_scale2 = iSize2.height / bSize2.height;
    
    CGPoint point2;
    for (int i=0; i<m_paint_tool_view_opaque_pts.count; i++)
@@ -390,16 +411,16 @@ typedef enum
       {
          continue;
       }*/
-      if (trunc(point2.x) == 134 && trunc(point2.y) == 170 && trunc(point1.x) == 50 && trunc(point1.y) == 50)
+       
+       bool isTransparent2 = [image2 isPointTransparent:point2];
+       if (!isTransparent2)
+       {
+           return true;
+       }
+       
+      /*if (trunc(point2.x) == 134 && trunc(point2.y) == 170 && trunc(point1.x) == 50 && trunc(point1.y) == 50)
       {
          int mm=0;
-      }
-      
-      bool isTransparent2 = [image2 isPointTransparent:point2];
-      if (isTransparent2)
-      {
-         isTransparent2 = [image2 isPointTransparent:point2];
-         continue;
       }
       isTransparent2 = [image2 isPointTransparent:point2];
       
@@ -413,9 +434,7 @@ typedef enum
       
       if (isTransparent1 != isTransparent1_temp || isTransparent1 == true) {
          NSLog(@"wrong ........");
-      }
-      
-      return true;
+      }*/
    }
    return false;
 }
@@ -432,96 +451,75 @@ typedef enum
 
 -(void) dragView:(UIDraggableView*)dragView draggingAtParentViewPoint:(CGPoint)pt previousPoint:(CGPoint)previousPt
 {
-    /*int color_button_index = 0;
-    for (int i=0; i<m_wall_views.count; i++)
-    {
-        if (dragView == m_wall_views[i])
-        {
-            color_button_index = i;
-            break;
-        }
-    }*/
-    
     m_is_dragging_color_button = true;
    
    //drag the tool itself
    m_paint_tool_view.frame = CGRectOffset(m_paint_tool_view.frame, pt.x-previousPt.x, pt.y- previousPt.y);
     
    UIColor* color = [self getColorByColorButton:dragView];
-   
-    int wall_index = -1;
-    for (int i=0; i<m_wall_views.count; i++)
+    
+    int mode = 0;
+    if (mode == 0)//mouse center touches the wall
     {
-        UIImageView* wall_view = m_wall_views[i];
-       
-       if ([self isViewIntersects:m_paint_tool_view withAnother:wall_view ])
-       {
-          wall_index = i;
-          break;
-       }
-       
-       /*if ([self isViewIntersects:wall_view withPt:pt ])
-       {
-          wall_index = i;
-          break;
-       }*/
-       
-       /*
-        UIImage* image = wall_view.image;
-        
-        NSString* wall_pic = [NSString stringWithFormat:@"seri%d-room%d-wall%d.png", self.seriIndex+1, self.roomIndex+1, i+1];
-        UIImage* wall_white_image = [UIImage imageNamed:wall_pic];
-        
-        bool isTransparent = [wall_white_image isPointTransparent:pt];
-        if (!isTransparent)
+        int wall_index = -1;
+        for (int i=0; i<m_wall_views.count; i++)
         {
-            wall_index = i;
-            break;
+            UIImageView* wall_view = m_wall_views[i];
+            if ([self isViewIntersects:wall_view withPt:pt ])
+            {
+                wall_index = i;
+                break;
+            }
         }
-        else
+        
+        NSLog(@"pt=(%.1f,%.1f), wall_index=%d", pt.x, pt.y, wall_index);
+        
+        if(m_previous_wall_index != wall_index)
         {
-            int mm=0;
-        }*/
-       
-        /*UIColor* color = [image colorAtPixel:pt];
-        float r,g,b,a;
-        [color getRed:&r green:&g blue:&b alpha:&a];
-        if (a >= 0.001f)
-        {
-            wall_index = i;
-            break;
-        }*/
+            /*if (m_previous_wall_index >= 0)
+             {
+             NSString* previous_wall_pic = [NSString stringWithFormat:@"seri%d-room%d-wall%d.png", self.seriIndex+1, self.roomIndex+1, m_previous_wall_index+1];
+             UIImage* previous_wall_white_image = [UIImage imageNamed:previous_wall_pic];
+             UIImageView* previous_wall = m_wall_views[m_previous_wall_index];
+             previous_wall.image = previous_wall_white_image;
+             }*/
+            if (wall_index >= 0)
+            {
+                NSString* wall_pic = [NSString stringWithFormat:@"seri%d-room%d-wall%d.png", self.seriIndex+1, self.roomIndex+1, wall_index+1];
+                UIImage* wall_white_image = [UIImage imageNamed:wall_pic];
+                UIImageView* wall = m_wall_views[wall_index];
+                wall.image = [wall_white_image imageWithGradientTintColor:color];
+            }
+            else
+            {
+                //NSString* wall_pic = [NSString stringWithFormat:@"seri%d-room%d-wall%d.png", self.seriIndex+1, self.roomIndex+1, wall_index+1];
+                //UIImage* wall_white_image = [UIImage imageNamed:wall_pic];
+                //UIImageView* wall = m_wall_views[wall_index];
+            }
+        }
+        m_previous_wall_index = wall_index;
     }
-    
-    NSLog(@"pt=(%.1f,%.1f), wall_index=%d", pt.x, pt.y, wall_index);
-    
-    if(m_previous_wall_index != wall_index)
+    else//the paint head touches the wall
     {
-        /*if (m_previous_wall_index >= 0)
+        int wall_index = -1;
+        for (int i=0; i<m_wall_views.count; i++)
         {
-            NSString* previous_wall_pic = [NSString stringWithFormat:@"seri%d-room%d-wall%d.png", self.seriIndex+1, self.roomIndex+1, m_previous_wall_index+1];
-            UIImage* previous_wall_white_image = [UIImage imageNamed:previous_wall_pic];
-            UIImageView* previous_wall = m_wall_views[m_previous_wall_index];
-            previous_wall.image = previous_wall_white_image;
-        }*/
-        if (wall_index >= 0)
-        {
-            NSString* wall_pic = [NSString stringWithFormat:@"seri%d-room%d-wall%d.png", self.seriIndex+1, self.roomIndex+1, wall_index+1];
-            UIImage* wall_white_image = [UIImage imageNamed:wall_pic];
-            UIImageView* wall = m_wall_views[wall_index];
-            wall.image = [wall_white_image imageWithGradientTintColor:color];
-        }
-        else
-        {
-            NSString* wall_pic = [NSString stringWithFormat:@"seri%d-room%d-wall%d.png", self.seriIndex+1, self.roomIndex+1, wall_index+1];
-            UIImage* wall_white_image = [UIImage imageNamed:wall_pic];
-            //UIImageView* wall = m_wall_views[wall_index];
+            UIImageView* wall_view = m_wall_views[i];
+            
+            if ([self isViewIntersects:m_paint_tool_view withAnother:wall_view ])
+            {
+               wall_index = i;
+                NSLog(@"pt=(%.1f,%.1f), wall_index=%d", pt.x, pt.y, wall_index);
+                
+                NSString* wall_pic = [NSString stringWithFormat:@"seri%d-room%d-wall%d.png", self.seriIndex+1, self.roomIndex+1, wall_index+1];
+                UIImage* wall_white_image = [UIImage imageNamed:wall_pic];
+                UIImageView* wall = m_wall_views[wall_index];
+                wall.image = [wall_white_image imageWithGradientTintColor:color];
+                break;
+            }
         }
     }
-    
-    
-    m_previous_wall_index = wall_index;
-}
+ }
 
 -(void) dragView:(UIDraggableView*)dragView dropAtParentViewPoint:(CGPoint)pt
 {
@@ -531,6 +529,8 @@ typedef enum
    {
       [m_paint_tool_view removeFromSuperview];
    }
+    
+    [self enableRecognizers];
 }
 
 - (void) colorButtonClicked:(id)sender
@@ -571,11 +571,14 @@ typedef enum
         UIView* view = sub_views[i];
         [view removeFromSuperview];
     }
-    for (int i=0; i<self.view.gestureRecognizers.count; i++)
-    {
-        UIGestureRecognizer* recognizer = self.view.gestureRecognizers[i];
-        [self.view removeGestureRecognizer:recognizer];
-    }
+    [self clearRecognizers];
+    
+    m_wall_views = [[NSMutableArray alloc] init];
+    m_wall_color_button_indexs = [[NSMutableArray alloc] init];
+    m_is_dragging_color_button = false;
+    m_previous_wall_index = -1;
+    
+    m_color_buttons = [[NSMutableArray alloc] init];
 }
 
 - (void) addSwitchViewAnimation:(InitReason)initReason
@@ -609,6 +612,34 @@ typedef enum
     
     [self.view addGestureRecognizer:swipe_left_recognizer];
     [self.view addGestureRecognizer:swipe_right_recognizer];
+}
+
+- (void) clearRecognizers
+{
+    for (int i=0; i<self.view.gestureRecognizers.count; i++)
+    {
+        UIGestureRecognizer* recognizer = self.view.gestureRecognizers[i];
+        [self.view removeGestureRecognizer:recognizer];
+    }
+}
+
+- (void) disableRecognizers
+{
+    for (int i=0; i<self.view.gestureRecognizers.count; i++)
+    {
+        UIGestureRecognizer* recognizer = self.view.gestureRecognizers[i];
+        recognizer.enabled = false;
+    }
+}
+
+
+- (void) enableRecognizers
+{
+    for (int i=0; i<self.view.gestureRecognizers.count; i++)
+    {
+        UIGestureRecognizer* recognizer = self.view.gestureRecognizers[i];
+        recognizer.enabled = true;
+    }
 }
 
 - (void)handleSwipeLeft:(UISwipeGestureRecognizer *)swipeRecognizer
@@ -765,10 +796,13 @@ typedef enum
 - (void) shareToSinaWeibo:(id)sender
 {
    //创建分享内容
-   NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"room1colored" ofType:@"png"];
+   NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"final-seri1" ofType:@"jpg"];
+    id<ISSCAttachment> share_image_attachment = [ShareSDK imageWithPath:imagePath];
+    UIImage* share_image = [self getFinalImage];
+    share_image_attachment = [ShareSDK jpegImageWithImage:share_image quality:1.0];
    id<ISSContent> publishContent = [ShareSDK content:@"test1"
                                       defaultContent:@""
-                                               image:[ShareSDK imageWithPath:imagePath]
+                                               image:share_image_attachment
                                                title:nil
                                                  url:nil
                                          description:nil

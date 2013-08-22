@@ -159,6 +159,11 @@
 		B772D15017C529A500C7AC4C /* seri1-room3-wall1.png in Resources */ = {isa = PBXBuildFile; fileRef = B772D14C17C529A500C7AC4C /* seri1-room3-wall1.png */; };
 		B772D15117C529A500C7AC4C /* seri1-room3-floating.png in Resources */ = {isa = PBXBuildFile; fileRef = B772D14D17C529A500C7AC4C /* seri1-room3-floating.png */; };
 		B772D15417C52FD200C7AC4C /* UIDraggableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B772D15317C52FD200C7AC4C /* UIDraggableView.m */; };
+		B776AAC517C6619900840E2A /* paint-tool-small-head.png in Resources */ = {isa = PBXBuildFile; fileRef = B776AAC117C6619900840E2A /* paint-tool-small-head.png */; };
+		B776AAC617C6619900840E2A /* paint-tool-small.png in Resources */ = {isa = PBXBuildFile; fileRef = B776AAC217C6619900840E2A /* paint-tool-small.png */; };
+		B776AAC717C6619900840E2A /* paint-tool.png in Resources */ = {isa = PBXBuildFile; fileRef = B776AAC317C6619900840E2A /* paint-tool.png */; };
+		B776AAC817C6619900840E2A /* newduluxicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B776AAC417C6619900840E2A /* newduluxicon.png */; };
+		B776AACA17C682F800840E2A /* paint-tool-small-body.png in Resources */ = {isa = PBXBuildFile; fileRef = B776AAC917C682F800840E2A /* paint-tool-small-body.png */; };
 		B7898CEF17B22BBF00B1D3EC /* DoorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7898CED17B22BBF00B1D3EC /* DoorsViewController.m */; };
 		B7898CF017B22BBF00B1D3EC /* DoorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7898CEE17B22BBF00B1D3EC /* DoorsViewController.xib */; };
 		B7898CF317B382EC00B1D3EC /* AutoLayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B7898CF217B382EC00B1D3EC /* AutoLayoutHelper.m */; };
@@ -179,7 +184,6 @@
 		B7B1224D17B1425B00A6A1D4 /* seri2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B1224917B1425B00A6A1D4 /* seri2.png */; };
 		B7B1224E17B1425B00A6A1D4 /* seri3.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B1224A17B1425B00A6A1D4 /* seri3.png */; };
 		B7B1224F17B1425B00A6A1D4 /* seri4.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B1224B17B1425B00A6A1D4 /* seri4.png */; };
-		B7B1225217B143DC00A6A1D4 /* duluxicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B1225117B143DB00A6A1D4 /* duluxicon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -348,6 +352,12 @@
 		B772D14D17C529A500C7AC4C /* seri1-room3-floating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room3-floating.png"; path = "final/seri1/seri1-room3-floating.png"; sourceTree = "<group>"; };
 		B772D15217C52FD200C7AC4C /* UIDraggableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDraggableView.h; sourceTree = "<group>"; };
 		B772D15317C52FD200C7AC4C /* UIDraggableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDraggableView.m; sourceTree = "<group>"; };
+		B776AAC017C65F7A00840E2A /* Dulux.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Dulux.entitlements; sourceTree = "<group>"; };
+		B776AAC117C6619900840E2A /* paint-tool-small-head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "paint-tool-small-head.png"; path = "final/paint-tool-small-head.png"; sourceTree = "<group>"; };
+		B776AAC217C6619900840E2A /* paint-tool-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "paint-tool-small.png"; path = "final/paint-tool-small.png"; sourceTree = "<group>"; };
+		B776AAC317C6619900840E2A /* paint-tool.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "paint-tool.png"; path = "final/paint-tool.png"; sourceTree = "<group>"; };
+		B776AAC417C6619900840E2A /* newduluxicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = newduluxicon.png; path = final/newduluxicon.png; sourceTree = "<group>"; };
+		B776AAC917C682F800840E2A /* paint-tool-small-body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "paint-tool-small-body.png"; path = "final/paint-tool-small-body.png"; sourceTree = "<group>"; };
 		B7898CEC17B22BBF00B1D3EC /* DoorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoorsViewController.h; sourceTree = "<group>"; };
 		B7898CED17B22BBF00B1D3EC /* DoorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoorsViewController.m; sourceTree = "<group>"; };
 		B7898CEE17B22BBF00B1D3EC /* DoorsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoorsViewController.xib; sourceTree = "<group>"; };
@@ -376,7 +386,6 @@
 		B7B1224917B1425B00A6A1D4 /* seri2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seri2.png; path = resource/seri2.png; sourceTree = "<group>"; };
 		B7B1224A17B1425B00A6A1D4 /* seri3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seri3.png; path = resource/seri3.png; sourceTree = "<group>"; };
 		B7B1224B17B1425B00A6A1D4 /* seri4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seri4.png; path = resource/seri4.png; sourceTree = "<group>"; };
-		B7B1225117B143DB00A6A1D4 /* duluxicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = duluxicon.png; path = resource/duluxicon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -644,6 +653,11 @@
 		B74088DE17C254A5008FAF50 /* final */ = {
 			isa = PBXGroup;
 			children = (
+				B776AAC917C682F800840E2A /* paint-tool-small-body.png */,
+				B776AAC117C6619900840E2A /* paint-tool-small-head.png */,
+				B776AAC217C6619900840E2A /* paint-tool-small.png */,
+				B776AAC317C6619900840E2A /* paint-tool.png */,
+				B776AAC417C6619900840E2A /* newduluxicon.png */,
 				B772D13B17C51AC400C7AC4C /* whitewall.png */,
 				B70B9A9217C3C89A0099DF51 /* seri4 */,
 				B70B9A9117C3C88C0099DF51 /* seri3 */,
@@ -756,6 +770,7 @@
 		B7B1222C17B13A3A00A6A1D4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B776AAC017C65F7A00840E2A /* Dulux.entitlements */,
 				B7B1222D17B13A3A00A6A1D4 /* Dulux-Info.plist */,
 				B7B1222E17B13A3A00A6A1D4 /* InfoPlist.strings */,
 				B7B1223117B13A3A00A6A1D4 /* main.m */,
@@ -776,7 +791,6 @@
 				B73CDBC817B3F4640065D69F /* door103.png */,
 				B73CDBC917B3F4640065D69F /* room1.png */,
 				B73CDBCA17B3F4640065D69F /* room1colored.png */,
-				B7B1225117B143DB00A6A1D4 /* duluxicon.png */,
 				B7B1224817B1425B00A6A1D4 /* seri1.png */,
 				B7B1224917B1425B00A6A1D4 /* seri2.png */,
 				B7B1224A17B1425B00A6A1D4 /* seri3.png */,
@@ -845,7 +859,6 @@
 				B7B1224D17B1425B00A6A1D4 /* seri2.png in Resources */,
 				B7B1224E17B1425B00A6A1D4 /* seri3.png in Resources */,
 				B7B1224F17B1425B00A6A1D4 /* seri4.png in Resources */,
-				B7B1225217B143DC00A6A1D4 /* duluxicon.png in Resources */,
 				B7898CF017B22BBF00B1D3EC /* DoorsViewController.xib in Resources */,
 				B73CDBCB17B3F4640065D69F /* door101.png in Resources */,
 				B73CDBCC17B3F4640065D69F /* door102.png in Resources */,
@@ -951,6 +964,11 @@
 				B772D15117C529A500C7AC4C /* seri1-room3-floating.png in Resources */,
 				B71A60F917C5FC2A00C04BE9 /* button-normal.png in Resources */,
 				B71A60FB17C6059200C04BE9 /* topleft-normal.png in Resources */,
+				B776AAC517C6619900840E2A /* paint-tool-small-head.png in Resources */,
+				B776AAC617C6619900840E2A /* paint-tool-small.png in Resources */,
+				B776AAC717C6619900840E2A /* paint-tool.png in Resources */,
+				B776AAC817C6619900840E2A /* newduluxicon.png in Resources */,
+				B776AACA17C682F800840E2A /* paint-tool-small-body.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1062,6 +1080,7 @@
 		B7B1224617B13A3B00A6A1D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Dulux/Dulux.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1076,7 +1095,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dulux/Dulux-Prefix.pch";
 				INFOPLIST_FILE = "Dulux/Dulux-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Dulux/ShareSDK_v2.3.1/Extend/SDKExport\"",
@@ -1092,6 +1111,7 @@
 		B7B1224717B13A3B00A6A1D4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Dulux/Dulux.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1106,7 +1126,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Dulux/Dulux-Prefix.pch";
 				INFOPLIST_FILE = "Dulux/Dulux-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Dulux/ShareSDK_v2.3.1/Extend/SDKExport\"",
