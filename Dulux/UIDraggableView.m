@@ -38,6 +38,13 @@
     UITouch *aTouch = [touches anyObject];
     
     m_offset = [aTouch locationInView: self];
+   
+   if (self.delegate)
+   {
+      UITouch *aTouch = [touches anyObject];
+      CGPoint location_in_parent_view = [aTouch locationInView:self.superview];
+      [self.delegate dragView:self startDragAtParentViewPoint:location_in_parent_view];
+   }
 }
 
 - (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -49,12 +56,13 @@
     UITouch *aTouch = [touches anyObject];
     CGPoint location = [aTouch locationInView:self];
     CGPoint previousLocation = [aTouch previousLocationInView:self];
-    self.frame = CGRectOffset(self.frame, location.x-previousLocation.x, location.y- previousLocation.y);
+    //self.frame = CGRectOffset(self.frame, location.x-previousLocation.x, location.y- previousLocation.y);
     
     if (self.delegate)
     {
         CGPoint location_in_parent_view = [aTouch locationInView:self.superview];
-        [self.delegate dragView:self draggingAtParentViewPoint:location_in_parent_view];
+        CGPoint previous_locationin_parent_view = [aTouch previousLocationInView:self.superview];
+        [self.delegate dragView:self draggingAtParentViewPoint:location_in_parent_view previousPoint:previous_locationin_parent_view];
     }
 }
 

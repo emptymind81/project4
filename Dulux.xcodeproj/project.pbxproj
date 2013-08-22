@@ -129,6 +129,8 @@
 		B71A609417BE2F5000C04BE9 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B71A609317BE2F5000C04BE9 /* libstdc++.dylib */; };
 		B71A609617BE2F5B00C04BE9 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B71A609517BE2F5B00C04BE9 /* CoreTelephony.framework */; };
 		B71A609C17BE309E00C04BE9 /* AGViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B71A609B17BE309E00C04BE9 /* AGViewDelegate.m */; };
+		B71A60F917C5FC2A00C04BE9 /* button-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = B71A60F817C5FC2900C04BE9 /* button-normal.png */; };
+		B71A60FB17C6059200C04BE9 /* topleft-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = B71A60FA17C6059200C04BE9 /* topleft-normal.png */; };
 		B73CDBCB17B3F4640065D69F /* door101.png in Resources */ = {isa = PBXBuildFile; fileRef = B73CDBC517B3F4640065D69F /* door101.png */; };
 		B73CDBCC17B3F4640065D69F /* door102.png in Resources */ = {isa = PBXBuildFile; fileRef = B73CDBC617B3F4640065D69F /* door102.png */; };
 		B73CDBCD17B3F4640065D69F /* door102open.png in Resources */ = {isa = PBXBuildFile; fileRef = B73CDBC717B3F4640065D69F /* door102open.png */; };
@@ -309,6 +311,8 @@
 		B71A609517BE2F5B00C04BE9 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		B71A609A17BE309E00C04BE9 /* AGViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGViewDelegate.h; sourceTree = "<group>"; };
 		B71A609B17BE309E00C04BE9 /* AGViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGViewDelegate.m; sourceTree = "<group>"; };
+		B71A60F817C5FC2900C04BE9 /* button-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-normal.png"; sourceTree = "<group>"; };
+		B71A60FA17C6059200C04BE9 /* topleft-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "topleft-normal.png"; sourceTree = "<group>"; };
 		B73CDBC517B3F4640065D69F /* door101.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = door101.png; path = resource/door101.png; sourceTree = "<group>"; };
 		B73CDBC617B3F4640065D69F /* door102.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = door102.png; path = resource/door102.png; sourceTree = "<group>"; };
 		B73CDBC717B3F4640065D69F /* door102open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = door102open.png; path = resource/door102open.png; sourceTree = "<group>"; };
@@ -664,6 +668,8 @@
 		B772D14017C5288D00C7AC4C /* UIImage+ColorAtPixel */ = {
 			isa = PBXGroup;
 			children = (
+				B71A60FA17C6059200C04BE9 /* topleft-normal.png */,
+				B71A60F817C5FC2900C04BE9 /* button-normal.png */,
 				B772D13D17C51F0400C7AC4C /* UIImage+Tint.h */,
 				B772D13E17C51F0400C7AC4C /* UIImage+Tint.m */,
 				B772D14117C5288D00C7AC4C /* MyCategoryIVars.h */,
@@ -943,6 +949,8 @@
 				B772D14F17C529A500C7AC4C /* seri1-room3-wall2.png in Resources */,
 				B772D15017C529A500C7AC4C /* seri1-room3-wall1.png in Resources */,
 				B772D15117C529A500C7AC4C /* seri1-room3-floating.png in Resources */,
+				B71A60F917C5FC2A00C04BE9 /* button-normal.png in Resources */,
+				B71A60FB17C6059200C04BE9 /* topleft-normal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

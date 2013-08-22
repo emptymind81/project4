@@ -14,7 +14,7 @@
 
 @required
 -(void) dragView:(UIDraggableView*)dragView startDragAtParentViewPoint:(CGPoint)pt ;
--(void) dragView:(UIDraggableView*)dragView draggingAtParentViewPoint:(CGPoint)pt ;
+-(void) dragView:(UIDraggableView*)dragView draggingAtParentViewPoint:(CGPoint)pt previousPoint:(CGPoint)previousPt;
 -(void) dragView:(UIDraggableView*)dragView dropAtParentViewPoint:(CGPoint)pt ;
 @end
 

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "ViewController.h"
+#import "RoomViewController.h"
 
 #import <RennSDK/RennSDK.h>
 
@@ -44,7 +45,12 @@
    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+   
+   RoomViewController* room_view_controller = [[RoomViewController alloc]initWithNibName:@"RoomViewController" bundle:nil];
+   room_view_controller.seriIndex = 0;
+   room_view_controller.roomIndex = 2;
+   self.viewController = room_view_controller;
+    //self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
     

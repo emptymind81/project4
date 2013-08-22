@@ -39,7 +39,7 @@ CGContextRef CreateARGBBitmapContext (CGImageRef inImage)
                                     8,
                                     bitmapBytesPerRow,
                                     colorSpace,
-                                    kCGImageAlphaPremultipliedFirst);
+                                    kCGImageAlphaPremultipliedFirst | kCGBitmapByteOrder32Big);
    if (context == NULL)
    {
       free (bitmapData);
@@ -100,7 +100,8 @@ CGContextRef CreateARGBBitmapContext (CGImageRef inImage)
    
    NSUInteger index = pointX * bpp + (pointY * bpr);
    char *rawDataBytes = (char *)[self.argbData bytes];
-   
+   int alpha = rawDataBytes[index];
+   //return alpha <= 0.1*255;
    return rawDataBytes[index] == 0;
    
 }

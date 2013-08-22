@@ -53,6 +53,9 @@ typedef enum
     
     bool m_is_dragging_color_button;
     int m_previous_wall_index;
+   
+   UIImageView* m_paint_tool_view;
+   NSMutableArray* m_paint_tool_view_opaque_pts;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -283,12 +286,151 @@ typedef enum
     return color;
 }
 
+-(UIColor*) getColorByColorButton:(UIDraggableView*)colorButton
+{
+   UIImage* image = colorButton.image;
+   UIColor* color = [image colorAtPixel:CGPointMake(10, 10)];
+   float r,g,b,a;
+   [color getRed:&r green:&g blue:&b alpha:&a];
+   return color;
+}
+
 -(void) dragView:(UIDraggableView*)dragView startDragAtParentViewPoint:(CGPoint)pt
 {
     m_previous_wall_index = -1;
+   
+   if (m_paint_tool_view)
+   {
+      [m_paint_tool_view removeFromSuperview];
+   }
+   
+   UIColor* color = [self getColorByColorButton:dragView];
+   
+   UIImage* image = [UIImage imageNamed:@"topleft-normal"];
+   //image = [image imageWithGradientTintColor:color];
+   m_paint_tool_view = [[UIImageView alloc] initWithImage:image];
+   m_paint_tool_view.frame = dragView.frame;
+   //m_paint_tool_view.frame = CGRectMake(225, 452, dragView.frame.size.width, dragView.frame.size.height);
+   m_paint_tool_view.layer.borderColor = [UIColor blackColor].CGColor;
+   m_paint_tool_view.layer.borderWidth = 1;
+   
+   [self.view addSubview:m_paint_tool_view];
+   
+   bool isTransparent1 = [m_paint_tool_view.image isPointTransparent:CGPointMake(20, 20)];
+   isTransparent1 = [m_paint_tool_view.image isPointTransparent:CGPointMake(140, 20)];
+   isTransparent1 = [m_paint_tool_view.image isPointTransparent:CGPointMake(140, 140)];
+   isTransparent1 = [m_paint_tool_view.image isPointTransparent:CGPointMake(20, 140)];
+   
+   UIImage* wall_image = [UIImage imageNamed:@"seri1-room3-wall1.png"];
+   bool isTransparent2 = [wall_image isPointTransparent:CGPointMake(150, 150)];
+   isTransparent2 = [wall_image isPointTransparent:CGPointMake(500, 500)];
+   
+   bool intersect = [self isViewIntersects:m_paint_tool_view withAnother:m_wall_views[0] ];
+   int mm=0;
 }
 
--(void) dragView:(UIDraggableView*)dragView draggingAtParentViewPoint:(CGPoint)pt
+-(bool) isViewIntersects:(UIImageView*)view1 withAnother:(UIImageView*)view2
+{
+   CGSize iSize1 = view1.image.size;
+   CGSize bSize1 = view1.frame.size;
+
+   double width_scale1 = iSize1.width / bSize1.width;
+   double height_scale1 = iSize1.height / bSize1.height;
+   
+   CGPoint point1;
+   if (m_paint_tool_view_opaque_pts == nil)
+   {
+      m_paint_tool_view_opaque_pts = [[NSMutableArray alloc] init];
+      
+      for (int i=0; i<view1.frame.size.width; i++)
+      {
+         for (int j=0; j<view1.frame.size.height; j++)
+         {
+            if (i==50 && j==50) {
+               int mm=0;
+            }
+            point1.x = i;
+            point1.y = j;
+            point1.x *= ((bSize1.width != 0) ? width_scale1 : 1);
+            point1.y *= ((bSize1.height != 0) ? height_scale1 : 1);
+            
+            bool isTransparent1 = [view1.image isPointTransparent:point1];
+            if (!isTransparent1)
+            {
+               [m_paint_tool_view_opaque_pts addObject:[NSValue valueWithCGPoint:CGPointMake(i, j)]];
+            }
+         }
+      }
+   }
+   
+   
+   NSString* wall_pic = [NSString stringWithFormat:@"seri%d-room%d-wall%d.png", self.seriIndex+1, self.roomIndex+1, 1];
+   UIImage* wall_white_image = [UIImage imageNamed:wall_pic];
+   
+   UIImage* image2 = view2.image;//wall_white_image;
+   
+   CGSize iSize2 = image2.size;
+   CGSize bSize2 = view2.frame.size;
+   
+   double width_scale2 = iSize2.width / bSize2.width;
+   double height_scale2 = iSize2.height / bSize2.height;
+   
+   CGPoint point2;
+   for (int i=0; i<m_paint_tool_view_opaque_pts.count; i++)
+   {
+      point1 = [m_paint_tool_view_opaque_pts[i] CGPointValue];
+      point2 = point1;
+      
+      point2.x = (point1.x + view1.frame.origin.x - view2.frame.origin.x);
+      point2.y = (point1.y + view1.frame.origin.y - view2.frame.origin.y);
+      /*point2.x *= ((bSize2.width != 0) ? width_scale2 : 1);
+      point2.y *= ((bSize2.height != 0) ? height_scale2 : 1);
+      
+      if (point2.x < 0 || point2.y < 0 || point2.x > image2.size.width || point2.y > image2.size.height)
+      {
+         continue;
+      }*/
+      if (trunc(point2.x) == 134 && trunc(point2.y) == 170 && trunc(point1.x) == 50 && trunc(point1.y) == 50)
+      {
+         int mm=0;
+      }
+      
+      bool isTransparent2 = [image2 isPointTransparent:point2];
+      if (isTransparent2)
+      {
+         isTransparent2 = [image2 isPointTransparent:point2];
+         continue;
+      }
+      isTransparent2 = [image2 isPointTransparent:point2];
+      
+      point1.x *= ((bSize1.width != 0) ? width_scale1 : 1);
+      point1.y *= ((bSize1.height != 0) ? height_scale1 : 1);
+      
+      bool isTransparent1 = [view1.image isPointTransparent:point1];
+      
+      UIImage* image = [UIImage imageNamed:@"button-normal"];
+      bool isTransparent1_temp = [image isPointTransparent:point1];
+      
+      if (isTransparent1 != isTransparent1_temp || isTransparent1 == true) {
+         NSLog(@"wrong ........");
+      }
+      
+      return true;
+   }
+   return false;
+}
+
+-(bool) isViewIntersects:(UIImageView*)view withPt:(CGPoint)pt
+{
+   bool isTransparent = [view.image isPointTransparent:pt];
+   if (!isTransparent)
+   {
+      return true;
+   }
+   return false;
+}
+
+-(void) dragView:(UIDraggableView*)dragView draggingAtParentViewPoint:(CGPoint)pt previousPoint:(CGPoint)previousPt
 {
     /*int color_button_index = 0;
     for (int i=0; i<m_wall_views.count; i++)
@@ -301,16 +443,30 @@ typedef enum
     }*/
     
     m_is_dragging_color_button = true;
+   
+   //drag the tool itself
+   m_paint_tool_view.frame = CGRectOffset(m_paint_tool_view.frame, pt.x-previousPt.x, pt.y- previousPt.y);
     
-    UIImage* image = dragView.image;
-    UIColor* color = [image colorAtPixel:CGPointMake(10, 10)];
-    float r,g,b,a;
-    [color getRed:&r green:&g blue:&b alpha:&a];
-    
+   UIColor* color = [self getColorByColorButton:dragView];
+   
     int wall_index = -1;
     for (int i=0; i<m_wall_views.count; i++)
     {
         UIImageView* wall_view = m_wall_views[i];
+       
+       if ([self isViewIntersects:m_paint_tool_view withAnother:wall_view ])
+       {
+          wall_index = i;
+          break;
+       }
+       
+       /*if ([self isViewIntersects:wall_view withPt:pt ])
+       {
+          wall_index = i;
+          break;
+       }*/
+       
+       /*
         UIImage* image = wall_view.image;
         
         NSString* wall_pic = [NSString stringWithFormat:@"seri%d-room%d-wall%d.png", self.seriIndex+1, self.roomIndex+1, i+1];
@@ -325,7 +481,8 @@ typedef enum
         else
         {
             int mm=0;
-        }
+        }*/
+       
         /*UIColor* color = [image colorAtPixel:pt];
         float r,g,b,a;
         [color getRed:&r green:&g blue:&b alpha:&a];
@@ -340,13 +497,13 @@ typedef enum
     
     if(m_previous_wall_index != wall_index)
     {
-        if (m_previous_wall_index >= 0)
+        /*if (m_previous_wall_index >= 0)
         {
             NSString* previous_wall_pic = [NSString stringWithFormat:@"seri%d-room%d-wall%d.png", self.seriIndex+1, self.roomIndex+1, m_previous_wall_index+1];
             UIImage* previous_wall_white_image = [UIImage imageNamed:previous_wall_pic];
             UIImageView* previous_wall = m_wall_views[m_previous_wall_index];
             previous_wall.image = previous_wall_white_image;
-        }
+        }*/
         if (wall_index >= 0)
         {
             NSString* wall_pic = [NSString stringWithFormat:@"seri%d-room%d-wall%d.png", self.seriIndex+1, self.roomIndex+1, wall_index+1];
@@ -358,7 +515,7 @@ typedef enum
         {
             NSString* wall_pic = [NSString stringWithFormat:@"seri%d-room%d-wall%d.png", self.seriIndex+1, self.roomIndex+1, wall_index+1];
             UIImage* wall_white_image = [UIImage imageNamed:wall_pic];
-            UIImageView* wall = m_wall_views[wall_index];
+            //UIImageView* wall = m_wall_views[wall_index];
         }
     }
     
@@ -369,6 +526,11 @@ typedef enum
 -(void) dragView:(UIDraggableView*)dragView dropAtParentViewPoint:(CGPoint)pt
 {
     m_is_dragging_color_button = false;
+   
+   if (m_paint_tool_view)
+   {
+      [m_paint_tool_view removeFromSuperview];
+   }
 }
 
 - (void) colorButtonClicked:(id)sender
