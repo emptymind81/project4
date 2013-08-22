@@ -40,4 +40,20 @@
     return tintedImage;
 }
 
+- (UIImage *) imageWithAnotherImageOn:(UIImage *)anotherImage blendMode:(CGBlendMode)blendMode
+{
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0f);
+    CGRect bounds = CGRectMake(0, 0, self.size.width, self.size.height);
+    
+    //Draw the tinted image in context
+    [self drawInRect:bounds blendMode:kCGBlendModeCopy alpha:1.0f];
+    
+    [anotherImage drawInRect:bounds blendMode:blendMode alpha:1.0f];
+    
+    UIImage *tintedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return tintedImage;
+}
+
 @end
