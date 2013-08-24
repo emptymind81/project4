@@ -144,10 +144,10 @@
 - (void) initNavigateButtons
 {
     CGRect bounds = self.view.bounds;
-    int button_width  = 50;
-    int button_height = 50;
+    int button_width  = 52;
+    int button_height = 48;
     int x = 20;
-    int y = bounds.size.height - 15 - button_height;
+    int y = bounds.size.height - 14 - button_height;
     
     NSString* home_pic = @"homebutton.png";
     UIImage* home_image = [UIImage imageNamed:home_pic];

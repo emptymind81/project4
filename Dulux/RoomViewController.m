@@ -180,7 +180,7 @@ typedef enum
     [self.view addSubview:right_button];
     
     UIView* color_band_view = [[UIView alloc] init];
-    color_band_view.backgroundColor = [UIColor whiteColor];
+    color_band_view.backgroundColor = [UIColor colorWithRed:0.827 green:0.827 blue:0.827 alpha:1];
     [self.view addSubview:color_band_view];
     
     NSString* color_band_hint_pic = @"pushcolorbuttonhinttext.png";
@@ -230,34 +230,34 @@ typedef enum
     [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:m_back_image_view another:self.view attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeTop offset:0]];
     
     [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:color_band_view another:self.view attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeLeft offset:0]];
-    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:color_band_view another:self.view attr:NSLayoutAttributeBottom anotherAttr:NSLayoutAttributeBottom offset:-75]];
+    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:color_band_view another:self.view attr:NSLayoutAttributeBottom anotherAttr:NSLayoutAttributeBottom offset:-78]];
     [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:color_band_view another:self.view attr:NSLayoutAttributeWidth anotherAttr:NSLayoutAttributeWidth offset:0]];
-    [self.view addConstraint:[AutoLayoutHelper viewEqualsToNumber:color_band_view number:130 attr:NSLayoutAttributeHeight]];
+    [self.view addConstraint:[AutoLayoutHelper viewEqualsToNumber:color_band_view number:158 attr:NSLayoutAttributeHeight]];
     
     [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:color_band_hint_button another:self.view attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeLeft offset:100]];
-    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:color_band_hint_button another:color_band_view attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeTop offset:5]];
+    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:color_band_hint_button another:color_band_view attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeTop offset:10]];
     
     for (int i=0; i<color_button_num-1; i++)
     {
         UIButton* buttoni = (UIButton*)m_color_buttons[i];
         UIButton* buttonj = (UIButton*)m_color_buttons[i+1];
-        [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:buttonj another:buttoni attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeRight offset:15]];
+        [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:buttonj another:buttoni attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeRight offset:11]];
         [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:buttonj another:buttoni attr:NSLayoutAttributeBottom anotherAttr:NSLayoutAttributeBottom offset:0]];
     }
     [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:(UIButton*)m_color_buttons[0] another:self.view attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeLeft offset:100]];
-    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:(UIButton*)m_color_buttons[0] another:self.view attr:NSLayoutAttributeBottom anotherAttr:NSLayoutAttributeBottom offset:-85]];
+    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:(UIButton*)m_color_buttons[0] another:color_band_view attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeTop offset:48]];
     
-    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:share_button another:(UIButton*)m_color_buttons[color_button_num-1] attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeRight offset:25]];
-    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:dulux_icon another:share_button attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeRight offset:25]];
+    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:share_button another:(UIButton*)m_color_buttons[color_button_num-1] attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeRight offset:90]];
+    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:dulux_icon another:share_button attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeRight offset:50]];
     
-    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:(UIButton*)m_color_buttons[0] another:share_button attr:NSLayoutAttributeBottom anotherAttr:NSLayoutAttributeBottom offset:-10]];
-    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:dulux_icon another:share_button attr:NSLayoutAttributeBottom anotherAttr:NSLayoutAttributeBottom offset:0]];
+    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:(UIButton*)share_button another:color_band_view attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeTop offset:44]];
+    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:dulux_icon another:color_band_view attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeTop offset:28]];
     
     
-    [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:left_button another:self.view attr:NSLayoutAttributeCenterY anotherAttr:NSLayoutAttributeCenterY]];
+    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:left_button another:self.view attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeTop offset:263]];
     [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:left_button another:self.view attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeLeft offset:0]];
     
-    [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:right_button another:self.view attr:NSLayoutAttributeCenterY anotherAttr:NSLayoutAttributeCenterY]];
+    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:right_button another:self.view attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeTop offset:263]];
     [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:right_button another:self.view attr:NSLayoutAttributeRight anotherAttr:NSLayoutAttributeRight offset:0]];
     
     
@@ -677,10 +677,10 @@ typedef enum
 - (void) initNavigateButtons
 {
     CGRect bounds = self.view.bounds;
-    int button_width  = 50;
-    int button_height = 50;
+    int button_width  = 52;
+    int button_height = 48;
     int x = 20;
-    int y = bounds.size.height - 15 - button_height;
+    int y = bounds.size.height - 14 - button_height;
     
     NSString* home_pic = @"homebutton.png";
     UIImage* home_image = [UIImage imageNamed:home_pic];

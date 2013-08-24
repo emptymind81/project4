@@ -99,10 +99,10 @@ CGContextRef CreateARGBBitmapContext (CGImageRef inImage)
    size_t bpr = self.size.width * 4;
    
    NSUInteger index = pointX * bpp + (pointY * bpr);
-   char *rawDataBytes = (char *)[self.argbData bytes];
-   int alpha = rawDataBytes[index];
-   //return alpha <= 0.1*255;
-   return rawDataBytes[index] == 0;
+   unsigned char *rawDataBytes = (unsigned char *)[self.argbData bytes];
+   unsigned char alpha = rawDataBytes[index];
+   return alpha <= 0.1*256;
+   //return rawDataBytes[index] == 0;
    
 }
 @end

@@ -49,8 +49,8 @@
    RoomViewController* room_view_controller = [[RoomViewController alloc]initWithNibName:@"RoomViewController" bundle:nil];
    room_view_controller.seriIndex = 0;
    room_view_controller.roomIndex = 2;
-   self.viewController = room_view_controller;
-    //self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+   //self.viewController = room_view_controller;
+    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
     

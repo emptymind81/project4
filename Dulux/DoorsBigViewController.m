@@ -92,14 +92,14 @@ typedef enum
     [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:m_back_image_view another:self.view attr:NSLayoutAttributeCenterX anotherAttr:NSLayoutAttributeCenterX]];
     [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:m_back_image_view another:self.view attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeTop offset:0]];
     
-    [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:left_button another:self.view attr:NSLayoutAttributeCenterY anotherAttr:NSLayoutAttributeCenterY]];
+    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:left_button another:self.view attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeTop offset:322]];
     [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:left_button another:self.view attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeLeft offset:0]];
     
-    [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:right_button another:self.view attr:NSLayoutAttributeCenterY anotherAttr:NSLayoutAttributeCenterY]];
+    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:right_button another:self.view attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeTop offset:322]];
     [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:right_button another:self.view attr:NSLayoutAttributeRight anotherAttr:NSLayoutAttributeRight offset:0]];
     
     [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:center_button another:self.view attr:NSLayoutAttributeCenterX anotherAttr:NSLayoutAttributeCenterX]];
-    [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:center_button another:self.view attr:NSLayoutAttributeCenterY anotherAttr:NSLayoutAttributeCenterY]];
+    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:center_button another:self.view attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeTop offset:343]];
     
     [self initNavigateButtons];
     
@@ -209,10 +209,10 @@ typedef enum
 - (void) initNavigateButtons
 {
     CGRect bounds = self.view.bounds;
-    int button_width  = 50;
-    int button_height = 50;
+    int button_width  = 52;
+    int button_height = 48;
     int x = 20;
-    int y = bounds.size.height - 15 - button_height;
+    int y = bounds.size.height - 14 - button_height;
     
     NSString* home_pic = @"homebutton.png";
     UIImage* home_image = [UIImage imageNamed:home_pic];
