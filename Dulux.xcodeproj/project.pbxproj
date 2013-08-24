@@ -10,11 +10,6 @@
 		B70B9A4F17C3964B0099DF51 /* seri1-room2-paint.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A3B17C3964B0099DF51 /* seri1-room2-paint.jpg */; };
 		B70B9A5017C3964B0099DF51 /* seri1-room3-paint.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A3C17C3964B0099DF51 /* seri1-room3-paint.jpg */; };
 		B70B9A5117C3964B0099DF51 /* seri1-room1-paint.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A3D17C3964B0099DF51 /* seri1-room1-paint.jpg */; };
-		B70B9A5417C3964B0099DF51 /* seri1-colorbutton5.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A4017C3964B0099DF51 /* seri1-colorbutton5.png */; };
-		B70B9A5517C3964B0099DF51 /* seri1-colorbutton4.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A4117C3964B0099DF51 /* seri1-colorbutton4.png */; };
-		B70B9A5617C3964B0099DF51 /* seri1-colorbutton3.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A4217C3964B0099DF51 /* seri1-colorbutton3.png */; };
-		B70B9A5717C3964B0099DF51 /* seri1-colorbutton2.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A4317C3964B0099DF51 /* seri1-colorbutton2.png */; };
-		B70B9A5817C3964B0099DF51 /* seri1-colorbutton1.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A4417C3964B0099DF51 /* seri1-colorbutton1.png */; };
 		B70B9A5A17C3964B0099DF51 /* seri1-room3-big-back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A4617C3964B0099DF51 /* seri1-room3-big-back.jpg */; };
 		B70B9A5B17C3964B0099DF51 /* seri1-room2-big-back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A4717C3964B0099DF51 /* seri1-room2-big-back.jpg */; };
 		B70B9A5C17C3964B0099DF51 /* seri1-room1-big-back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A4817C3964B0099DF51 /* seri1-room1-big-back.jpg */; };
@@ -26,18 +21,12 @@
 		B70B9A6217C3964B0099DF51 /* seri1-flash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A4E17C3964B0099DF51 /* seri1-flash.jpg */; };
 		B70B9A6417C3965B0099DF51 /* pushcolorbuttonhinttext.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A6317C3965B0099DF51 /* pushcolorbuttonhinttext.png */; };
 		B70B9A6717C39DAA0099DF51 /* CommonFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B70B9A6617C39DAA0099DF51 /* CommonFeatureViewController.m */; };
-		B70B9A7A17C3BC180099DF51 /* seri2-colorbutton5.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A6917C3BC180099DF51 /* seri2-colorbutton5.png */; };
-		B70B9A7B17C3BC190099DF51 /* seri2-colorbutton4.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A6A17C3BC180099DF51 /* seri2-colorbutton4.png */; };
-		B70B9A7C17C3BC190099DF51 /* seri2-colorbutton3.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A6B17C3BC180099DF51 /* seri2-colorbutton3.png */; };
-		B70B9A7D17C3BC190099DF51 /* seri2-colorbutton2.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A6C17C3BC180099DF51 /* seri2-colorbutton2.png */; };
-		B70B9A7E17C3BC190099DF51 /* seri2-colorbutton1.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A6D17C3BC180099DF51 /* seri2-colorbutton1.png */; };
 		B70B9A7F17C3BC190099DF51 /* seri2-room3-paint.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A6E17C3BC180099DF51 /* seri2-room3-paint.jpg */; };
 		B70B9A8017C3BC190099DF51 /* seri2-room2-paint.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A6F17C3BC180099DF51 /* seri2-room2-paint.jpg */; };
 		B70B9A8117C3BC190099DF51 /* seri2-room1-paint.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A7017C3BC180099DF51 /* seri2-room1-paint.jpg */; };
 		B70B9A8217C3BC190099DF51 /* seri2-room2-big-back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A7117C3BC180099DF51 /* seri2-room2-big-back.jpg */; };
 		B70B9A8317C3BC190099DF51 /* seri2-room1-big-back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A7217C3BC180099DF51 /* seri2-room1-big-back.jpg */; };
 		B70B9A8417C3BC190099DF51 /* seri2-room3-big-back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A7317C3BC180099DF51 /* seri2-room3-big-back.jpg */; };
-		B70B9A8517C3BC190099DF51 /* seri2-back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A7417C3BC180099DF51 /* seri2-back.jpg */; };
 		B70B9A8617C3BC190099DF51 /* seri2-room3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A7517C3BC180099DF51 /* seri2-room3.jpg */; };
 		B70B9A8717C3BC190099DF51 /* seri2-room2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A7617C3BC180099DF51 /* seri2-room2.jpg */; };
 		B70B9A8817C3BC190099DF51 /* seri2-room1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A7717C3BC180099DF51 /* seri2-room1.jpg */; };
@@ -47,11 +36,6 @@
 		B70B9A8F17C3BD170099DF51 /* shareweibo.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A8C17C3BD170099DF51 /* shareweibo.png */; };
 		B70B9A9017C3BD170099DF51 /* centerbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A8D17C3BD170099DF51 /* centerbutton.png */; };
 		B70B9AA417C3C8BE0099DF51 /* seri3-back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A9317C3C8BE0099DF51 /* seri3-back.jpg */; };
-		B70B9AA517C3C8BE0099DF51 /* seri3-colorbutton5.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A9417C3C8BE0099DF51 /* seri3-colorbutton5.png */; };
-		B70B9AA617C3C8BE0099DF51 /* seri3-colorbutton4.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A9517C3C8BE0099DF51 /* seri3-colorbutton4.png */; };
-		B70B9AA717C3C8BE0099DF51 /* seri3-colorbutton3.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A9617C3C8BE0099DF51 /* seri3-colorbutton3.png */; };
-		B70B9AA817C3C8BE0099DF51 /* seri3-colorbutton2.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A9717C3C8BE0099DF51 /* seri3-colorbutton2.png */; };
-		B70B9AA917C3C8BE0099DF51 /* seri3-colorbutton1.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A9817C3C8BE0099DF51 /* seri3-colorbutton1.png */; };
 		B70B9AAA17C3C8BE0099DF51 /* seri3-room3-paint.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A9917C3C8BE0099DF51 /* seri3-room3-paint.jpg */; };
 		B70B9AAB17C3C8BE0099DF51 /* seri3-room2-paint.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A9A17C3C8BE0099DF51 /* seri3-room2-paint.jpg */; };
 		B70B9AAC17C3C8BE0099DF51 /* seri3-room1-paint.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9A9B17C3C8BE0099DF51 /* seri3-room1-paint.jpg */; };
@@ -63,11 +47,6 @@
 		B70B9AB217C3C8BE0099DF51 /* seri3-room1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9AA117C3C8BE0099DF51 /* seri3-room1.jpg */; };
 		B70B9AB317C3C8BE0099DF51 /* seri3-kv.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9AA217C3C8BE0099DF51 /* seri3-kv.jpg */; };
 		B70B9AB417C3C8BE0099DF51 /* seri3-flash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9AA317C3C8BE0099DF51 /* seri3-flash.jpg */; };
-		B70B9AC617C3C8D20099DF51 /* seri4-colorbutton5.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9AB517C3C8D20099DF51 /* seri4-colorbutton5.png */; };
-		B70B9AC717C3C8D20099DF51 /* seri4-colorbutton4.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9AB617C3C8D20099DF51 /* seri4-colorbutton4.png */; };
-		B70B9AC817C3C8D20099DF51 /* seri4-colorbutton3.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9AB717C3C8D20099DF51 /* seri4-colorbutton3.png */; };
-		B70B9AC917C3C8D20099DF51 /* seri4-colorbutton2.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9AB817C3C8D20099DF51 /* seri4-colorbutton2.png */; };
-		B70B9ACA17C3C8D20099DF51 /* seri4-colorbutton1.png in Resources */ = {isa = PBXBuildFile; fileRef = B70B9AB917C3C8D20099DF51 /* seri4-colorbutton1.png */; };
 		B70B9ACB17C3C8D20099DF51 /* seri4-room3-paint.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9ABA17C3C8D20099DF51 /* seri4-room3-paint.jpg */; };
 		B70B9ACC17C3C8D20099DF51 /* seri4-room2-paint.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9ABB17C3C8D20099DF51 /* seri4-room2-paint.jpg */; };
 		B70B9ACD17C3C8D20099DF51 /* seri4-room1-paint.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B70B9ABC17C3C8D20099DF51 /* seri4-room1-paint.jpg */; };
@@ -182,17 +161,104 @@
 		B7B1224D17B1425B00A6A1D4 /* seri2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B1224917B1425B00A6A1D4 /* seri2.png */; };
 		B7B1224E17B1425B00A6A1D4 /* seri3.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B1224A17B1425B00A6A1D4 /* seri3.png */; };
 		B7B1224F17B1425B00A6A1D4 /* seri4.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B1224B17B1425B00A6A1D4 /* seri4.png */; };
+		B7B66D4917C8971600352AB1 /* seri1-room2-wall2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D4717C8971400352AB1 /* seri1-room2-wall2.png */; };
+		B7B66D4A17C8971600352AB1 /* seri1-room2-wall1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D4817C8971500352AB1 /* seri1-room2-wall1.png */; };
+		B7B66D4D17C89A2200352AB1 /* seri1-room1-wall2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D4B17C89A2100352AB1 /* seri1-room1-wall2.png */; };
+		B7B66D4E17C89A2200352AB1 /* seri1-room1-wall1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D4C17C89A2100352AB1 /* seri1-room1-wall1.png */; };
+		B7B66D5417C89B5200352AB1 /* seri1-room3-colorbutton5.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D4F17C89B4D00352AB1 /* seri1-room3-colorbutton5.png */; };
+		B7B66D5517C89B5200352AB1 /* seri1-room3-colorbutton4.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D5017C89B4E00352AB1 /* seri1-room3-colorbutton4.png */; };
+		B7B66D5617C89B5200352AB1 /* seri1-room3-colorbutton3.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D5117C89B4F00352AB1 /* seri1-room3-colorbutton3.png */; };
+		B7B66D5717C89B5200352AB1 /* seri1-room3-colorbutton2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D5217C89B5000352AB1 /* seri1-room3-colorbutton2.png */; };
+		B7B66D5817C89B5200352AB1 /* seri1-room3-colorbutton1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D5317C89B5100352AB1 /* seri1-room3-colorbutton1.png */; };
+		B7B66D6317C89F3F00352AB1 /* seri1-room1-colorbutton5.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D5917C89F3600352AB1 /* seri1-room1-colorbutton5.png */; };
+		B7B66D6417C89F3F00352AB1 /* seri1-room1-colorbutton4.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D5A17C89F3700352AB1 /* seri1-room1-colorbutton4.png */; };
+		B7B66D6517C89F3F00352AB1 /* seri1-room1-colorbutton3.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D5B17C89F3800352AB1 /* seri1-room1-colorbutton3.png */; };
+		B7B66D6617C89F3F00352AB1 /* seri1-room1-colorbutton2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D5C17C89F3900352AB1 /* seri1-room1-colorbutton2.png */; };
+		B7B66D6717C89F3F00352AB1 /* seri1-room1-colorbutton1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D5D17C89F3A00352AB1 /* seri1-room1-colorbutton1.png */; };
+		B7B66D6817C89F3F00352AB1 /* seri1-room2-colorbutton5.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D5E17C89F3B00352AB1 /* seri1-room2-colorbutton5.png */; };
+		B7B66D6917C89F3F00352AB1 /* seri1-room2-colorbutton4.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D5F17C89F3C00352AB1 /* seri1-room2-colorbutton4.png */; };
+		B7B66D6A17C89F3F00352AB1 /* seri1-room2-colorbutton3.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D6017C89F3D00352AB1 /* seri1-room2-colorbutton3.png */; };
+		B7B66D6B17C89F3F00352AB1 /* seri1-room2-colorbutton2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D6117C89F3E00352AB1 /* seri1-room2-colorbutton2.png */; };
+		B7B66D6C17C89F3F00352AB1 /* seri1-room2-colorbutton1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D6217C89F3F00352AB1 /* seri1-room2-colorbutton1.png */; };
+		B7B66D8017C8AD5300352AB1 /* seri2-back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D6D17C8AD5300352AB1 /* seri2-back.jpg */; };
+		B7B66D8117C8AD5300352AB1 /* seri2-room2-colorbutton5.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D6E17C8AD5300352AB1 /* seri2-room2-colorbutton5.png */; };
+		B7B66D8217C8AD5300352AB1 /* seri2-room2-colorbutton4.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D6F17C8AD5300352AB1 /* seri2-room2-colorbutton4.png */; };
+		B7B66D8317C8AD5300352AB1 /* seri2-room2-colorbutton3.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D7017C8AD5300352AB1 /* seri2-room2-colorbutton3.png */; };
+		B7B66D8417C8AD5300352AB1 /* seri2-room2-colorbutton2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D7117C8AD5300352AB1 /* seri2-room2-colorbutton2.png */; };
+		B7B66D8517C8AD5300352AB1 /* seri2-room2-colorbutton1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D7217C8AD5300352AB1 /* seri2-room2-colorbutton1.png */; };
+		B7B66D8617C8AD5300352AB1 /* seri2-room1-colorbutton5.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D7317C8AD5300352AB1 /* seri2-room1-colorbutton5.png */; };
+		B7B66D8717C8AD5300352AB1 /* seri2-room1-colorbutton4.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D7417C8AD5300352AB1 /* seri2-room1-colorbutton4.png */; };
+		B7B66D8817C8AD5300352AB1 /* seri2-room1-colorbutton3.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D7517C8AD5300352AB1 /* seri2-room1-colorbutton3.png */; };
+		B7B66D8917C8AD5300352AB1 /* seri2-room1-colorbutton2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D7617C8AD5300352AB1 /* seri2-room1-colorbutton2.png */; };
+		B7B66D8A17C8AD5300352AB1 /* seri2-room1-colorbutton1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D7717C8AD5300352AB1 /* seri2-room1-colorbutton1.png */; };
+		B7B66D8B17C8AD5300352AB1 /* seri2-room3-wall1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D7817C8AD5300352AB1 /* seri2-room3-wall1.png */; };
+		B7B66D8C17C8AD5300352AB1 /* seri2-room3-floating.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D7917C8AD5300352AB1 /* seri2-room3-floating.png */; };
+		B7B66D8D17C8AD5300352AB1 /* seri2-room2-floating.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D7A17C8AD5300352AB1 /* seri2-room2-floating.png */; };
+		B7B66D8E17C8AD5300352AB1 /* seri2-room2-wall2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D7B17C8AD5300352AB1 /* seri2-room2-wall2.png */; };
+		B7B66D8F17C8AD5300352AB1 /* seri2-room2-wall1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D7C17C8AD5300352AB1 /* seri2-room2-wall1.png */; };
+		B7B66D9017C8AD5300352AB1 /* seri2-room1-wall2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D7D17C8AD5300352AB1 /* seri2-room1-wall2.png */; };
+		B7B66D9117C8AD5300352AB1 /* seri2-room1-wall1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D7E17C8AD5300352AB1 /* seri2-room1-wall1.png */; };
+		B7B66D9217C8AD5300352AB1 /* seri2-room1-floating.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D7F17C8AD5300352AB1 /* seri2-room1-floating.png */; };
+		B7B66D9817C8AF8C00352AB1 /* seri2-room3-colorbutton5.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D9317C8AF8C00352AB1 /* seri2-room3-colorbutton5.png */; };
+		B7B66D9917C8AF8C00352AB1 /* seri2-room3-colorbutton4.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D9417C8AF8C00352AB1 /* seri2-room3-colorbutton4.png */; };
+		B7B66D9A17C8AF8C00352AB1 /* seri2-room3-colorbutton3.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D9517C8AF8C00352AB1 /* seri2-room3-colorbutton3.png */; };
+		B7B66D9B17C8AF8C00352AB1 /* seri2-room3-colorbutton2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D9617C8AF8C00352AB1 /* seri2-room3-colorbutton2.png */; };
+		B7B66D9C17C8AF8C00352AB1 /* seri2-room3-colorbutton1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D9717C8AF8C00352AB1 /* seri2-room3-colorbutton1.png */; };
+		B7B66DB617C8BB0700352AB1 /* seri3-room3-colorbutton5.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D9D17C8BB0700352AB1 /* seri3-room3-colorbutton5.png */; };
+		B7B66DB717C8BB0700352AB1 /* seri3-room3-colorbutton4.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D9E17C8BB0700352AB1 /* seri3-room3-colorbutton4.png */; };
+		B7B66DB817C8BB0700352AB1 /* seri3-room3-colorbutton3.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66D9F17C8BB0700352AB1 /* seri3-room3-colorbutton3.png */; };
+		B7B66DB917C8BB0700352AB1 /* seri3-room3-colorbutton2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DA017C8BB0700352AB1 /* seri3-room3-colorbutton2.png */; };
+		B7B66DBA17C8BB0700352AB1 /* seri3-room3-colorbutton1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DA117C8BB0700352AB1 /* seri3-room3-colorbutton1.png */; };
+		B7B66DBB17C8BB0700352AB1 /* seri3-room2-colorbutton5.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DA217C8BB0700352AB1 /* seri3-room2-colorbutton5.png */; };
+		B7B66DBC17C8BB0700352AB1 /* seri3-room2-colorbutton4.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DA317C8BB0700352AB1 /* seri3-room2-colorbutton4.png */; };
+		B7B66DBD17C8BB0700352AB1 /* seri3-room2-colorbutton3.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DA417C8BB0700352AB1 /* seri3-room2-colorbutton3.png */; };
+		B7B66DBE17C8BB0700352AB1 /* seri3-room2-colorbutton2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DA517C8BB0700352AB1 /* seri3-room2-colorbutton2.png */; };
+		B7B66DBF17C8BB0700352AB1 /* seri3-room2-colorbutton1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DA617C8BB0700352AB1 /* seri3-room2-colorbutton1.png */; };
+		B7B66DC017C8BB0700352AB1 /* seri3-room1-colorbutton5.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DA717C8BB0700352AB1 /* seri3-room1-colorbutton5.png */; };
+		B7B66DC117C8BB0700352AB1 /* seri3-room1-colorbutton4.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DA817C8BB0700352AB1 /* seri3-room1-colorbutton4.png */; };
+		B7B66DC217C8BB0700352AB1 /* seri3-room1-colorbutton3.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DA917C8BB0700352AB1 /* seri3-room1-colorbutton3.png */; };
+		B7B66DC317C8BB0700352AB1 /* seri3-room1-colorbutton2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DAA17C8BB0700352AB1 /* seri3-room1-colorbutton2.png */; };
+		B7B66DC417C8BB0700352AB1 /* seri3-room1-colorbutton1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DAB17C8BB0700352AB1 /* seri3-room1-colorbutton1.png */; };
+		B7B66DC517C8BB0700352AB1 /* seri3-room3-wall3.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DAC17C8BB0700352AB1 /* seri3-room3-wall3.png */; };
+		B7B66DC617C8BB0700352AB1 /* seri3-room3-wall2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DAD17C8BB0700352AB1 /* seri3-room3-wall2.png */; };
+		B7B66DC717C8BB0700352AB1 /* seri3-room3-wall1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DAE17C8BB0700352AB1 /* seri3-room3-wall1.png */; };
+		B7B66DC817C8BB0700352AB1 /* seri3-room2-wall1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DAF17C8BB0700352AB1 /* seri3-room2-wall1.png */; };
+		B7B66DC917C8BB0700352AB1 /* seri3-room2-wall2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DB017C8BB0700352AB1 /* seri3-room2-wall2.png */; };
+		B7B66DCA17C8BB0700352AB1 /* seri3-room1-wall2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DB117C8BB0700352AB1 /* seri3-room1-wall2.png */; };
+		B7B66DCB17C8BB0700352AB1 /* seri3-room1-wall1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DB217C8BB0700352AB1 /* seri3-room1-wall1.png */; };
+		B7B66DCC17C8BB0700352AB1 /* seri3-room2-floating.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DB317C8BB0700352AB1 /* seri3-room2-floating.png */; };
+		B7B66DCD17C8BB0700352AB1 /* seri3-room3-floating.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DB417C8BB0700352AB1 /* seri3-room3-floating.png */; };
+		B7B66DCE17C8BB0700352AB1 /* seri3-room1-floating.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DB517C8BB0700352AB1 /* seri3-room1-floating.png */; };
+		B7B66DE517C8C5CD00352AB1 /* seri4-room3-colorbutton5.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DCF17C8C5CD00352AB1 /* seri4-room3-colorbutton5.png */; };
+		B7B66DE617C8C5CD00352AB1 /* seri4-room3-colorbutton4.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DD017C8C5CD00352AB1 /* seri4-room3-colorbutton4.png */; };
+		B7B66DE717C8C5CD00352AB1 /* seri4-room3-colorbutton3.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DD117C8C5CD00352AB1 /* seri4-room3-colorbutton3.png */; };
+		B7B66DE817C8C5CD00352AB1 /* seri4-room3-colorbutton2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DD217C8C5CD00352AB1 /* seri4-room3-colorbutton2.png */; };
+		B7B66DE917C8C5CD00352AB1 /* seri4-room3-colorbutton1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DD317C8C5CD00352AB1 /* seri4-room3-colorbutton1.png */; };
+		B7B66DEA17C8C5CD00352AB1 /* seri4-room2-colorbutton5.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DD417C8C5CD00352AB1 /* seri4-room2-colorbutton5.png */; };
+		B7B66DEB17C8C5CD00352AB1 /* seri4-room2-colorbutton4.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DD517C8C5CD00352AB1 /* seri4-room2-colorbutton4.png */; };
+		B7B66DEC17C8C5CD00352AB1 /* seri4-room2-colorbutton3.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DD617C8C5CD00352AB1 /* seri4-room2-colorbutton3.png */; };
+		B7B66DED17C8C5CD00352AB1 /* seri4-room2-colorbutton2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DD717C8C5CD00352AB1 /* seri4-room2-colorbutton2.png */; };
+		B7B66DEE17C8C5CD00352AB1 /* seri4-room2-colorbutton1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DD817C8C5CD00352AB1 /* seri4-room2-colorbutton1.png */; };
+		B7B66DEF17C8C5CD00352AB1 /* seri4-room1-colorbutton5.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DD917C8C5CD00352AB1 /* seri4-room1-colorbutton5.png */; };
+		B7B66DF017C8C5CD00352AB1 /* seri4-room1-colorbutton4.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DDA17C8C5CD00352AB1 /* seri4-room1-colorbutton4.png */; };
+		B7B66DF117C8C5CD00352AB1 /* seri4-room1-colorbutton3.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DDB17C8C5CD00352AB1 /* seri4-room1-colorbutton3.png */; };
+		B7B66DF217C8C5CD00352AB1 /* seri4-room1-colorbutton2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DDC17C8C5CD00352AB1 /* seri4-room1-colorbutton2.png */; };
+		B7B66DF317C8C5CD00352AB1 /* seri4-room1-colorbutton1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DDD17C8C5CD00352AB1 /* seri4-room1-colorbutton1.png */; };
+		B7B66DF417C8C5CD00352AB1 /* seri4-room3-floating.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DDE17C8C5CD00352AB1 /* seri4-room3-floating.png */; };
+		B7B66DF517C8C5CD00352AB1 /* seri4-room3-wall1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DDF17C8C5CD00352AB1 /* seri4-room3-wall1.png */; };
+		B7B66DF617C8C5CD00352AB1 /* seri4-room2-wall2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DE017C8C5CD00352AB1 /* seri4-room2-wall2.png */; };
+		B7B66DF717C8C5CD00352AB1 /* seri4-room2-wall1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DE117C8C5CD00352AB1 /* seri4-room2-wall1.png */; };
+		B7B66DF817C8C5CD00352AB1 /* seri4-room1-wall2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DE217C8C5CD00352AB1 /* seri4-room1-wall2.png */; };
+		B7B66DF917C8C5CD00352AB1 /* seri4-room1-wall1.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DE317C8C5CD00352AB1 /* seri4-room1-wall1.png */; };
+		B7B66DFA17C8C5CD00352AB1 /* seri4-room1-floating.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DE417C8C5CD00352AB1 /* seri4-room1-floating.png */; };
+		B7B66DFC17C8CCC800352AB1 /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DFB17C8CCC700352AB1 /* appicon.png */; };
+		B7B66DFE17C8CDF200352AB1 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B7B66DFD17C8CDF100352AB1 /* Default-Landscape~ipad.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B70B9A3B17C3964B0099DF51 /* seri1-room2-paint.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri1-room2-paint.jpg"; path = "final/seri1/seri1-room2-paint.jpg"; sourceTree = "<group>"; };
 		B70B9A3C17C3964B0099DF51 /* seri1-room3-paint.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri1-room3-paint.jpg"; path = "final/seri1/seri1-room3-paint.jpg"; sourceTree = "<group>"; };
 		B70B9A3D17C3964B0099DF51 /* seri1-room1-paint.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri1-room1-paint.jpg"; path = "final/seri1/seri1-room1-paint.jpg"; sourceTree = "<group>"; };
-		B70B9A4017C3964B0099DF51 /* seri1-colorbutton5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-colorbutton5.png"; path = "final/seri1/seri1-colorbutton5.png"; sourceTree = "<group>"; };
-		B70B9A4117C3964B0099DF51 /* seri1-colorbutton4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-colorbutton4.png"; path = "final/seri1/seri1-colorbutton4.png"; sourceTree = "<group>"; };
-		B70B9A4217C3964B0099DF51 /* seri1-colorbutton3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-colorbutton3.png"; path = "final/seri1/seri1-colorbutton3.png"; sourceTree = "<group>"; };
-		B70B9A4317C3964B0099DF51 /* seri1-colorbutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-colorbutton2.png"; path = "final/seri1/seri1-colorbutton2.png"; sourceTree = "<group>"; };
-		B70B9A4417C3964B0099DF51 /* seri1-colorbutton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-colorbutton1.png"; path = "final/seri1/seri1-colorbutton1.png"; sourceTree = "<group>"; };
 		B70B9A4617C3964B0099DF51 /* seri1-room3-big-back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri1-room3-big-back.jpg"; path = "final/seri1/seri1-room3-big-back.jpg"; sourceTree = "<group>"; };
 		B70B9A4717C3964B0099DF51 /* seri1-room2-big-back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri1-room2-big-back.jpg"; path = "final/seri1/seri1-room2-big-back.jpg"; sourceTree = "<group>"; };
 		B70B9A4817C3964B0099DF51 /* seri1-room1-big-back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri1-room1-big-back.jpg"; path = "final/seri1/seri1-room1-big-back.jpg"; sourceTree = "<group>"; };
@@ -205,18 +271,12 @@
 		B70B9A6317C3965B0099DF51 /* pushcolorbuttonhinttext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pushcolorbuttonhinttext.png; path = final/pushcolorbuttonhinttext.png; sourceTree = "<group>"; };
 		B70B9A6517C39DAA0099DF51 /* CommonFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonFeatureViewController.h; sourceTree = "<group>"; };
 		B70B9A6617C39DAA0099DF51 /* CommonFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonFeatureViewController.m; sourceTree = "<group>"; };
-		B70B9A6917C3BC180099DF51 /* seri2-colorbutton5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-colorbutton5.png"; path = "final/seri2/seri2-colorbutton5.png"; sourceTree = "<group>"; };
-		B70B9A6A17C3BC180099DF51 /* seri2-colorbutton4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-colorbutton4.png"; path = "final/seri2/seri2-colorbutton4.png"; sourceTree = "<group>"; };
-		B70B9A6B17C3BC180099DF51 /* seri2-colorbutton3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-colorbutton3.png"; path = "final/seri2/seri2-colorbutton3.png"; sourceTree = "<group>"; };
-		B70B9A6C17C3BC180099DF51 /* seri2-colorbutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-colorbutton2.png"; path = "final/seri2/seri2-colorbutton2.png"; sourceTree = "<group>"; };
-		B70B9A6D17C3BC180099DF51 /* seri2-colorbutton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-colorbutton1.png"; path = "final/seri2/seri2-colorbutton1.png"; sourceTree = "<group>"; };
 		B70B9A6E17C3BC180099DF51 /* seri2-room3-paint.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri2-room3-paint.jpg"; path = "final/seri2/seri2-room3-paint.jpg"; sourceTree = "<group>"; };
 		B70B9A6F17C3BC180099DF51 /* seri2-room2-paint.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri2-room2-paint.jpg"; path = "final/seri2/seri2-room2-paint.jpg"; sourceTree = "<group>"; };
 		B70B9A7017C3BC180099DF51 /* seri2-room1-paint.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri2-room1-paint.jpg"; path = "final/seri2/seri2-room1-paint.jpg"; sourceTree = "<group>"; };
 		B70B9A7117C3BC180099DF51 /* seri2-room2-big-back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri2-room2-big-back.jpg"; path = "final/seri2/seri2-room2-big-back.jpg"; sourceTree = "<group>"; };
 		B70B9A7217C3BC180099DF51 /* seri2-room1-big-back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri2-room1-big-back.jpg"; path = "final/seri2/seri2-room1-big-back.jpg"; sourceTree = "<group>"; };
 		B70B9A7317C3BC180099DF51 /* seri2-room3-big-back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri2-room3-big-back.jpg"; path = "final/seri2/seri2-room3-big-back.jpg"; sourceTree = "<group>"; };
-		B70B9A7417C3BC180099DF51 /* seri2-back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri2-back.jpg"; path = "final/seri2/seri2-back.jpg"; sourceTree = "<group>"; };
 		B70B9A7517C3BC180099DF51 /* seri2-room3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri2-room3.jpg"; path = "final/seri2/seri2-room3.jpg"; sourceTree = "<group>"; };
 		B70B9A7617C3BC180099DF51 /* seri2-room2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri2-room2.jpg"; path = "final/seri2/seri2-room2.jpg"; sourceTree = "<group>"; };
 		B70B9A7717C3BC180099DF51 /* seri2-room1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri2-room1.jpg"; path = "final/seri2/seri2-room1.jpg"; sourceTree = "<group>"; };
@@ -226,11 +286,6 @@
 		B70B9A8C17C3BD170099DF51 /* shareweibo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shareweibo.png; path = final/shareweibo.png; sourceTree = "<group>"; };
 		B70B9A8D17C3BD170099DF51 /* centerbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = centerbutton.png; path = final/centerbutton.png; sourceTree = "<group>"; };
 		B70B9A9317C3C8BE0099DF51 /* seri3-back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri3-back.jpg"; path = "final/seri3/seri3-back.jpg"; sourceTree = "<group>"; };
-		B70B9A9417C3C8BE0099DF51 /* seri3-colorbutton5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-colorbutton5.png"; path = "final/seri3/seri3-colorbutton5.png"; sourceTree = "<group>"; };
-		B70B9A9517C3C8BE0099DF51 /* seri3-colorbutton4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-colorbutton4.png"; path = "final/seri3/seri3-colorbutton4.png"; sourceTree = "<group>"; };
-		B70B9A9617C3C8BE0099DF51 /* seri3-colorbutton3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-colorbutton3.png"; path = "final/seri3/seri3-colorbutton3.png"; sourceTree = "<group>"; };
-		B70B9A9717C3C8BE0099DF51 /* seri3-colorbutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-colorbutton2.png"; path = "final/seri3/seri3-colorbutton2.png"; sourceTree = "<group>"; };
-		B70B9A9817C3C8BE0099DF51 /* seri3-colorbutton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-colorbutton1.png"; path = "final/seri3/seri3-colorbutton1.png"; sourceTree = "<group>"; };
 		B70B9A9917C3C8BE0099DF51 /* seri3-room3-paint.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri3-room3-paint.jpg"; path = "final/seri3/seri3-room3-paint.jpg"; sourceTree = "<group>"; };
 		B70B9A9A17C3C8BE0099DF51 /* seri3-room2-paint.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri3-room2-paint.jpg"; path = "final/seri3/seri3-room2-paint.jpg"; sourceTree = "<group>"; };
 		B70B9A9B17C3C8BE0099DF51 /* seri3-room1-paint.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri3-room1-paint.jpg"; path = "final/seri3/seri3-room1-paint.jpg"; sourceTree = "<group>"; };
@@ -242,11 +297,6 @@
 		B70B9AA117C3C8BE0099DF51 /* seri3-room1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri3-room1.jpg"; path = "final/seri3/seri3-room1.jpg"; sourceTree = "<group>"; };
 		B70B9AA217C3C8BE0099DF51 /* seri3-kv.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri3-kv.jpg"; path = "final/seri3/seri3-kv.jpg"; sourceTree = "<group>"; };
 		B70B9AA317C3C8BE0099DF51 /* seri3-flash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri3-flash.jpg"; path = "final/seri3/seri3-flash.jpg"; sourceTree = "<group>"; };
-		B70B9AB517C3C8D20099DF51 /* seri4-colorbutton5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-colorbutton5.png"; path = "final/seri4/seri4-colorbutton5.png"; sourceTree = "<group>"; };
-		B70B9AB617C3C8D20099DF51 /* seri4-colorbutton4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-colorbutton4.png"; path = "final/seri4/seri4-colorbutton4.png"; sourceTree = "<group>"; };
-		B70B9AB717C3C8D20099DF51 /* seri4-colorbutton3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-colorbutton3.png"; path = "final/seri4/seri4-colorbutton3.png"; sourceTree = "<group>"; };
-		B70B9AB817C3C8D20099DF51 /* seri4-colorbutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-colorbutton2.png"; path = "final/seri4/seri4-colorbutton2.png"; sourceTree = "<group>"; };
-		B70B9AB917C3C8D20099DF51 /* seri4-colorbutton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-colorbutton1.png"; path = "final/seri4/seri4-colorbutton1.png"; sourceTree = "<group>"; };
 		B70B9ABA17C3C8D20099DF51 /* seri4-room3-paint.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri4-room3-paint.jpg"; path = "final/seri4/seri4-room3-paint.jpg"; sourceTree = "<group>"; };
 		B70B9ABB17C3C8D20099DF51 /* seri4-room2-paint.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri4-room2-paint.jpg"; path = "final/seri4/seri4-room2-paint.jpg"; sourceTree = "<group>"; };
 		B70B9ABC17C3C8D20099DF51 /* seri4-room1-paint.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri4-room1-paint.jpg"; path = "final/seri4/seri4-room1-paint.jpg"; sourceTree = "<group>"; };
@@ -382,6 +432,98 @@
 		B7B1224917B1425B00A6A1D4 /* seri2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seri2.png; path = resource/seri2.png; sourceTree = "<group>"; };
 		B7B1224A17B1425B00A6A1D4 /* seri3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seri3.png; path = resource/seri3.png; sourceTree = "<group>"; };
 		B7B1224B17B1425B00A6A1D4 /* seri4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seri4.png; path = resource/seri4.png; sourceTree = "<group>"; };
+		B7B66D4717C8971400352AB1 /* seri1-room2-wall2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room2-wall2.png"; path = "final/seri1/seri1-room2-wall2.png"; sourceTree = "<group>"; };
+		B7B66D4817C8971500352AB1 /* seri1-room2-wall1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room2-wall1.png"; path = "final/seri1/seri1-room2-wall1.png"; sourceTree = "<group>"; };
+		B7B66D4B17C89A2100352AB1 /* seri1-room1-wall2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room1-wall2.png"; path = "final/seri1/seri1-room1-wall2.png"; sourceTree = "<group>"; };
+		B7B66D4C17C89A2100352AB1 /* seri1-room1-wall1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room1-wall1.png"; path = "final/seri1/seri1-room1-wall1.png"; sourceTree = "<group>"; };
+		B7B66D4F17C89B4D00352AB1 /* seri1-room3-colorbutton5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room3-colorbutton5.png"; path = "final/seri1/seri1-room3-colorbutton5.png"; sourceTree = "<group>"; };
+		B7B66D5017C89B4E00352AB1 /* seri1-room3-colorbutton4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room3-colorbutton4.png"; path = "final/seri1/seri1-room3-colorbutton4.png"; sourceTree = "<group>"; };
+		B7B66D5117C89B4F00352AB1 /* seri1-room3-colorbutton3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room3-colorbutton3.png"; path = "final/seri1/seri1-room3-colorbutton3.png"; sourceTree = "<group>"; };
+		B7B66D5217C89B5000352AB1 /* seri1-room3-colorbutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room3-colorbutton2.png"; path = "final/seri1/seri1-room3-colorbutton2.png"; sourceTree = "<group>"; };
+		B7B66D5317C89B5100352AB1 /* seri1-room3-colorbutton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room3-colorbutton1.png"; path = "final/seri1/seri1-room3-colorbutton1.png"; sourceTree = "<group>"; };
+		B7B66D5917C89F3600352AB1 /* seri1-room1-colorbutton5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room1-colorbutton5.png"; path = "final/seri1/seri1-room1-colorbutton5.png"; sourceTree = "<group>"; };
+		B7B66D5A17C89F3700352AB1 /* seri1-room1-colorbutton4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room1-colorbutton4.png"; path = "final/seri1/seri1-room1-colorbutton4.png"; sourceTree = "<group>"; };
+		B7B66D5B17C89F3800352AB1 /* seri1-room1-colorbutton3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room1-colorbutton3.png"; path = "final/seri1/seri1-room1-colorbutton3.png"; sourceTree = "<group>"; };
+		B7B66D5C17C89F3900352AB1 /* seri1-room1-colorbutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room1-colorbutton2.png"; path = "final/seri1/seri1-room1-colorbutton2.png"; sourceTree = "<group>"; };
+		B7B66D5D17C89F3A00352AB1 /* seri1-room1-colorbutton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room1-colorbutton1.png"; path = "final/seri1/seri1-room1-colorbutton1.png"; sourceTree = "<group>"; };
+		B7B66D5E17C89F3B00352AB1 /* seri1-room2-colorbutton5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room2-colorbutton5.png"; path = "final/seri1/seri1-room2-colorbutton5.png"; sourceTree = "<group>"; };
+		B7B66D5F17C89F3C00352AB1 /* seri1-room2-colorbutton4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room2-colorbutton4.png"; path = "final/seri1/seri1-room2-colorbutton4.png"; sourceTree = "<group>"; };
+		B7B66D6017C89F3D00352AB1 /* seri1-room2-colorbutton3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room2-colorbutton3.png"; path = "final/seri1/seri1-room2-colorbutton3.png"; sourceTree = "<group>"; };
+		B7B66D6117C89F3E00352AB1 /* seri1-room2-colorbutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room2-colorbutton2.png"; path = "final/seri1/seri1-room2-colorbutton2.png"; sourceTree = "<group>"; };
+		B7B66D6217C89F3F00352AB1 /* seri1-room2-colorbutton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri1-room2-colorbutton1.png"; path = "final/seri1/seri1-room2-colorbutton1.png"; sourceTree = "<group>"; };
+		B7B66D6D17C8AD5300352AB1 /* seri2-back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "seri2-back.jpg"; path = "final/seri2/seri2-back.jpg"; sourceTree = "<group>"; };
+		B7B66D6E17C8AD5300352AB1 /* seri2-room2-colorbutton5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room2-colorbutton5.png"; path = "final/seri2/seri2-room2-colorbutton5.png"; sourceTree = "<group>"; };
+		B7B66D6F17C8AD5300352AB1 /* seri2-room2-colorbutton4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room2-colorbutton4.png"; path = "final/seri2/seri2-room2-colorbutton4.png"; sourceTree = "<group>"; };
+		B7B66D7017C8AD5300352AB1 /* seri2-room2-colorbutton3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room2-colorbutton3.png"; path = "final/seri2/seri2-room2-colorbutton3.png"; sourceTree = "<group>"; };
+		B7B66D7117C8AD5300352AB1 /* seri2-room2-colorbutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room2-colorbutton2.png"; path = "final/seri2/seri2-room2-colorbutton2.png"; sourceTree = "<group>"; };
+		B7B66D7217C8AD5300352AB1 /* seri2-room2-colorbutton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room2-colorbutton1.png"; path = "final/seri2/seri2-room2-colorbutton1.png"; sourceTree = "<group>"; };
+		B7B66D7317C8AD5300352AB1 /* seri2-room1-colorbutton5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room1-colorbutton5.png"; path = "final/seri2/seri2-room1-colorbutton5.png"; sourceTree = "<group>"; };
+		B7B66D7417C8AD5300352AB1 /* seri2-room1-colorbutton4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room1-colorbutton4.png"; path = "final/seri2/seri2-room1-colorbutton4.png"; sourceTree = "<group>"; };
+		B7B66D7517C8AD5300352AB1 /* seri2-room1-colorbutton3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room1-colorbutton3.png"; path = "final/seri2/seri2-room1-colorbutton3.png"; sourceTree = "<group>"; };
+		B7B66D7617C8AD5300352AB1 /* seri2-room1-colorbutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room1-colorbutton2.png"; path = "final/seri2/seri2-room1-colorbutton2.png"; sourceTree = "<group>"; };
+		B7B66D7717C8AD5300352AB1 /* seri2-room1-colorbutton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room1-colorbutton1.png"; path = "final/seri2/seri2-room1-colorbutton1.png"; sourceTree = "<group>"; };
+		B7B66D7817C8AD5300352AB1 /* seri2-room3-wall1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room3-wall1.png"; path = "final/seri2/seri2-room3-wall1.png"; sourceTree = "<group>"; };
+		B7B66D7917C8AD5300352AB1 /* seri2-room3-floating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room3-floating.png"; path = "final/seri2/seri2-room3-floating.png"; sourceTree = "<group>"; };
+		B7B66D7A17C8AD5300352AB1 /* seri2-room2-floating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room2-floating.png"; path = "final/seri2/seri2-room2-floating.png"; sourceTree = "<group>"; };
+		B7B66D7B17C8AD5300352AB1 /* seri2-room2-wall2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room2-wall2.png"; path = "final/seri2/seri2-room2-wall2.png"; sourceTree = "<group>"; };
+		B7B66D7C17C8AD5300352AB1 /* seri2-room2-wall1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room2-wall1.png"; path = "final/seri2/seri2-room2-wall1.png"; sourceTree = "<group>"; };
+		B7B66D7D17C8AD5300352AB1 /* seri2-room1-wall2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room1-wall2.png"; path = "final/seri2/seri2-room1-wall2.png"; sourceTree = "<group>"; };
+		B7B66D7E17C8AD5300352AB1 /* seri2-room1-wall1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room1-wall1.png"; path = "final/seri2/seri2-room1-wall1.png"; sourceTree = "<group>"; };
+		B7B66D7F17C8AD5300352AB1 /* seri2-room1-floating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room1-floating.png"; path = "final/seri2/seri2-room1-floating.png"; sourceTree = "<group>"; };
+		B7B66D9317C8AF8C00352AB1 /* seri2-room3-colorbutton5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room3-colorbutton5.png"; path = "final/seri2/seri2-room3-colorbutton5.png"; sourceTree = "<group>"; };
+		B7B66D9417C8AF8C00352AB1 /* seri2-room3-colorbutton4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room3-colorbutton4.png"; path = "final/seri2/seri2-room3-colorbutton4.png"; sourceTree = "<group>"; };
+		B7B66D9517C8AF8C00352AB1 /* seri2-room3-colorbutton3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room3-colorbutton3.png"; path = "final/seri2/seri2-room3-colorbutton3.png"; sourceTree = "<group>"; };
+		B7B66D9617C8AF8C00352AB1 /* seri2-room3-colorbutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room3-colorbutton2.png"; path = "final/seri2/seri2-room3-colorbutton2.png"; sourceTree = "<group>"; };
+		B7B66D9717C8AF8C00352AB1 /* seri2-room3-colorbutton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri2-room3-colorbutton1.png"; path = "final/seri2/seri2-room3-colorbutton1.png"; sourceTree = "<group>"; };
+		B7B66D9D17C8BB0700352AB1 /* seri3-room3-colorbutton5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room3-colorbutton5.png"; path = "final/seri3/seri3-room3-colorbutton5.png"; sourceTree = "<group>"; };
+		B7B66D9E17C8BB0700352AB1 /* seri3-room3-colorbutton4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room3-colorbutton4.png"; path = "final/seri3/seri3-room3-colorbutton4.png"; sourceTree = "<group>"; };
+		B7B66D9F17C8BB0700352AB1 /* seri3-room3-colorbutton3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room3-colorbutton3.png"; path = "final/seri3/seri3-room3-colorbutton3.png"; sourceTree = "<group>"; };
+		B7B66DA017C8BB0700352AB1 /* seri3-room3-colorbutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room3-colorbutton2.png"; path = "final/seri3/seri3-room3-colorbutton2.png"; sourceTree = "<group>"; };
+		B7B66DA117C8BB0700352AB1 /* seri3-room3-colorbutton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room3-colorbutton1.png"; path = "final/seri3/seri3-room3-colorbutton1.png"; sourceTree = "<group>"; };
+		B7B66DA217C8BB0700352AB1 /* seri3-room2-colorbutton5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room2-colorbutton5.png"; path = "final/seri3/seri3-room2-colorbutton5.png"; sourceTree = "<group>"; };
+		B7B66DA317C8BB0700352AB1 /* seri3-room2-colorbutton4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room2-colorbutton4.png"; path = "final/seri3/seri3-room2-colorbutton4.png"; sourceTree = "<group>"; };
+		B7B66DA417C8BB0700352AB1 /* seri3-room2-colorbutton3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room2-colorbutton3.png"; path = "final/seri3/seri3-room2-colorbutton3.png"; sourceTree = "<group>"; };
+		B7B66DA517C8BB0700352AB1 /* seri3-room2-colorbutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room2-colorbutton2.png"; path = "final/seri3/seri3-room2-colorbutton2.png"; sourceTree = "<group>"; };
+		B7B66DA617C8BB0700352AB1 /* seri3-room2-colorbutton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room2-colorbutton1.png"; path = "final/seri3/seri3-room2-colorbutton1.png"; sourceTree = "<group>"; };
+		B7B66DA717C8BB0700352AB1 /* seri3-room1-colorbutton5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room1-colorbutton5.png"; path = "final/seri3/seri3-room1-colorbutton5.png"; sourceTree = "<group>"; };
+		B7B66DA817C8BB0700352AB1 /* seri3-room1-colorbutton4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room1-colorbutton4.png"; path = "final/seri3/seri3-room1-colorbutton4.png"; sourceTree = "<group>"; };
+		B7B66DA917C8BB0700352AB1 /* seri3-room1-colorbutton3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room1-colorbutton3.png"; path = "final/seri3/seri3-room1-colorbutton3.png"; sourceTree = "<group>"; };
+		B7B66DAA17C8BB0700352AB1 /* seri3-room1-colorbutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room1-colorbutton2.png"; path = "final/seri3/seri3-room1-colorbutton2.png"; sourceTree = "<group>"; };
+		B7B66DAB17C8BB0700352AB1 /* seri3-room1-colorbutton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room1-colorbutton1.png"; path = "final/seri3/seri3-room1-colorbutton1.png"; sourceTree = "<group>"; };
+		B7B66DAC17C8BB0700352AB1 /* seri3-room3-wall3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room3-wall3.png"; path = "final/seri3/seri3-room3-wall3.png"; sourceTree = "<group>"; };
+		B7B66DAD17C8BB0700352AB1 /* seri3-room3-wall2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room3-wall2.png"; path = "final/seri3/seri3-room3-wall2.png"; sourceTree = "<group>"; };
+		B7B66DAE17C8BB0700352AB1 /* seri3-room3-wall1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room3-wall1.png"; path = "final/seri3/seri3-room3-wall1.png"; sourceTree = "<group>"; };
+		B7B66DAF17C8BB0700352AB1 /* seri3-room2-wall1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room2-wall1.png"; path = "final/seri3/seri3-room2-wall1.png"; sourceTree = "<group>"; };
+		B7B66DB017C8BB0700352AB1 /* seri3-room2-wall2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room2-wall2.png"; path = "final/seri3/seri3-room2-wall2.png"; sourceTree = "<group>"; };
+		B7B66DB117C8BB0700352AB1 /* seri3-room1-wall2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room1-wall2.png"; path = "final/seri3/seri3-room1-wall2.png"; sourceTree = "<group>"; };
+		B7B66DB217C8BB0700352AB1 /* seri3-room1-wall1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room1-wall1.png"; path = "final/seri3/seri3-room1-wall1.png"; sourceTree = "<group>"; };
+		B7B66DB317C8BB0700352AB1 /* seri3-room2-floating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room2-floating.png"; path = "final/seri3/seri3-room2-floating.png"; sourceTree = "<group>"; };
+		B7B66DB417C8BB0700352AB1 /* seri3-room3-floating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room3-floating.png"; path = "final/seri3/seri3-room3-floating.png"; sourceTree = "<group>"; };
+		B7B66DB517C8BB0700352AB1 /* seri3-room1-floating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri3-room1-floating.png"; path = "final/seri3/seri3-room1-floating.png"; sourceTree = "<group>"; };
+		B7B66DCF17C8C5CD00352AB1 /* seri4-room3-colorbutton5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-room3-colorbutton5.png"; path = "final/seri4/seri4-room3-colorbutton5.png"; sourceTree = "<group>"; };
+		B7B66DD017C8C5CD00352AB1 /* seri4-room3-colorbutton4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-room3-colorbutton4.png"; path = "final/seri4/seri4-room3-colorbutton4.png"; sourceTree = "<group>"; };
+		B7B66DD117C8C5CD00352AB1 /* seri4-room3-colorbutton3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-room3-colorbutton3.png"; path = "final/seri4/seri4-room3-colorbutton3.png"; sourceTree = "<group>"; };
+		B7B66DD217C8C5CD00352AB1 /* seri4-room3-colorbutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-room3-colorbutton2.png"; path = "final/seri4/seri4-room3-colorbutton2.png"; sourceTree = "<group>"; };
+		B7B66DD317C8C5CD00352AB1 /* seri4-room3-colorbutton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-room3-colorbutton1.png"; path = "final/seri4/seri4-room3-colorbutton1.png"; sourceTree = "<group>"; };
+		B7B66DD417C8C5CD00352AB1 /* seri4-room2-colorbutton5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-room2-colorbutton5.png"; path = "final/seri4/seri4-room2-colorbutton5.png"; sourceTree = "<group>"; };
+		B7B66DD517C8C5CD00352AB1 /* seri4-room2-colorbutton4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-room2-colorbutton4.png"; path = "final/seri4/seri4-room2-colorbutton4.png"; sourceTree = "<group>"; };
+		B7B66DD617C8C5CD00352AB1 /* seri4-room2-colorbutton3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-room2-colorbutton3.png"; path = "final/seri4/seri4-room2-colorbutton3.png"; sourceTree = "<group>"; };
+		B7B66DD717C8C5CD00352AB1 /* seri4-room2-colorbutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-room2-colorbutton2.png"; path = "final/seri4/seri4-room2-colorbutton2.png"; sourceTree = "<group>"; };
+		B7B66DD817C8C5CD00352AB1 /* seri4-room2-colorbutton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-room2-colorbutton1.png"; path = "final/seri4/seri4-room2-colorbutton1.png"; sourceTree = "<group>"; };
+		B7B66DD917C8C5CD00352AB1 /* seri4-room1-colorbutton5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-room1-colorbutton5.png"; path = "final/seri4/seri4-room1-colorbutton5.png"; sourceTree = "<group>"; };
+		B7B66DDA17C8C5CD00352AB1 /* seri4-room1-colorbutton4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-room1-colorbutton4.png"; path = "final/seri4/seri4-room1-colorbutton4.png"; sourceTree = "<group>"; };
+		B7B66DDB17C8C5CD00352AB1 /* seri4-room1-colorbutton3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-room1-colorbutton3.png"; path = "final/seri4/seri4-room1-colorbutton3.png"; sourceTree = "<group>"; };
+		B7B66DDC17C8C5CD00352AB1 /* seri4-room1-colorbutton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-room1-colorbutton2.png"; path = "final/seri4/seri4-room1-colorbutton2.png"; sourceTree = "<group>"; };
+		B7B66DDD17C8C5CD00352AB1 /* seri4-room1-colorbutton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-room1-colorbutton1.png"; path = "final/seri4/seri4-room1-colorbutton1.png"; sourceTree = "<group>"; };
+		B7B66DDE17C8C5CD00352AB1 /* seri4-room3-floating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-room3-floating.png"; path = "final/seri4/seri4-room3-floating.png"; sourceTree = "<group>"; };
+		B7B66DDF17C8C5CD00352AB1 /* seri4-room3-wall1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-room3-wall1.png"; path = "final/seri4/seri4-room3-wall1.png"; sourceTree = "<group>"; };
+		B7B66DE017C8C5CD00352AB1 /* seri4-room2-wall2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-room2-wall2.png"; path = "final/seri4/seri4-room2-wall2.png"; sourceTree = "<group>"; };
+		B7B66DE117C8C5CD00352AB1 /* seri4-room2-wall1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-room2-wall1.png"; path = "final/seri4/seri4-room2-wall1.png"; sourceTree = "<group>"; };
+		B7B66DE217C8C5CD00352AB1 /* seri4-room1-wall2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-room1-wall2.png"; path = "final/seri4/seri4-room1-wall2.png"; sourceTree = "<group>"; };
+		B7B66DE317C8C5CD00352AB1 /* seri4-room1-wall1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-room1-wall1.png"; path = "final/seri4/seri4-room1-wall1.png"; sourceTree = "<group>"; };
+		B7B66DE417C8C5CD00352AB1 /* seri4-room1-floating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "seri4-room1-floating.png"; path = "final/seri4/seri4-room1-floating.png"; sourceTree = "<group>"; };
+		B7B66DFB17C8CCC700352AB1 /* appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon.png; sourceTree = "<group>"; };
+		B7B66DFD17C8CDF100352AB1 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -441,17 +583,31 @@
 		B70B9A3A17C3962C0099DF51 /* seri1 */ = {
 			isa = PBXGroup;
 			children = (
+				B7B66D5917C89F3600352AB1 /* seri1-room1-colorbutton5.png */,
+				B7B66D5A17C89F3700352AB1 /* seri1-room1-colorbutton4.png */,
+				B7B66D5B17C89F3800352AB1 /* seri1-room1-colorbutton3.png */,
+				B7B66D5C17C89F3900352AB1 /* seri1-room1-colorbutton2.png */,
+				B7B66D5D17C89F3A00352AB1 /* seri1-room1-colorbutton1.png */,
+				B7B66D5E17C89F3B00352AB1 /* seri1-room2-colorbutton5.png */,
+				B7B66D5F17C89F3C00352AB1 /* seri1-room2-colorbutton4.png */,
+				B7B66D6017C89F3D00352AB1 /* seri1-room2-colorbutton3.png */,
+				B7B66D6117C89F3E00352AB1 /* seri1-room2-colorbutton2.png */,
+				B7B66D6217C89F3F00352AB1 /* seri1-room2-colorbutton1.png */,
+				B7B66D4F17C89B4D00352AB1 /* seri1-room3-colorbutton5.png */,
+				B7B66D5017C89B4E00352AB1 /* seri1-room3-colorbutton4.png */,
+				B7B66D5117C89B4F00352AB1 /* seri1-room3-colorbutton3.png */,
+				B7B66D5217C89B5000352AB1 /* seri1-room3-colorbutton2.png */,
+				B7B66D5317C89B5100352AB1 /* seri1-room3-colorbutton1.png */,
+				B7B66D4B17C89A2100352AB1 /* seri1-room1-wall2.png */,
+				B7B66D4C17C89A2100352AB1 /* seri1-room1-wall1.png */,
+				B7B66D4717C8971400352AB1 /* seri1-room2-wall2.png */,
+				B7B66D4817C8971500352AB1 /* seri1-room2-wall1.png */,
 				B772D14B17C529A500C7AC4C /* seri1-room3-wall2.png */,
 				B772D14C17C529A500C7AC4C /* seri1-room3-wall1.png */,
 				B772D14D17C529A500C7AC4C /* seri1-room3-floating.png */,
 				B70B9A3B17C3964B0099DF51 /* seri1-room2-paint.jpg */,
 				B70B9A3C17C3964B0099DF51 /* seri1-room3-paint.jpg */,
 				B70B9A3D17C3964B0099DF51 /* seri1-room1-paint.jpg */,
-				B70B9A4017C3964B0099DF51 /* seri1-colorbutton5.png */,
-				B70B9A4117C3964B0099DF51 /* seri1-colorbutton4.png */,
-				B70B9A4217C3964B0099DF51 /* seri1-colorbutton3.png */,
-				B70B9A4317C3964B0099DF51 /* seri1-colorbutton2.png */,
-				B70B9A4417C3964B0099DF51 /* seri1-colorbutton1.png */,
 				B70B9A4617C3964B0099DF51 /* seri1-room3-big-back.jpg */,
 				B70B9A4717C3964B0099DF51 /* seri1-room2-big-back.jpg */,
 				B70B9A4817C3964B0099DF51 /* seri1-room1-big-back.jpg */,
@@ -468,18 +624,36 @@
 		B70B9A6817C3BBE40099DF51 /* seri2 */ = {
 			isa = PBXGroup;
 			children = (
-				B70B9A6917C3BC180099DF51 /* seri2-colorbutton5.png */,
-				B70B9A6A17C3BC180099DF51 /* seri2-colorbutton4.png */,
-				B70B9A6B17C3BC180099DF51 /* seri2-colorbutton3.png */,
-				B70B9A6C17C3BC180099DF51 /* seri2-colorbutton2.png */,
-				B70B9A6D17C3BC180099DF51 /* seri2-colorbutton1.png */,
+				B7B66D9317C8AF8C00352AB1 /* seri2-room3-colorbutton5.png */,
+				B7B66D9417C8AF8C00352AB1 /* seri2-room3-colorbutton4.png */,
+				B7B66D9517C8AF8C00352AB1 /* seri2-room3-colorbutton3.png */,
+				B7B66D9617C8AF8C00352AB1 /* seri2-room3-colorbutton2.png */,
+				B7B66D9717C8AF8C00352AB1 /* seri2-room3-colorbutton1.png */,
+				B7B66D6D17C8AD5300352AB1 /* seri2-back.jpg */,
+				B7B66D6E17C8AD5300352AB1 /* seri2-room2-colorbutton5.png */,
+				B7B66D6F17C8AD5300352AB1 /* seri2-room2-colorbutton4.png */,
+				B7B66D7017C8AD5300352AB1 /* seri2-room2-colorbutton3.png */,
+				B7B66D7117C8AD5300352AB1 /* seri2-room2-colorbutton2.png */,
+				B7B66D7217C8AD5300352AB1 /* seri2-room2-colorbutton1.png */,
+				B7B66D7317C8AD5300352AB1 /* seri2-room1-colorbutton5.png */,
+				B7B66D7417C8AD5300352AB1 /* seri2-room1-colorbutton4.png */,
+				B7B66D7517C8AD5300352AB1 /* seri2-room1-colorbutton3.png */,
+				B7B66D7617C8AD5300352AB1 /* seri2-room1-colorbutton2.png */,
+				B7B66D7717C8AD5300352AB1 /* seri2-room1-colorbutton1.png */,
+				B7B66D7817C8AD5300352AB1 /* seri2-room3-wall1.png */,
+				B7B66D7917C8AD5300352AB1 /* seri2-room3-floating.png */,
+				B7B66D7A17C8AD5300352AB1 /* seri2-room2-floating.png */,
+				B7B66D7B17C8AD5300352AB1 /* seri2-room2-wall2.png */,
+				B7B66D7C17C8AD5300352AB1 /* seri2-room2-wall1.png */,
+				B7B66D7D17C8AD5300352AB1 /* seri2-room1-wall2.png */,
+				B7B66D7E17C8AD5300352AB1 /* seri2-room1-wall1.png */,
+				B7B66D7F17C8AD5300352AB1 /* seri2-room1-floating.png */,
 				B70B9A6E17C3BC180099DF51 /* seri2-room3-paint.jpg */,
 				B70B9A6F17C3BC180099DF51 /* seri2-room2-paint.jpg */,
 				B70B9A7017C3BC180099DF51 /* seri2-room1-paint.jpg */,
 				B70B9A7117C3BC180099DF51 /* seri2-room2-big-back.jpg */,
 				B70B9A7217C3BC180099DF51 /* seri2-room1-big-back.jpg */,
 				B70B9A7317C3BC180099DF51 /* seri2-room3-big-back.jpg */,
-				B70B9A7417C3BC180099DF51 /* seri2-back.jpg */,
 				B70B9A7517C3BC180099DF51 /* seri2-room3.jpg */,
 				B70B9A7617C3BC180099DF51 /* seri2-room2.jpg */,
 				B70B9A7717C3BC180099DF51 /* seri2-room1.jpg */,
@@ -492,12 +666,32 @@
 		B70B9A9117C3C88C0099DF51 /* seri3 */ = {
 			isa = PBXGroup;
 			children = (
+				B7B66D9D17C8BB0700352AB1 /* seri3-room3-colorbutton5.png */,
+				B7B66D9E17C8BB0700352AB1 /* seri3-room3-colorbutton4.png */,
+				B7B66D9F17C8BB0700352AB1 /* seri3-room3-colorbutton3.png */,
+				B7B66DA017C8BB0700352AB1 /* seri3-room3-colorbutton2.png */,
+				B7B66DA117C8BB0700352AB1 /* seri3-room3-colorbutton1.png */,
+				B7B66DA217C8BB0700352AB1 /* seri3-room2-colorbutton5.png */,
+				B7B66DA317C8BB0700352AB1 /* seri3-room2-colorbutton4.png */,
+				B7B66DA417C8BB0700352AB1 /* seri3-room2-colorbutton3.png */,
+				B7B66DA517C8BB0700352AB1 /* seri3-room2-colorbutton2.png */,
+				B7B66DA617C8BB0700352AB1 /* seri3-room2-colorbutton1.png */,
+				B7B66DA717C8BB0700352AB1 /* seri3-room1-colorbutton5.png */,
+				B7B66DA817C8BB0700352AB1 /* seri3-room1-colorbutton4.png */,
+				B7B66DA917C8BB0700352AB1 /* seri3-room1-colorbutton3.png */,
+				B7B66DAA17C8BB0700352AB1 /* seri3-room1-colorbutton2.png */,
+				B7B66DAB17C8BB0700352AB1 /* seri3-room1-colorbutton1.png */,
+				B7B66DAC17C8BB0700352AB1 /* seri3-room3-wall3.png */,
+				B7B66DAD17C8BB0700352AB1 /* seri3-room3-wall2.png */,
+				B7B66DAE17C8BB0700352AB1 /* seri3-room3-wall1.png */,
+				B7B66DAF17C8BB0700352AB1 /* seri3-room2-wall1.png */,
+				B7B66DB017C8BB0700352AB1 /* seri3-room2-wall2.png */,
+				B7B66DB117C8BB0700352AB1 /* seri3-room1-wall2.png */,
+				B7B66DB217C8BB0700352AB1 /* seri3-room1-wall1.png */,
+				B7B66DB317C8BB0700352AB1 /* seri3-room2-floating.png */,
+				B7B66DB417C8BB0700352AB1 /* seri3-room3-floating.png */,
+				B7B66DB517C8BB0700352AB1 /* seri3-room1-floating.png */,
 				B70B9A9317C3C8BE0099DF51 /* seri3-back.jpg */,
-				B70B9A9417C3C8BE0099DF51 /* seri3-colorbutton5.png */,
-				B70B9A9517C3C8BE0099DF51 /* seri3-colorbutton4.png */,
-				B70B9A9617C3C8BE0099DF51 /* seri3-colorbutton3.png */,
-				B70B9A9717C3C8BE0099DF51 /* seri3-colorbutton2.png */,
-				B70B9A9817C3C8BE0099DF51 /* seri3-colorbutton1.png */,
 				B70B9A9917C3C8BE0099DF51 /* seri3-room3-paint.jpg */,
 				B70B9A9A17C3C8BE0099DF51 /* seri3-room2-paint.jpg */,
 				B70B9A9B17C3C8BE0099DF51 /* seri3-room1-paint.jpg */,
@@ -516,11 +710,28 @@
 		B70B9A9217C3C89A0099DF51 /* seri4 */ = {
 			isa = PBXGroup;
 			children = (
-				B70B9AB517C3C8D20099DF51 /* seri4-colorbutton5.png */,
-				B70B9AB617C3C8D20099DF51 /* seri4-colorbutton4.png */,
-				B70B9AB717C3C8D20099DF51 /* seri4-colorbutton3.png */,
-				B70B9AB817C3C8D20099DF51 /* seri4-colorbutton2.png */,
-				B70B9AB917C3C8D20099DF51 /* seri4-colorbutton1.png */,
+				B7B66DCF17C8C5CD00352AB1 /* seri4-room3-colorbutton5.png */,
+				B7B66DD017C8C5CD00352AB1 /* seri4-room3-colorbutton4.png */,
+				B7B66DD117C8C5CD00352AB1 /* seri4-room3-colorbutton3.png */,
+				B7B66DD217C8C5CD00352AB1 /* seri4-room3-colorbutton2.png */,
+				B7B66DD317C8C5CD00352AB1 /* seri4-room3-colorbutton1.png */,
+				B7B66DD417C8C5CD00352AB1 /* seri4-room2-colorbutton5.png */,
+				B7B66DD517C8C5CD00352AB1 /* seri4-room2-colorbutton4.png */,
+				B7B66DD617C8C5CD00352AB1 /* seri4-room2-colorbutton3.png */,
+				B7B66DD717C8C5CD00352AB1 /* seri4-room2-colorbutton2.png */,
+				B7B66DD817C8C5CD00352AB1 /* seri4-room2-colorbutton1.png */,
+				B7B66DD917C8C5CD00352AB1 /* seri4-room1-colorbutton5.png */,
+				B7B66DDA17C8C5CD00352AB1 /* seri4-room1-colorbutton4.png */,
+				B7B66DDB17C8C5CD00352AB1 /* seri4-room1-colorbutton3.png */,
+				B7B66DDC17C8C5CD00352AB1 /* seri4-room1-colorbutton2.png */,
+				B7B66DDD17C8C5CD00352AB1 /* seri4-room1-colorbutton1.png */,
+				B7B66DDE17C8C5CD00352AB1 /* seri4-room3-floating.png */,
+				B7B66DDF17C8C5CD00352AB1 /* seri4-room3-wall1.png */,
+				B7B66DE017C8C5CD00352AB1 /* seri4-room2-wall2.png */,
+				B7B66DE117C8C5CD00352AB1 /* seri4-room2-wall1.png */,
+				B7B66DE217C8C5CD00352AB1 /* seri4-room1-wall2.png */,
+				B7B66DE317C8C5CD00352AB1 /* seri4-room1-wall1.png */,
+				B7B66DE417C8C5CD00352AB1 /* seri4-room1-floating.png */,
 				B70B9ABA17C3C8D20099DF51 /* seri4-room3-paint.jpg */,
 				B70B9ABB17C3C8D20099DF51 /* seri4-room2-paint.jpg */,
 				B70B9ABC17C3C8D20099DF51 /* seri4-room1-paint.jpg */,
@@ -693,6 +904,8 @@
 		B7B1221917B13A3A00A6A1D4 = {
 			isa = PBXGroup;
 			children = (
+				B7B66DFD17C8CDF100352AB1 /* Default-Landscape~ipad.png */,
+				B7B66DFB17C8CCC700352AB1 /* appicon.png */,
 				B7B1222B17B13A3A00A6A1D4 /* Dulux */,
 				B7B1222417B13A3A00A6A1D4 /* Frameworks */,
 				B7B1222317B13A3A00A6A1D4 /* Products */,
@@ -882,11 +1095,6 @@
 				B70B9A4F17C3964B0099DF51 /* seri1-room2-paint.jpg in Resources */,
 				B70B9A5017C3964B0099DF51 /* seri1-room3-paint.jpg in Resources */,
 				B70B9A5117C3964B0099DF51 /* seri1-room1-paint.jpg in Resources */,
-				B70B9A5417C3964B0099DF51 /* seri1-colorbutton5.png in Resources */,
-				B70B9A5517C3964B0099DF51 /* seri1-colorbutton4.png in Resources */,
-				B70B9A5617C3964B0099DF51 /* seri1-colorbutton3.png in Resources */,
-				B70B9A5717C3964B0099DF51 /* seri1-colorbutton2.png in Resources */,
-				B70B9A5817C3964B0099DF51 /* seri1-colorbutton1.png in Resources */,
 				B70B9A5A17C3964B0099DF51 /* seri1-room3-big-back.jpg in Resources */,
 				B70B9A5B17C3964B0099DF51 /* seri1-room2-big-back.jpg in Resources */,
 				B70B9A5C17C3964B0099DF51 /* seri1-room1-big-back.jpg in Resources */,
@@ -897,18 +1105,12 @@
 				B70B9A6117C3964B0099DF51 /* seri1-kv.jpg in Resources */,
 				B70B9A6217C3964B0099DF51 /* seri1-flash.jpg in Resources */,
 				B70B9A6417C3965B0099DF51 /* pushcolorbuttonhinttext.png in Resources */,
-				B70B9A7A17C3BC180099DF51 /* seri2-colorbutton5.png in Resources */,
-				B70B9A7B17C3BC190099DF51 /* seri2-colorbutton4.png in Resources */,
-				B70B9A7C17C3BC190099DF51 /* seri2-colorbutton3.png in Resources */,
-				B70B9A7D17C3BC190099DF51 /* seri2-colorbutton2.png in Resources */,
-				B70B9A7E17C3BC190099DF51 /* seri2-colorbutton1.png in Resources */,
 				B70B9A7F17C3BC190099DF51 /* seri2-room3-paint.jpg in Resources */,
 				B70B9A8017C3BC190099DF51 /* seri2-room2-paint.jpg in Resources */,
 				B70B9A8117C3BC190099DF51 /* seri2-room1-paint.jpg in Resources */,
 				B70B9A8217C3BC190099DF51 /* seri2-room2-big-back.jpg in Resources */,
 				B70B9A8317C3BC190099DF51 /* seri2-room1-big-back.jpg in Resources */,
 				B70B9A8417C3BC190099DF51 /* seri2-room3-big-back.jpg in Resources */,
-				B70B9A8517C3BC190099DF51 /* seri2-back.jpg in Resources */,
 				B70B9A8617C3BC190099DF51 /* seri2-room3.jpg in Resources */,
 				B70B9A8717C3BC190099DF51 /* seri2-room2.jpg in Resources */,
 				B70B9A8817C3BC190099DF51 /* seri2-room1.jpg in Resources */,
@@ -918,11 +1120,6 @@
 				B70B9A8F17C3BD170099DF51 /* shareweibo.png in Resources */,
 				B70B9A9017C3BD170099DF51 /* centerbutton.png in Resources */,
 				B70B9AA417C3C8BE0099DF51 /* seri3-back.jpg in Resources */,
-				B70B9AA517C3C8BE0099DF51 /* seri3-colorbutton5.png in Resources */,
-				B70B9AA617C3C8BE0099DF51 /* seri3-colorbutton4.png in Resources */,
-				B70B9AA717C3C8BE0099DF51 /* seri3-colorbutton3.png in Resources */,
-				B70B9AA817C3C8BE0099DF51 /* seri3-colorbutton2.png in Resources */,
-				B70B9AA917C3C8BE0099DF51 /* seri3-colorbutton1.png in Resources */,
 				B70B9AAA17C3C8BE0099DF51 /* seri3-room3-paint.jpg in Resources */,
 				B70B9AAB17C3C8BE0099DF51 /* seri3-room2-paint.jpg in Resources */,
 				B70B9AAC17C3C8BE0099DF51 /* seri3-room1-paint.jpg in Resources */,
@@ -934,11 +1131,6 @@
 				B70B9AB217C3C8BE0099DF51 /* seri3-room1.jpg in Resources */,
 				B70B9AB317C3C8BE0099DF51 /* seri3-kv.jpg in Resources */,
 				B70B9AB417C3C8BE0099DF51 /* seri3-flash.jpg in Resources */,
-				B70B9AC617C3C8D20099DF51 /* seri4-colorbutton5.png in Resources */,
-				B70B9AC717C3C8D20099DF51 /* seri4-colorbutton4.png in Resources */,
-				B70B9AC817C3C8D20099DF51 /* seri4-colorbutton3.png in Resources */,
-				B70B9AC917C3C8D20099DF51 /* seri4-colorbutton2.png in Resources */,
-				B70B9ACA17C3C8D20099DF51 /* seri4-colorbutton1.png in Resources */,
 				B70B9ACB17C3C8D20099DF51 /* seri4-room3-paint.jpg in Resources */,
 				B70B9ACC17C3C8D20099DF51 /* seri4-room2-paint.jpg in Resources */,
 				B70B9ACD17C3C8D20099DF51 /* seri4-room1-paint.jpg in Resources */,
@@ -961,6 +1153,98 @@
 				B776AAC617C6619900840E2A /* paint-tool-small.png in Resources */,
 				B776AAC817C6619900840E2A /* newduluxicon.png in Resources */,
 				B776AACA17C682F800840E2A /* paint-tool-small-body.png in Resources */,
+				B7B66D4917C8971600352AB1 /* seri1-room2-wall2.png in Resources */,
+				B7B66D4A17C8971600352AB1 /* seri1-room2-wall1.png in Resources */,
+				B7B66D4D17C89A2200352AB1 /* seri1-room1-wall2.png in Resources */,
+				B7B66D4E17C89A2200352AB1 /* seri1-room1-wall1.png in Resources */,
+				B7B66D5417C89B5200352AB1 /* seri1-room3-colorbutton5.png in Resources */,
+				B7B66D5517C89B5200352AB1 /* seri1-room3-colorbutton4.png in Resources */,
+				B7B66D5617C89B5200352AB1 /* seri1-room3-colorbutton3.png in Resources */,
+				B7B66D5717C89B5200352AB1 /* seri1-room3-colorbutton2.png in Resources */,
+				B7B66D5817C89B5200352AB1 /* seri1-room3-colorbutton1.png in Resources */,
+				B7B66D6317C89F3F00352AB1 /* seri1-room1-colorbutton5.png in Resources */,
+				B7B66D6417C89F3F00352AB1 /* seri1-room1-colorbutton4.png in Resources */,
+				B7B66D6517C89F3F00352AB1 /* seri1-room1-colorbutton3.png in Resources */,
+				B7B66D6617C89F3F00352AB1 /* seri1-room1-colorbutton2.png in Resources */,
+				B7B66D6717C89F3F00352AB1 /* seri1-room1-colorbutton1.png in Resources */,
+				B7B66D6817C89F3F00352AB1 /* seri1-room2-colorbutton5.png in Resources */,
+				B7B66D6917C89F3F00352AB1 /* seri1-room2-colorbutton4.png in Resources */,
+				B7B66D6A17C89F3F00352AB1 /* seri1-room2-colorbutton3.png in Resources */,
+				B7B66D6B17C89F3F00352AB1 /* seri1-room2-colorbutton2.png in Resources */,
+				B7B66D6C17C89F3F00352AB1 /* seri1-room2-colorbutton1.png in Resources */,
+				B7B66D8017C8AD5300352AB1 /* seri2-back.jpg in Resources */,
+				B7B66D8117C8AD5300352AB1 /* seri2-room2-colorbutton5.png in Resources */,
+				B7B66D8217C8AD5300352AB1 /* seri2-room2-colorbutton4.png in Resources */,
+				B7B66D8317C8AD5300352AB1 /* seri2-room2-colorbutton3.png in Resources */,
+				B7B66D8417C8AD5300352AB1 /* seri2-room2-colorbutton2.png in Resources */,
+				B7B66D8517C8AD5300352AB1 /* seri2-room2-colorbutton1.png in Resources */,
+				B7B66D8617C8AD5300352AB1 /* seri2-room1-colorbutton5.png in Resources */,
+				B7B66D8717C8AD5300352AB1 /* seri2-room1-colorbutton4.png in Resources */,
+				B7B66D8817C8AD5300352AB1 /* seri2-room1-colorbutton3.png in Resources */,
+				B7B66D8917C8AD5300352AB1 /* seri2-room1-colorbutton2.png in Resources */,
+				B7B66D8A17C8AD5300352AB1 /* seri2-room1-colorbutton1.png in Resources */,
+				B7B66D8B17C8AD5300352AB1 /* seri2-room3-wall1.png in Resources */,
+				B7B66D8C17C8AD5300352AB1 /* seri2-room3-floating.png in Resources */,
+				B7B66D8D17C8AD5300352AB1 /* seri2-room2-floating.png in Resources */,
+				B7B66D8E17C8AD5300352AB1 /* seri2-room2-wall2.png in Resources */,
+				B7B66D8F17C8AD5300352AB1 /* seri2-room2-wall1.png in Resources */,
+				B7B66D9017C8AD5300352AB1 /* seri2-room1-wall2.png in Resources */,
+				B7B66D9117C8AD5300352AB1 /* seri2-room1-wall1.png in Resources */,
+				B7B66D9217C8AD5300352AB1 /* seri2-room1-floating.png in Resources */,
+				B7B66D9817C8AF8C00352AB1 /* seri2-room3-colorbutton5.png in Resources */,
+				B7B66D9917C8AF8C00352AB1 /* seri2-room3-colorbutton4.png in Resources */,
+				B7B66D9A17C8AF8C00352AB1 /* seri2-room3-colorbutton3.png in Resources */,
+				B7B66D9B17C8AF8C00352AB1 /* seri2-room3-colorbutton2.png in Resources */,
+				B7B66D9C17C8AF8C00352AB1 /* seri2-room3-colorbutton1.png in Resources */,
+				B7B66DB617C8BB0700352AB1 /* seri3-room3-colorbutton5.png in Resources */,
+				B7B66DB717C8BB0700352AB1 /* seri3-room3-colorbutton4.png in Resources */,
+				B7B66DB817C8BB0700352AB1 /* seri3-room3-colorbutton3.png in Resources */,
+				B7B66DB917C8BB0700352AB1 /* seri3-room3-colorbutton2.png in Resources */,
+				B7B66DBA17C8BB0700352AB1 /* seri3-room3-colorbutton1.png in Resources */,
+				B7B66DBB17C8BB0700352AB1 /* seri3-room2-colorbutton5.png in Resources */,
+				B7B66DBC17C8BB0700352AB1 /* seri3-room2-colorbutton4.png in Resources */,
+				B7B66DBD17C8BB0700352AB1 /* seri3-room2-colorbutton3.png in Resources */,
+				B7B66DBE17C8BB0700352AB1 /* seri3-room2-colorbutton2.png in Resources */,
+				B7B66DBF17C8BB0700352AB1 /* seri3-room2-colorbutton1.png in Resources */,
+				B7B66DC017C8BB0700352AB1 /* seri3-room1-colorbutton5.png in Resources */,
+				B7B66DC117C8BB0700352AB1 /* seri3-room1-colorbutton4.png in Resources */,
+				B7B66DC217C8BB0700352AB1 /* seri3-room1-colorbutton3.png in Resources */,
+				B7B66DC317C8BB0700352AB1 /* seri3-room1-colorbutton2.png in Resources */,
+				B7B66DC417C8BB0700352AB1 /* seri3-room1-colorbutton1.png in Resources */,
+				B7B66DC517C8BB0700352AB1 /* seri3-room3-wall3.png in Resources */,
+				B7B66DC617C8BB0700352AB1 /* seri3-room3-wall2.png in Resources */,
+				B7B66DC717C8BB0700352AB1 /* seri3-room3-wall1.png in Resources */,
+				B7B66DC817C8BB0700352AB1 /* seri3-room2-wall1.png in Resources */,
+				B7B66DC917C8BB0700352AB1 /* seri3-room2-wall2.png in Resources */,
+				B7B66DCA17C8BB0700352AB1 /* seri3-room1-wall2.png in Resources */,
+				B7B66DCB17C8BB0700352AB1 /* seri3-room1-wall1.png in Resources */,
+				B7B66DCC17C8BB0700352AB1 /* seri3-room2-floating.png in Resources */,
+				B7B66DCD17C8BB0700352AB1 /* seri3-room3-floating.png in Resources */,
+				B7B66DCE17C8BB0700352AB1 /* seri3-room1-floating.png in Resources */,
+				B7B66DE517C8C5CD00352AB1 /* seri4-room3-colorbutton5.png in Resources */,
+				B7B66DE617C8C5CD00352AB1 /* seri4-room3-colorbutton4.png in Resources */,
+				B7B66DE717C8C5CD00352AB1 /* seri4-room3-colorbutton3.png in Resources */,
+				B7B66DE817C8C5CD00352AB1 /* seri4-room3-colorbutton2.png in Resources */,
+				B7B66DE917C8C5CD00352AB1 /* seri4-room3-colorbutton1.png in Resources */,
+				B7B66DEA17C8C5CD00352AB1 /* seri4-room2-colorbutton5.png in Resources */,
+				B7B66DEB17C8C5CD00352AB1 /* seri4-room2-colorbutton4.png in Resources */,
+				B7B66DEC17C8C5CD00352AB1 /* seri4-room2-colorbutton3.png in Resources */,
+				B7B66DED17C8C5CD00352AB1 /* seri4-room2-colorbutton2.png in Resources */,
+				B7B66DEE17C8C5CD00352AB1 /* seri4-room2-colorbutton1.png in Resources */,
+				B7B66DEF17C8C5CD00352AB1 /* seri4-room1-colorbutton5.png in Resources */,
+				B7B66DF017C8C5CD00352AB1 /* seri4-room1-colorbutton4.png in Resources */,
+				B7B66DF117C8C5CD00352AB1 /* seri4-room1-colorbutton3.png in Resources */,
+				B7B66DF217C8C5CD00352AB1 /* seri4-room1-colorbutton2.png in Resources */,
+				B7B66DF317C8C5CD00352AB1 /* seri4-room1-colorbutton1.png in Resources */,
+				B7B66DF417C8C5CD00352AB1 /* seri4-room3-floating.png in Resources */,
+				B7B66DF517C8C5CD00352AB1 /* seri4-room3-wall1.png in Resources */,
+				B7B66DF617C8C5CD00352AB1 /* seri4-room2-wall2.png in Resources */,
+				B7B66DF717C8C5CD00352AB1 /* seri4-room2-wall1.png in Resources */,
+				B7B66DF817C8C5CD00352AB1 /* seri4-room1-wall2.png in Resources */,
+				B7B66DF917C8C5CD00352AB1 /* seri4-room1-wall1.png in Resources */,
+				B7B66DFA17C8C5CD00352AB1 /* seri4-room1-floating.png in Resources */,
+				B7B66DFC17C8CCC800352AB1 /* appicon.png in Resources */,
+				B7B66DFE17C8CDF200352AB1 /* Default-Landscape~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

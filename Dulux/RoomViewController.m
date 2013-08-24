@@ -157,8 +157,13 @@ typedef enum
     
     NSString* flating_pic = [NSString stringWithFormat:@"seri%d-room%d-floating.png", self.seriIndex+1, self.roomIndex+1];
     UIImage* floating_image = [UIImage imageNamed:flating_pic];
-    m_floating_image_view = [[UIImageView alloc] initWithImage:floating_image];
-    [self.view addSubview:m_floating_image_view];
+    m_floating_image_view = nil;
+    if (floating_image)
+    {
+        m_floating_image_view = [[UIImageView alloc] initWithImage:floating_image];
+        [self.view addSubview:m_floating_image_view];
+    }
+    
     
     
     
@@ -191,7 +196,7 @@ typedef enum
     int color_button_num = 5;
     for (int i=0; i<color_button_num; i++)
     {
-        NSString* color_button_pic = [NSString stringWithFormat:@"seri%d-colorbutton%d.png", self.seriIndex+1, i+1];
+        NSString* color_button_pic = [NSString stringWithFormat:@"seri%d-room%d-colorbutton%d.png", self.seriIndex+1, self.roomIndex+1, i+1];
         UIImage* color_button_image = [UIImage imageNamed:color_button_pic];
         /*UIButton* color_button = [[UIButton alloc] init];
         [color_button setImage:color_button_image forState:UIControlStateNormal];
