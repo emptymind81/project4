@@ -38,63 +38,64 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
     NSString* back_pic = [NSString stringWithFormat:@"seri%d-back.jpg", self.seriIndex+1];
     UIImage* image = [UIImage imageNamed:back_pic];
     /*NSString* back_pic = @"whitewall.png";
-    image = [image imageWithGradientTintColor:[UIColor orangeColor]];*/
-   m_icon_image_view = [[UIImageView alloc] initWithImage:image];
-   
+     image = [image imageWithGradientTintColor:[UIColor orangeColor]];*/
+    m_icon_image_view = [[UIImageView alloc] initWithImage:image];
+    
     NSString* room1_pic = [NSString stringWithFormat:@"seri%d-room%d.jpg", self.seriIndex+1, 1];
     NSString* room2_pic = [NSString stringWithFormat:@"seri%d-room%d.jpg", self.seriIndex+1, 2];
     NSString* room3_pic = [NSString stringWithFormat:@"seri%d-room%d.jpg", self.seriIndex+1, 3];
-   m_image_view1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:room1_pic]];
-   m_image_view2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:room2_pic]];
-   m_image_view3 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:room3_pic]];
+    m_image_view1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:room1_pic]];
+    m_image_view2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:room2_pic]];
+    m_image_view3 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:room3_pic]];
     
-   // m_image_view2.highlightedImage = [UIImage imageNamed:@"door102open.png"];
-   
-   m_image_views = [[NSMutableArray alloc] initWithObjects:m_icon_image_view, m_image_view1, m_image_view2, m_image_view3, nil];
-   for (int i=0; i<m_image_views.count; i++)
-   {
-      UIImageView* view = m_image_views[i];
-      [self.view addSubview:view];
-      view.translatesAutoresizingMaskIntoConstraints = false;
-      view.contentMode = UIViewContentModeScaleToFill;
-      view.userInteractionEnabled = true;
-       
-       UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
-       [view addGestureRecognizer:singleTap];
-   }
+    // m_image_view2.highlightedImage = [UIImage imageNamed:@"door102open.png"];
     
-   //constraints for icon:
-   [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:m_icon_image_view another:self.view attr:NSLayoutAttributeCenterX anotherAttr:NSLayoutAttributeCenterX]];
-   [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:m_icon_image_view another:self.view attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeTop offset:0]];
-   
-   //constraints for doors:
-   [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:m_image_view1 another:m_image_view2 attr:NSLayoutAttributeWidth]];
-   [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:m_image_view1 another:m_image_view2 attr:NSLayoutAttributeHeight]];
-   [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:m_image_view1 another:m_image_view3 attr:NSLayoutAttributeWidth]];
-   [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:m_image_view1 another:m_image_view3 attr:NSLayoutAttributeHeight]];
-   [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:m_image_view1 another:m_image_view2 attr:NSLayoutAttributeBottom]];
-   [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:m_image_view1 another:m_image_view3 attr:NSLayoutAttributeBottom]];
-   [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:m_image_view2 another:m_image_view1 attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeRight offset:0]];
-   [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:m_image_view3 another:m_image_view2 attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeRight offset:0]];
-   
-   [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:m_image_view1 another:m_icon_image_view attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeTop offset:300]];
-   [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:m_image_view2 another:self.view attr:NSLayoutAttributeCenterX anotherAttr:NSLayoutAttributeCenterX]];
-   //[self.view addConstraint:[AutoLayoutHelper viewEqualsToNumber:m_image_view1 number:100 attr:NSLayoutAttributeWidth]];
-   //[self.view addConstraint:[AutoLayoutHelper viewEqualsToNumber:m_image_view2 number:100 attr:NSLayoutAttributeHeight]];
-
-   
-   for (int i=0; i<m_image_views.count; i++)
-   {
-      NSLayoutConstraint* constraint = [[NSLayoutConstraint alloc] init];
-   }
-
-   [self initNavigateButtons];
-
-
+    m_image_views = [[NSMutableArray alloc] initWithObjects:m_icon_image_view, m_image_view1, m_image_view2, m_image_view3, nil];
+    for (int i=0; i<m_image_views.count; i++)
+    {
+        UIImageView* view = m_image_views[i];
+        [self.view addSubview:view];
+        view.translatesAutoresizingMaskIntoConstraints = false;
+        view.contentMode = UIViewContentModeScaleToFill;
+        view.userInteractionEnabled = true;
+    }
+    
+    //constraints for icon:
+    [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:m_icon_image_view another:self.view attr:NSLayoutAttributeCenterX anotherAttr:NSLayoutAttributeCenterX]];
+    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:m_icon_image_view another:self.view attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeTop offset:0]];
+    
+    //constraints for doors:
+    [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:m_image_view1 another:m_image_view2 attr:NSLayoutAttributeWidth]];
+    [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:m_image_view1 another:m_image_view2 attr:NSLayoutAttributeHeight]];
+    [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:m_image_view1 another:m_image_view3 attr:NSLayoutAttributeWidth]];
+    [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:m_image_view1 another:m_image_view3 attr:NSLayoutAttributeHeight]];
+    [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:m_image_view1 another:m_image_view2 attr:NSLayoutAttributeBottom]];
+    [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:m_image_view1 another:m_image_view3 attr:NSLayoutAttributeBottom]];
+    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:m_image_view2 another:m_image_view1 attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeRight offset:0]];
+    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:m_image_view3 another:m_image_view2 attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeRight offset:0]];
+    
+    [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:m_image_view1 another:m_icon_image_view attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeTop offset:300]];
+    [self.view addConstraint:[AutoLayoutHelper viewEqualsToAnother:m_image_view2 another:self.view attr:NSLayoutAttributeCenterX anotherAttr:NSLayoutAttributeCenterX]];
+    //[self.view addConstraint:[AutoLayoutHelper viewEqualsToNumber:m_image_view1 number:100 attr:NSLayoutAttributeWidth]];
+    //[self.view addConstraint:[AutoLayoutHelper viewEqualsToNumber:m_image_view2 number:100 attr:NSLayoutAttributeHeight]];
+    
+    
+    for (int i=0; i<m_image_views.count; i++)
+    {
+        NSLayoutConstraint* constraint = [[NSLayoutConstraint alloc] init];
+    }
+    
+    [self initNavigateButtons];
+    [self addRecognizers];
 }
 
 - (void)didReceiveMemoryWarning
@@ -119,6 +120,55 @@
 
 }
 
+- (void) addRecognizers
+{
+    for (int i=0; i<m_image_views.count; i++)
+    {
+        UIImageView* view = m_image_views[i];
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+        [view addGestureRecognizer:singleTap];
+    }
+}
+
+- (void) clearRecognizers
+{
+    for (int i=0; i<m_image_views.count; i++)
+    {
+        UIImageView* view = m_image_views[i];
+        for (int i=0; i<view.gestureRecognizers.count; i++)
+        {
+            UIGestureRecognizer* recognizer = view.gestureRecognizers[i];
+            [view removeGestureRecognizer:recognizer];
+        }
+    }
+}
+
+- (void) disableRecognizers
+{
+    for (int i=0; i<m_image_views.count; i++)
+    {
+        UIImageView* view = m_image_views[i];
+        for (int i=0; i<view.gestureRecognizers.count; i++)
+        {
+            UIGestureRecognizer* recognizer = view.gestureRecognizers[i];
+            recognizer.enabled = false;
+        }
+    }
+}
+
+- (void) enableRecognizers
+{
+    for (int i=0; i<m_image_views.count; i++)
+    {
+        UIImageView* view = m_image_views[i];
+        for (int i=0; i<view.gestureRecognizers.count; i++)
+        {
+            UIGestureRecognizer* recognizer = view.gestureRecognizers[i];
+            recognizer.enabled = false;
+        }
+    }
+}
+
 - (void)handleTap:(UITapGestureRecognizer *)tapRecognizer {
     
     for (int i=1; i<m_image_views.count; i++)
@@ -126,6 +176,9 @@
         UIImageView* view = m_image_views[i];
         if (view == tapRecognizer.view)
         {
+            NSLog(@"tap in doors.....");
+            [self clearRecognizers];
+            
             [UIView animateWithDuration:0.1
                              animations:^{
                                  //m_image_view2.alpha = 0.2;
@@ -138,7 +191,6 @@
                              }];
         }
     }
-
 }
 
 - (void) initNavigateButtons

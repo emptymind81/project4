@@ -16,6 +16,9 @@
 #import "UIView+Common.h"
 #import "AGCustomFriendsViewController.h"
 
+#import "WeiboSDK.h"
+#import "Weibo.h"
+
 #define IMAGE_WIDTH 80.0
 #define IMAGE_HEIGHT 80.0
 #define IMAGE_LANDSCAPE_WIDTH 50.0
@@ -38,13 +41,17 @@
 #define AT_BUTTON_PADDING_LEFT 9
 #define AT_BUTTON_PADDING_BOTTOM 6
 #define AT_BUTTON_WIDTH 34
-#define AT_BUTTON_HEIGHT 29
+#define AT_BUTTON_HEIGHT 0
 #define AT_BUTTON_HORIZONTAL_GAP 9.0
 
 #define WORD_COUNT_LABEL_PADDING_RIGHT 10
 #define WORD_COUNT_LABEL_PADDING_BOTTOM 19
 
 @implementation AGCustomShareViewController
+{
+    
+    UIAlertView* m_alert_view;
+}
 
 -(int) width
 {
@@ -216,7 +223,7 @@
     _atTipsLabel.frame = CGRectMake(_atButton.right + AT_BUTTON_HORIZONTAL_GAP,
                                     _atButton.top + (_atButton.height - _atTipsLabel.height) / 2,
                                     _atTipsLabel.width,
-                                    _atTipsLabel.height);
+                                    AT_BUTTON_HEIGHT/*_atTipsLabel.height*/);
     [self.view addSubview:_atTipsLabel];
     
     //字数
@@ -519,8 +526,142 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+-(void) showShareStatus:(NSString*)status
+{
+    //对话框的创建和定时器的初始化
+    m_alert_view = [[UIAlertView alloc] initWithTitle:@"" message:status delegate:nil cancelButtonTitle:nil otherButtonTitles:nil, nil];
+    [m_alert_view show];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(onTimer) userInfo:nil repeats:NO];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+}
+
+//timer的执行事件
+- (void)onTimer
+{
+    [m_alert_view dismissWithClickedButtonIndex:0 animated:NO];  //退出对话框
+}
+
+-(void) showShareStatusWithIndicator:(NSString*)status
+{
+    m_alert_view = [[UIAlertView alloc] initWithTitle:nil
+                                                    message:status
+                                                   delegate:nil
+                                          cancelButtonTitle:nil 
+                                          otherButtonTitles:nil];
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    
+    // Adjust the indicator so it is up a few pixels from the bottom of the alert
+    
+    
+    [m_alert_view show];
+    
+    indicator.center = CGPointMake(m_alert_view.bounds.size.width/2,  m_alert_view.bounds.size.height-40);
+    [indicator startAnimating];
+    [m_alert_view addSubview:indicator];
+}
+
+-(void) dismissAlert:(NSTimer *)timer{
+    
+    NSLog(@"release timer");
+    //NSLog([[timer userInfo]  objectForKey:@"key"]);
+    
+    //UIAlertView *alert = [[timer userInfo]  objectForKey:@"alert"];
+    [m_alert_view dismissWithClickedButtonIndex:0 animated:YES];
+    
+    //定时器停止使用：
+    [timer invalidate];
+    timer = nil;
+}
+
+- (void) publishByWeiboSDKWithText:(NSString*)text andImage:(UIImage*)image
+{
+    //[self showShareStatusWithIndicator:@"ttt"];
+    //return;
+    static Weibo* m_weibo = nil;
+    if (m_weibo == nil) {
+        m_weibo = [[Weibo alloc] initWithAppKey:@"568898243" withAppSecret:@"38a4f8204cc784f81f9f0daaf31e02e3"];
+    }
+    
+    [Weibo setWeibo:m_weibo];
+    // Override point for customization after application launch.
+    
+    
+    
+    if (![Weibo.weibo isAuthenticated]) {
+        
+        [Weibo.weibo authorizeWithCompleted:^(WeiboAccount *account, NSError *error) {
+            if (!error) {
+                NSLog(@"Sign in successful: %@", account.user.screenName);
+                
+                [self showShareStatusWithIndicator:@"正在发布"];
+                
+                NSData *img = UIImagePNGRepresentation(image);
+                [m_weibo newStatus:text pic:img completed:^(Status *status, NSError *error) {
+                    if (error) {
+                        NSLog(@"failed to upload:%@", error);
+                        
+                        m_alert_view.message = @"发布微博失败";
+                        [NSTimer scheduledTimerWithTimeInterval:1.0f
+                                                         target:self
+                                                       selector:@selector(dismissAlert:)
+                                                       userInfo:[NSDictionary dictionaryWithObjectsAndKeys:m_alert_view, @"alert", @"testing ", @"key" ,nil]  //如果不用传递参数，那么可以将此项设置为nil.
+                                                        repeats:NO];
+                    }
+                    else {
+                        StatusImage *statusImage = [status.images objectAtIndex:0];
+                        NSLog(@"success: %lld.%@.%@", status.statusId, status.text, statusImage.originalImageUrl);
+                        
+                        m_alert_view.message = @"发布微博成功";
+                        [NSTimer scheduledTimerWithTimeInterval:1.0f
+                                                         target:self
+                                                       selector:@selector(dismissAlert:)
+                                                       userInfo:[NSDictionary dictionaryWithObjectsAndKeys:m_alert_view, @"alert", @"testing ", @"key" ,nil]  //如果不用传递参数，那么可以将此项设置为nil.
+                                                        repeats:NO];
+                    }
+                    
+                    if (m_weibo.isAuthenticated) {
+                        [m_weibo signOut];
+                    }
+                }];
+            }
+            else {
+                NSLog(@"Failed to sign in: %@", error);
+            }
+        }];
+    }
+    
+    if (m_weibo.isAuthenticated) {
+        NSLog(@"current user: %@", m_weibo.currentAccount.user.name);
+        /*
+         [weibo newStatus:@"test weibo" pic:nil completed:^(Status *status, NSError *error) {
+         if (error) {
+         NSLog(@"failed to post:%@", error);
+         }
+         else {
+         NSLog(@"success: %lld.%@", status.statusId, status.text);
+         }
+         }];
+         
+         NSData *img = UIImagePNGRepresentation([UIImage imageNamed:@"Icon"]);
+         [weibo newStatus:@"test weibo with image" pic:img completed:^(Status *status, NSError *error) {
+         if (error) {
+         NSLog(@"failed to upload:%@", error);
+         }
+         else {
+         StatusImage *statusImage = [status.images objectAtIndex:0];
+         NSLog(@"success: %lld.%@.%@", status.statusId, status.text, statusImage.originalImageUrl);
+         }
+         }];
+         */
+    }
+}
+
 - (void)publishButtonClickHandler:(id)sender
 {
+    [self dismissModalViewControllerAnimated:YES];
+    [self publishByWeiboSDKWithText:_textView.text andImage:_picImageView.image];
+    return;
+    
     /*NSArray *selectedClients = [_toolbar selectedClients];
     if ([selectedClients count] == 0)
     {

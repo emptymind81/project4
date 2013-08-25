@@ -27,13 +27,6 @@
 	
     //self.view.backgroundColor = [UIColor blueColor];
     
-    m_image_views = [[NSMutableArray alloc] initWithObjects:self.imageView1, self.imageView2, self.imageView3, self.imageView4, nil];
-    for (int i=0; i<m_image_views.count; i++)
-    {
-        UIImageView* view = m_image_views[i];
-        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
-        [view addGestureRecognizer:singleTap];
-    }
     
     [self removeFlashAndKV];
 }
@@ -57,6 +50,9 @@
       button.alpha = 0.0;
       button.frame = CGRectMake(0, 0,100, 20);
    }];*/
+    
+    [self clearRecognizers];
+    [self addRecognizers];
    
     [self removeFlashAndKV];
 }
@@ -71,6 +67,58 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void) addRecognizers
+{
+    m_image_views = [[NSMutableArray alloc] initWithObjects:self.imageView1, self.imageView2, self.imageView3, self.imageView4, nil];
+    for (int i=0; i<m_image_views.count; i++)
+    {
+        UIImageView* view = m_image_views[i];
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+        [view addGestureRecognizer:singleTap];
+    }
+}
+
+- (void) clearRecognizers
+{
+    for (int i=0; i<m_image_views.count; i++)
+    {
+        UIImageView* view = m_image_views[i];
+        for (int i=0; i<view.gestureRecognizers.count; i++)
+        {
+            UIGestureRecognizer* recognizer = view.gestureRecognizers[i];
+            [view removeGestureRecognizer:recognizer];
+        }
+    }
+    
+}
+
+- (void) disableRecognizers
+{
+    for (int i=0; i<m_image_views.count; i++)
+    {
+        UIImageView* view = m_image_views[i];
+        for (int i=0; i<view.gestureRecognizers.count; i++)
+        {
+            UIGestureRecognizer* recognizer = view.gestureRecognizers[i];
+            recognizer.enabled = false;
+        }
+    }
+}
+
+- (void) enableRecognizers
+{
+    for (int i=0; i<m_image_views.count; i++)
+    {
+        UIImageView* view = m_image_views[i];
+        for (int i=0; i<view.gestureRecognizers.count; i++)
+        {
+            UIGestureRecognizer* recognizer = view.gestureRecognizers[i];
+            recognizer.enabled = false;
+        }
+    }
+}
+
 
 - (void) removeFlashAndKV
 {
@@ -144,6 +192,9 @@
         UIImageView* view = m_image_views[i];
         if (view == tapRecognizer.view)
         {
+            NSLog(@"tap .....");
+            [self clearRecognizers];
+            
             NSString* flash_image_name = [NSString stringWithFormat:@"%@%d-flash.jpg", @"seri", i+1];
             [self switchToFlash:i flashImageName:flash_image_name];
         }

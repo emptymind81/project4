@@ -21,7 +21,10 @@
 #import "UIImage+ColorAtPixel.h"
 #import "UIImage+Tint.h"
 #import "UIImage+Alpha.h"
-//#import "AGCustomShareViewController.h"
+#import "AGCustomShareViewController.h"
+
+#import "WeiboSDK.h"
+#import "Weibo.h"
 
 @interface RoomViewController ()
 
@@ -218,7 +221,7 @@ typedef enum
     UIImage* share_button_image = [UIImage imageNamed:share_button_pic];
     UIButton* share_button = [[UIButton alloc] init];
     [share_button setImage:share_button_image forState:UIControlStateNormal];
-    [share_button addTarget:self action:@selector(shareToSinaWeibo:) forControlEvents:UIControlEventTouchUpInside];
+    [share_button addTarget:self action:@selector(shareToSinaWeiboWithCustomUI:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:share_button];
     
     NSString* dulux_icon_pic = @"newduluxicon.png";
@@ -816,7 +819,67 @@ typedef enum
     [m_alert_view dismissWithClickedButtonIndex:0 animated:NO];  //退出对话框
 }
 
-/*
+- (void) ShareToSinaWeiboWithOther:(id)sender
+{
+    Weibo *weibo = [[Weibo alloc] initWithAppKey:@"568898243" withAppSecret:@"38a4f8204cc784f81f9f0daaf31e02e3"];
+    
+    [Weibo setWeibo:weibo];
+    // Override point for customization after application launch.
+    
+    if (weibo.isAuthenticated) {
+        [weibo signOut];
+    }
+    
+    if (![Weibo.weibo isAuthenticated]) {
+        
+        [Weibo.weibo authorizeWithCompleted:^(WeiboAccount *account, NSError *error) {
+            if (!error) {
+                NSLog(@"Sign in successful: %@", account.user.screenName);
+                
+                NSData *img = UIImagePNGRepresentation([UIImage imageNamed:@"final-seri1.jpg"]);
+                [weibo newStatus:@"test weibo with image" pic:img completed:^(Status *status, NSError *error) {
+                    if (error) {
+                        NSLog(@"failed to upload:%@", error);
+                    }
+                    else {
+                        StatusImage *statusImage = [status.images objectAtIndex:0];
+                        NSLog(@"success: %lld.%@.%@", status.statusId, status.text, statusImage.originalImageUrl);
+                    }
+                }];
+            }
+            else {
+                NSLog(@"Failed to sign in: %@", error);
+            }
+        }];
+    }
+    
+    if (weibo.isAuthenticated) {
+        NSLog(@"current user: %@", weibo.currentAccount.user.name);
+        /*
+         [weibo newStatus:@"test weibo" pic:nil completed:^(Status *status, NSError *error) {
+         if (error) {
+         NSLog(@"failed to post:%@", error);
+         }
+         else {
+         NSLog(@"success: %lld.%@", status.statusId, status.text);
+         }
+         }];
+         
+         NSData *img = UIImagePNGRepresentation([UIImage imageNamed:@"Icon"]);
+         [weibo newStatus:@"test weibo with image" pic:img completed:^(Status *status, NSError *error) {
+         if (error) {
+         NSLog(@"failed to upload:%@", error);
+         }
+         else {
+         StatusImage *statusImage = [status.images objectAtIndex:0];
+         NSLog(@"success: %lld.%@.%@", status.statusId, status.text, statusImage.originalImageUrl);
+         }
+         }];
+         */
+    }
+}
+
+
 - (void)shareToSinaWeiboWithCustomUI:(id)sender
 {
     NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"final-seri1" ofType:@"jpg"];
@@ -831,7 +894,7 @@ typedef enum
     //[self presentModalViewController:naVC animated:YES];
     
     [self presentViewController:naVC animated:true completion:nil];
-}*/
+}
 
 - (void) shareToSinaWeibo:(id)sender
 {
@@ -889,13 +952,13 @@ typedef enum
                                if (state == SSPublishContentStateSuccess)
                                {
                                   NSLog(@"分享微博成功");
-                                   [ShareSDK cancelAuthWithType:ShareTypeSinaWeibo];
+                                   //[ShareSDK cancelAuthWithType:ShareTypeSinaWeibo];
                                    [self showShareStatus:@"分享微博成功"];
                                }
                                else if (state == SSPublishContentStateFail)
                                {
                                   NSLog(@"分享微博失败!error code == %d, error code == %@", [error errorCode], [error errorDescription]);
-                                   [ShareSDK cancelAuthWithType:ShareTypeSinaWeibo];
+                                   //[ShareSDK cancelAuthWithType:ShareTypeSinaWeibo];
                                    [self showShareStatus:@"分享微博失败"];
                                }
                             }];
