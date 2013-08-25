@@ -20,7 +20,7 @@
     CMImageLoader *_loader;
     
     UIActivityIndicatorView *_indicatorView;
-    CMImageView *_iconImageView;
+    UIImageView *_iconImageView;
     
     UIImageView *_vipImageView;
     UIImageView *_sexImageView;
@@ -30,6 +30,9 @@
     
     BOOL _needLayout;
 }
+
+@property (readonly) int width;
+@property (readonly) int height;
 
 /**
  *	@brief	用户信息

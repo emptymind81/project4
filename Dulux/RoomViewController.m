@@ -21,6 +21,7 @@
 #import "UIImage+ColorAtPixel.h"
 #import "UIImage+Tint.h"
 #import "UIImage+Alpha.h"
+//#import "AGCustomShareViewController.h"
 
 @interface RoomViewController ()
 
@@ -57,6 +58,8 @@ typedef enum
    
    UIImageView* m_paint_tool_view;
    NSMutableArray* m_paint_tool_view_opaque_pts;
+    
+    UIAlertView* m_alert_view;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -331,8 +334,8 @@ typedef enum
     
    m_paint_tool_view.frame = dragView.frame;
    //m_paint_tool_view.frame = CGRectMake(dragView.frame.origin.x, dragView.frame.origin.y-40, dragView.frame.size.width/2, dragView.frame.size.height/2);
-   m_paint_tool_view.layer.borderColor = [UIColor blackColor].CGColor;
-   m_paint_tool_view.layer.borderWidth = 1;
+   //m_paint_tool_view.layer.borderColor = [UIColor blackColor].CGColor;
+   //m_paint_tool_view.layer.borderWidth = 1;
     [self.view addSubview:m_paint_tool_view];
    
    [self disableRecognizers];
@@ -798,14 +801,49 @@ typedef enum
     return array;*/
 }
 
+-(void) showShareStatus:(NSString*)status
+{
+    //对话框的创建和定时器的初始化
+    m_alert_view = [[UIAlertView alloc] initWithTitle:@"" message:status delegate:nil cancelButtonTitle:nil otherButtonTitles:nil, nil];
+    [m_alert_view show];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(onTimer) userInfo:nil repeats:NO];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+}
+
+//timer的执行事件
+- (void)onTimer
+{
+    [m_alert_view dismissWithClickedButtonIndex:0 animated:NO];  //退出对话框
+}
+
+/*
+- (void)shareToSinaWeiboWithCustomUI:(id)sender
+{
+    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"final-seri1" ofType:@"jpg"];
+    id<ISSCAttachment> share_image_attachment = [ShareSDK imageWithPath:imagePath];
+    UIImage* share_image = [self getFinalImage];
+
+    
+    AGCustomShareViewController *vc = [[AGCustomShareViewController alloc] initWithImage:share_image content:@"多乐士臻彩时尚旅程"];
+    UINavigationController *naVC = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    naVC.modalPresentationStyle = UIModalPresentationFormSheet;
+    //[self presentModalViewController:naVC animated:YES];
+    
+    [self presentViewController:naVC animated:true completion:nil];
+}*/
+
 - (void) shareToSinaWeibo:(id)sender
 {
+    //[self showShareStatus:@"分享微博成功"];
+    //return;
+    
    //创建分享内容
    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"final-seri1" ofType:@"jpg"];
     id<ISSCAttachment> share_image_attachment = [ShareSDK imageWithPath:imagePath];
     UIImage* share_image = [self getFinalImage];
     share_image_attachment = [ShareSDK jpegImageWithImage:share_image quality:1.0];
-   id<ISSContent> publishContent = [ShareSDK content:@"test1"
+   id<ISSContent> publishContent = [ShareSDK content:@"多乐士臻彩时尚旅程"
                                       defaultContent:@""
                                                image:share_image_attachment
                                                title:nil
@@ -846,13 +884,19 @@ typedef enum
                                                       friendsViewDelegate:m_app_delegate.viewDelegate
                                                     picViewerViewDelegate:nil]
                             result:^(ShareType type, SSPublishContentState state, id<ISSStatusInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+                                
+                                
                                if (state == SSPublishContentStateSuccess)
                                {
-                                  NSLog(@"发表成功");
+                                  NSLog(@"分享微博成功");
+                                   [ShareSDK cancelAuthWithType:ShareTypeSinaWeibo];
+                                   [self showShareStatus:@"分享微博成功"];
                                }
                                else if (state == SSPublishContentStateFail)
                                {
-                                  NSLog(@"发布失败!error code == %d, error code == %@", [error errorCode], [error errorDescription]);
+                                  NSLog(@"分享微博失败!error code == %d, error code == %@", [error errorCode], [error errorDescription]);
+                                   [ShareSDK cancelAuthWithType:ShareTypeSinaWeibo];
+                                   [self showShareStatus:@"分享微博失败"];
                                }
                             }];
 }

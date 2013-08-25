@@ -18,4 +18,8 @@
     UILabel *_label;
 }
 
+
+@property (readonly) int width;
+@property (readonly) int height;
+
 @end

@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 //#import <AGCommon/CMImageView.h>
 //#import <ShareSDK/ShareSDK.h>
-#import "AGCustomShareViewToolbar.h"
+//#import "AGCustomShareViewToolbar.h"
 
-@class AGAppDelegate;
+@class AppDelegate;
 
 /**
  *	@brief	自定义分享视图控制器
@@ -21,7 +21,7 @@
 @private
     UITextView *_textView;
     UIImageView *_picImageView;
-    AGCustomShareViewToolbar *_toolbar;
+    //AGCustomShareViewToolbar *_toolbar;
     UIButton *_atButton;
     UIImageView *_contentBG;
     UIImageView *_toolbarBG;
@@ -33,8 +33,11 @@
     UIImage *_image;
     NSString *_content;
     CGFloat _keyboardHeight;
-    AGAppDelegate *_appDelegate;
+    AppDelegate *_appDelegate;
 }
+
+@property (readonly) int width;
+@property (readonly) int height;
 
 /**
  *	@brief	初始化视图控制器

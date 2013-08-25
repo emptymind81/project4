@@ -26,6 +26,10 @@
     id _completeHandler;
 }
 
+
+@property (readonly) int width;
+@property (readonly) int height;
+
 /**
  *	@brief	初始化工具栏
  *

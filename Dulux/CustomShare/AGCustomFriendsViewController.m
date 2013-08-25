@@ -12,7 +12,8 @@
 #import <AGCommon/UINavigationBar+Common.h>
 #import "AGCustomUserInfoCell.h"
 #import "AGCustomMoreCell.h"
-#import "AGAppDelegate.h"
+#import "AppDelegate.h"
+#import "UIView+Common.h"
 
 #define USER_CELL_ID @"userCell"
 #define MORE_CELL_ID @"moreCell"
@@ -21,19 +22,28 @@
 
 @implementation AGCustomFriendsViewController
 
+-(int) width
+{
+    return self.view.frame.size.width;
+}
+-(int) height
+{
+    return self.view.frame.size.height;
+}
+
 - (id)initWithShareType:(ShareType)shareType changeHandler:(void(^)(NSArray *users, ShareType shareType))changeHandler
 {
     self = [super init];
     if (self)
     {
-        _appDelegate = (AGAppDelegate *)[UIApplication sharedApplication].delegate;
+        _appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
         _shareType = shareType;
         _changeHandler = [changeHandler copy];
         _imageCacheManager = [[CMImageCacheManager alloc] init];
         _friendsArray = [[NSMutableArray alloc] init];
         _selectedArray = [[NSMutableArray alloc] init];
         
-        UIButton *leftBtn = [[[UIButton alloc] init] autorelease];
+        UIButton *leftBtn = [[UIButton alloc] init];
         [leftBtn setBackgroundImage:[UIImage imageNamed:@"NavigationButtonBG.png"]
                            forState:UIControlStateNormal];
         [leftBtn setTitle:@"返回" forState:UIControlStateNormal];
@@ -41,7 +51,7 @@
         leftBtn.frame = CGRectMake(0.0, 0.0, 53.0, 30.0);
         [leftBtn addTarget:self action:@selector(backButtonClickHandler:) forControlEvents:UIControlEventTouchUpInside];
         
-        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:leftBtn] autorelease];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
         
         if ([UIDevice currentDevice].isPad)
         {
@@ -51,7 +61,6 @@
             label.shadowColor = [UIColor grayColor];
             label.font = [UIFont systemFontOfSize:22];
             self.navigationItem.titleView = label;
-            [label release];
         }
         
         switch (shareType)
@@ -74,18 +83,13 @@
 
 - (void)dealloc
 {
-    SAFE_RELEASE(_friendsArray);
-    SAFE_RELEASE(_selectedArray);
-    SAFE_RELEASE(_imageCacheManager);
-    SAFE_RELEASE(_changeHandler);
     
     _tableView.delegate = nil;
     _tableView.dataSource = nil;
     _tableView = nil;
     
     _refreshHeaderView = nil;
-    
-    [super dealloc];
+
 }
 
 - (void)setTitle:(NSString *)title
@@ -104,27 +108,29 @@
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     self.view.backgroundColor = [UIColor whiteColor];
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.width, self.view.height - TOOLBAR_HEIGHT + 6) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.width, self.height - TOOLBAR_HEIGHT + 6) style:UITableViewStylePlain];
     _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _tableView.dataSource = self;
     _tableView.delegate = self;
     _tableView.rowHeight = 62;
     [self.view addSubview:_tableView];
-    [_tableView release];
+    
+    CGRect temp = _tableView.frame;
     
     //下拉刷新
     _refreshHeaderView = [[CMRefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f,
                                                                                     0.0f - _tableView.bounds.size.height,
-                                                                                    self.view.width,
+                                                                                    self.width,
                                                                                     _tableView.bounds.size.height)
                                                               arrowImage:[UIImage imageNamed:@"BlueArrow.png"]
                                                                textColor:nil];
     _refreshHeaderView.delegate = self;
     [_tableView addSubview:_refreshHeaderView];
     [_refreshHeaderView refreshLastUpdatedDate];
-    [_refreshHeaderView release];
     
-    _toolbar = [[AGCustomFriendListViewToolbar alloc] initWithFrame:CGRectMake(0.0, self.view.height - TOOLBAR_HEIGHT + 6, self.view.width, TOOLBAR_HEIGHT)
+    temp = _refreshHeaderView.frame;
+    
+    _toolbar = [[AGCustomFriendListViewToolbar alloc] initWithFrame:CGRectMake(0.0, self.height - TOOLBAR_HEIGHT + 6, self.width, TOOLBAR_HEIGHT)
                                                       selectedArray:_selectedArray
                                                   imageCacheManager:_imageCacheManager
                                                           shareType:_shareType
@@ -144,7 +150,8 @@
                                                     }];
     _toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     [self.view addSubview:_toolbar];
-    [_toolbar release];
+    
+    temp = _toolbar.frame;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -205,13 +212,6 @@
                                                               viewDelegate:nil
                                                    authManagerViewDelegate:_appDelegate.viewDelegate];
         
-        //在授权页面中添加关注官方微博
-        [authOptions setFollowAccounts:[NSDictionary dictionaryWithObjectsAndKeys:
-                                        [ShareSDK userFieldWithType:SSUserFieldTypeName value:@"ShareSDK"],
-                                        SHARE_TYPE_NUMBER(ShareTypeSinaWeibo),
-                                        [ShareSDK userFieldWithType:SSUserFieldTypeName value:@"ShareSDK"],
-                                        SHARE_TYPE_NUMBER(ShareTypeTencentWeibo),
-                                        nil]];
         
         [ShareSDK getFriendsWithType:_shareType
                                 page:page
@@ -253,14 +253,6 @@
                                                              authViewStyle:SSAuthViewStyleFullScreenPopup
                                                               viewDelegate:nil
                                                    authManagerViewDelegate:_appDelegate.viewDelegate];
-        
-        //在授权页面中添加关注官方微博
-        [authOptions setFollowAccounts:[NSDictionary dictionaryWithObjectsAndKeys:
-                                        [ShareSDK userFieldWithType:SSUserFieldTypeName value:@"ShareSDK"],
-                                        SHARE_TYPE_NUMBER(ShareTypeSinaWeibo),
-                                        [ShareSDK userFieldWithType:SSUserFieldTypeName value:@"ShareSDK"],
-                                        SHARE_TYPE_NUMBER(ShareTypeTencentWeibo),
-                                        nil]];
         
         [ShareSDK getUserInfoWithType:_shareType
                           authOptions:authOptions
@@ -481,6 +473,8 @@
         btn.frame = CGRectMake(btn.left, btn.top, 55.0, 32.0);
         [btn setBackgroundImage:[UIImage imageNamed:@"NavigationButtonBG.png"]
                        forState:UIControlStateNormal];
+        
+        CGRect temp = btn.frame;
     }
 }
 
@@ -512,9 +506,8 @@
         cell = [tableView dequeueReusableCellWithIdentifier:MORE_CELL_ID];
         if (cell == nil)
         {
-            cell = [[[AGCustomMoreCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                            reuseIdentifier:MORE_CELL_ID]
-                    autorelease];
+            cell = [[AGCustomMoreCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                            reuseIdentifier:MORE_CELL_ID];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
     }
@@ -523,11 +516,10 @@
         cell = [tableView dequeueReusableCellWithIdentifier:USER_CELL_ID];
         if (cell == nil)
         {
-            cell = [[[AGCustomUserInfoCell alloc] initWithStyle:UITableViewCellStyleDefault
+            cell = [[AGCustomUserInfoCell alloc] initWithStyle:UITableViewCellStyleDefault
                                                 reuseIdentifier:USER_CELL_ID
                                               imageCacheManager:_imageCacheManager
-                                                      shareType:_shareType]
-                    autorelease];
+                                                      shareType:_shareType];
         }
         
         if (indexPath.row < [_friendsArray count])
@@ -563,7 +555,6 @@
         {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"最多可以@20个好友" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
             [alertView show];
-            [alertView release];
             
             return;
         }

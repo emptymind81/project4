@@ -7,19 +7,21 @@
 //
 
 #import "AGCustomShareViewController.h"
-#import "AGCustomAtPlatListViewController.h"
+//#import "AGCustomAtPlatListViewController.h"
 #import <AGCommon/UIImage+Common.h>
 #import <AGCommon/UIDevice+Common.h>
 #import <AGCommon/UINavigationBar+Common.h>
 #import <AGCommon/UIColor+Common.h>
-#import "AGAppDelegate.h"
+#import "AppDelegate.h"
+#import "UIView+Common.h"
+#import "AGCustomFriendsViewController.h"
 
 #define IMAGE_WIDTH 80.0
 #define IMAGE_HEIGHT 80.0
 #define IMAGE_LANDSCAPE_WIDTH 50.0
 #define IMAGE_LANDSCAPE_HEIGHT 50.0
 
-#define TOOLBAR_HEIGHT 40
+#define TOOLBAR_HEIGHT 0
 
 #define PADDING_LEFT 1.0
 #define PADDING_TOP 1.0
@@ -44,15 +46,24 @@
 
 @implementation AGCustomShareViewController
 
+-(int) width
+{
+    return self.view.frame.size.width;
+}
+-(int) height
+{
+    return self.view.frame.size.height;
+}
+
 - (id)initWithImage:(UIImage *)image
             content:(NSString *)content
 {
     self = [self init];
     if (self)
     {
-        _appDelegate = (AGAppDelegate *)[UIApplication sharedApplication].delegate;
-        _image = [image retain];
-        _content = [content copy];
+        _appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        _image = image;
+        _content = content;
     }
     return self;
 }
@@ -62,7 +73,9 @@
     self = [super init];
     if (self)
     {
-        UIButton *leftBtn = [[[UIButton alloc] init] autorelease];
+        //self.view.backgroundColor = [UIColor whiteColor];
+        
+        UIButton *leftBtn = [[UIButton alloc] init];
         [leftBtn setBackgroundImage:[UIImage imageNamed:@"NavigationButtonBG.png"]
                            forState:UIControlStateNormal];
         [leftBtn setTitle:@"取消" forState:UIControlStateNormal];
@@ -70,17 +83,17 @@
         leftBtn.frame = CGRectMake(0.0, 0.0, 53.0, 30.0);
         [leftBtn addTarget:self action:@selector(cancelButtonClickHandler:) forControlEvents:UIControlEventTouchUpInside];
         
-        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:leftBtn] autorelease];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
         
-        UIButton *rightBtn = [[[UIButton alloc] init] autorelease];
+        UIButton *rightBtn = [[UIButton alloc] init];
         [rightBtn setBackgroundImage:[UIImage imageNamed:@"NavigationButtonBG.png"]
-                           forState:UIControlStateNormal];
+                            forState:UIControlStateNormal];
         [rightBtn setTitle:@"发布" forState:UIControlStateNormal];
         rightBtn.titleLabel.font = [UIFont systemFontOfSize:13];
         rightBtn.frame = CGRectMake(0.0, 0.0, 53.0, 30.0);
         [rightBtn addTarget:self action:@selector(publishButtonClickHandler:) forControlEvents:UIControlEventTouchUpInside];
-
-        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:rightBtn] autorelease];
+        
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
         
         if ([UIDevice currentDevice].isPad)
         {
@@ -90,7 +103,6 @@
             label.shadowColor = [UIColor grayColor];
             label.font = [UIFont systemFontOfSize:22];
             self.navigationItem.titleView = label;
-            [label release];
         }
         
         self.title = @"内容分享";
@@ -102,14 +114,9 @@
 {
     _picImageView = nil;
     _textView = nil;
-    _toolbar = nil;
-    
-    SAFE_RELEASE(_image);
-    SAFE_RELEASE(_content);
+    //_toolbar = nil;
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
-    [super dealloc];
 }
 
 - (void)setTitle:(NSString *)title
@@ -137,35 +144,31 @@
                                                object:nil];
     
     _contentBG = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"SharePanelBG.png"] stretchableImageWithLeftCapWidth:12 topCapHeight:11]];
-    _contentBG.frame = CGRectMake(PADDING_LEFT, PADDING_TOP, self.view.width - PADDING_LEFT - PADDING_RIGHT, self.view.height - TOOLBAR_HEIGHT - VERTICAL_GAP - PADDING_BOTTOM);
+    _contentBG.frame = CGRectMake(PADDING_LEFT, PADDING_TOP, self.width - PADDING_LEFT - PADDING_RIGHT, self.height - TOOLBAR_HEIGHT - VERTICAL_GAP - PADDING_BOTTOM);
     _contentBG.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:_contentBG];
-    [_contentBG release];
+    CGRect temp = _contentBG.frame;
     
     _toolbarBG = [[UIImageView alloc] initWithImage:nil];
-    _toolbarBG.frame = CGRectMake(PADDING_LEFT + 1, _contentBG.bottom + VERTICAL_GAP, self.view.width - PADDING_LEFT - PADDING_RIGHT - 2, TOOLBAR_HEIGHT);
+    _toolbarBG.frame = CGRectMake(PADDING_LEFT + 1, _contentBG.bottom + VERTICAL_GAP, self.width - PADDING_LEFT - PADDING_RIGHT - 2, TOOLBAR_HEIGHT);
     _toolbarBG.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     [self.view addSubview:_toolbarBG];
-    [_toolbarBG release];
 	
     //图片
     _picBG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ShareImageBG.png"]];
-    _picBG.frame = CGRectMake(self.view.width - IMAGE_PADDING_RIGHT - _picBG.width, IMAGE_PADDING_TOP, _picBG.width, _picBG.height);
+    _picBG.frame = CGRectMake(self.width - IMAGE_PADDING_RIGHT - _picBG.width, IMAGE_PADDING_TOP, _picBG.width, _picBG.height);
     _picBG.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
     [self.view addSubview:_picBG];
-    [_picBG release];
     
     _picImageView = [[UIImageView alloc] initWithFrame:CGRectMake(_picBG.left + 3, _picBG.top + 3, _picBG.width - 6, _picBG.height - 6)];
     _picImageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
     _picImageView.image = _image;
     [self.view addSubview:_picImageView];
-    [_picImageView release];
     
     _pinImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SharePin.png"]];
-    _pinImageView.frame = CGRectMake(self.view.width - _pinImageView.width, PIN_PADDING_TOP, _pinImageView.width, _pinImageView.height);
+    _pinImageView.frame = CGRectMake(self.width - _pinImageView.width, PIN_PADDING_TOP, _pinImageView.width, _pinImageView.height);
     _pinImageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
     [self.view addSubview:_pinImageView];
-    [_pinImageView release];
     
     //文本框
     _textView = [[UITextView alloc] initWithFrame:CGRectMake(PADDING_LEFT,
@@ -178,7 +181,6 @@
     _textView.delegate = self;
     _textView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:_textView];
-    [_textView release];
     
     if (!_image)
     {
@@ -192,10 +194,10 @@
     }
     
     //工具栏
-    _toolbar = [[AGCustomShareViewToolbar alloc] initWithFrame:CGRectMake(_toolbarBG.left + 2, _toolbarBG.top, _toolbarBG.width - 4, _toolbarBG.height)];
+    /*_toolbar = [[AGCustomShareViewToolbar alloc] initWithFrame:CGRectMake(_toolbarBG.left + 2, _toolbarBG.top, _toolbarBG.width - 4, _toolbarBG.height)];
     _toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     [self.view addSubview:_toolbar];
-    [_toolbar release];
+    */
     
     _atButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [_atButton setBackgroundImage:[UIImage imageNamed:@"atButton.png"] forState:UIControlStateNormal];
@@ -216,7 +218,6 @@
                                     _atTipsLabel.width,
                                     _atTipsLabel.height);
     [self.view addSubview:_atTipsLabel];
-    [_atTipsLabel release];
     
     //字数
     _wordCountLabel = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -231,7 +232,6 @@
                                        _wordCountLabel.width,
                                        _wordCountLabel.height);
     [self.view addSubview:_wordCountLabel];
-    [_wordCountLabel release];
     
     [self updateWordCount];
     [_textView becomeFirstResponder];
@@ -281,11 +281,11 @@
         
         _contentBG.frame = CGRectMake(PADDING_LEFT,
                                       PADDING_TOP,
-                                      self.view.width - PADDING_LEFT - PADDING_RIGHT,
-                                      self.view.height - TOOLBAR_HEIGHT - VERTICAL_GAP - PADDING_BOTTOM - _keyboardHeight);
+                                      self.width - PADDING_LEFT - PADDING_RIGHT,
+                                      self.height - TOOLBAR_HEIGHT - VERTICAL_GAP - PADDING_BOTTOM - _keyboardHeight);
         _toolbarBG.frame = CGRectMake(PADDING_LEFT + 1,
                                       _contentBG.bottom + VERTICAL_GAP,
-                                      self.view.width - PADDING_LEFT - PADDING_RIGHT - 2,
+                                      self.width - PADDING_LEFT - PADDING_RIGHT - 2,
                                       TOOLBAR_HEIGHT);
         
         _textView.frame = CGRectMake(PADDING_LEFT,
@@ -293,7 +293,7 @@
                                      _picBG.left - HORIZONTAL_GAP - PADDING_LEFT,
                                      _contentBG.bottom - AT_BUTTON_PADDING_BOTTOM - AT_BUTTON_HEIGHT - VERTICAL_GAP - 1);
         
-        _toolbar.frame = CGRectMake(_toolbarBG.left + 2, _toolbarBG.top, _toolbarBG.width - 4, _toolbarBG.height);
+        //_toolbar.frame = CGRectMake(_toolbarBG.left + 2, _toolbarBG.top, _toolbarBG.width - 4, _toolbarBG.height);
         
         _atButton.frame = CGRectMake(_contentBG.left + AT_BUTTON_PADDING_LEFT, _contentBG.bottom - AT_BUTTON_PADDING_BOTTOM - AT_BUTTON_HEIGHT, AT_BUTTON_WIDTH, AT_BUTTON_HEIGHT);
         _atTipsLabel.frame = CGRectMake(_atButton.right + AT_BUTTON_HORIZONTAL_GAP,
@@ -325,8 +325,8 @@
             
             _contentBG.frame = CGRectMake(PADDING_LEFT,
                                           PADDING_TOP,
-                                          self.view.width - PADDING_LEFT - PADDING_RIGHT,
-                                          self.view.height - PADDING_BOTTOM - _keyboardHeight);
+                                          self.width - PADDING_LEFT - PADDING_RIGHT,
+                                          self.height - PADDING_BOTTOM - _keyboardHeight);
             
             if (_image)
             {
@@ -344,7 +344,7 @@
             }
             
             _atButton.frame = CGRectMake(_contentBG.left + AT_BUTTON_PADDING_LEFT, _contentBG.bottom - AT_BUTTON_PADDING_BOTTOM - AT_BUTTON_HEIGHT, AT_BUTTON_WIDTH, AT_BUTTON_HEIGHT);
-            _toolbar.frame = CGRectMake(_atButton.right + HORIZONTAL_GAP, _contentBG.bottom - TOOLBAR_HEIGHT,_picBG.left - _atButton.right - 2 *HORIZONTAL_GAP, TOOLBAR_HEIGHT);
+            //_toolbar.frame = CGRectMake(_atButton.right + HORIZONTAL_GAP, _contentBG.bottom - TOOLBAR_HEIGHT,_picBG.left - _atButton.right - 2 *HORIZONTAL_GAP, TOOLBAR_HEIGHT);
         }
         else
         {
@@ -354,11 +354,11 @@
             
             _contentBG.frame = CGRectMake(PADDING_LEFT,
                                           PADDING_TOP,
-                                          self.view.width - PADDING_LEFT - PADDING_RIGHT,
-                                          self.view.height - TOOLBAR_HEIGHT - VERTICAL_GAP - PADDING_BOTTOM - _keyboardHeight);
+                                          self.width - PADDING_LEFT - PADDING_RIGHT,
+                                          self.height - TOOLBAR_HEIGHT - VERTICAL_GAP - PADDING_BOTTOM - _keyboardHeight);
             _toolbarBG.frame = CGRectMake(PADDING_LEFT + 1,
                                           _contentBG.bottom + VERTICAL_GAP,
-                                          self.view.width - PADDING_LEFT - PADDING_RIGHT - 2,
+                                          self.width - PADDING_LEFT - PADDING_RIGHT - 2,
                                           TOOLBAR_HEIGHT);
             
             if (_image)
@@ -376,7 +376,7 @@
                                              _contentBG.bottom - AT_BUTTON_PADDING_BOTTOM - AT_BUTTON_HEIGHT - VERTICAL_GAP - 1);
             }
             
-            _toolbar.frame = CGRectMake(_toolbarBG.left + 2, _toolbarBG.top, _toolbarBG.width - 4, _toolbarBG.height);
+            //_toolbar.frame = CGRectMake(_toolbarBG.left + 2, _toolbarBG.top, _toolbarBG.width - 4, _toolbarBG.height);
             
             _atButton.frame = CGRectMake(_contentBG.left + AT_BUTTON_PADDING_LEFT, _contentBG.bottom - AT_BUTTON_PADDING_BOTTOM - AT_BUTTON_HEIGHT, AT_BUTTON_WIDTH, AT_BUTTON_HEIGHT);
             _atTipsLabel.frame = CGRectMake(_atButton.right + AT_BUTTON_HORIZONTAL_GAP,
@@ -393,8 +393,7 @@
     {
         UIButton *btn = (UIButton *)self.navigationItem.leftBarButtonItem.customView;
         btn.frame = CGRectMake(btn.left, btn.top, 55.0, 32.0);
-        [btn setBackgroundImage:[UIImage imageNamed:@"NavigationButtonBG.png"
-                                         bundleName:BUNDLE_NAME]
+        [btn setBackgroundImage:[UIImage imageNamed:@"NavigationButtonBG.png"]
                        forState:UIControlStateNormal];
     }
 }
@@ -436,7 +435,42 @@
 
 - (void)addbuttonClickHandler:(id)sender
 {
-    AGCustomAtPlatListViewController *vc = [[[AGCustomAtPlatListViewController alloc] initWithChangeHandler:^(NSArray *users, ShareType shareType) {
+    AGCustomFriendsViewController *vc = [[AGCustomFriendsViewController alloc] initWithShareType:ShareTypeSinaWeibo changeHandler:^(NSArray *users, ShareType shareType) {
+        
+        NSMutableString *usersString = [NSMutableString string];
+        for (int i = 0; i < [users count]; i++)
+        {
+            NSDictionary *userInfo = [users objectAtIndex:i];
+            switch (shareType)
+            {
+                case ShareTypeTwitter:
+                {
+                    [usersString appendFormat:@" @%@ ", [userInfo objectForKey:@"screen_name"]];
+                    break;
+                }
+                case ShareTypeTencentWeibo:
+                {
+                    [usersString appendFormat:@" @%@ ", [userInfo objectForKey:@"name"]];
+                    break;
+                }
+                default:
+                {
+                    [usersString appendFormat:@" @%@ ", [userInfo objectForKey:@"screen_name"]];
+                    break;
+                }
+            }
+        }
+        
+        _textView.text = [_textView.text stringByAppendingString:usersString];
+        [self updateWordCount];
+        
+        [_textView performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:0.1];
+    }
+    ];
+                                         
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    /*AGCustomAtPlatListViewController *vc = [[[AGCustomAtPlatListViewController alloc] initWithChangeHandler:^(NSArray *users, ShareType shareType) {
         NSMutableString *usersString = [NSMutableString string];
         for (int i = 0; i < [users count]; i++)
         {
@@ -477,7 +511,7 @@
         navVC.modalPresentationStyle = UIModalPresentationFormSheet;
     }
     
-    [self presentModalViewController:navVC animated:YES];
+    [self presentModalViewController:navVC animated:YES];*/
 }
 
 - (void)cancelButtonClickHandler:(id)sender
@@ -487,7 +521,7 @@
 
 - (void)publishButtonClickHandler:(id)sender
 {
-    NSArray *selectedClients = [_toolbar selectedClients];
+    /*NSArray *selectedClients = [_toolbar selectedClients];
     if ([selectedClients count] == 0)
     {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
@@ -496,10 +530,8 @@
                                                   cancelButtonTitle:@"知道了"
                                                   otherButtonTitles: nil];
         [alertView show];
-        [alertView release];
-        
         return;
-    }
+    }*/
     
     id<ISSContent> publishContent = [ShareSDK content:_textView.text
                                        defaultContent:nil
@@ -543,9 +575,9 @@
                                     nil]];
     
     BOOL needAuth = NO;
-    if ([selectedClients count] == 1)
+    //if ([selectedClients count] == 1)
     {
-        ShareType shareType = [[selectedClients objectAtIndex:0] integerValue];
+        ShareType shareType = ShareTypeSinaWeibo;//[[selectedClients objectAtIndex:0] integerValue];
         if (![ShareSDK hasAuthorizedWithType:shareType])
         {
             needAuth = YES;
@@ -556,7 +588,7 @@
                                        {
                                            //分享内容
                                            [ShareSDK oneKeyShareContent:publishContent
-                                                              shareList:selectedClients
+                                                              shareList:nil
                                                             authOptions:authOptions
                                                           statusBarTips:YES
                                                                  result:nil];
@@ -571,7 +603,6 @@
                                                                                      cancelButtonTitle:@"知道了"
                                                                                      otherButtonTitles:nil];
                                            [alertView show];
-                                           [alertView release];
                                        }
                                    }];
         }
@@ -581,7 +612,7 @@
     {
         //分享内容
         [ShareSDK oneKeyShareContent:publishContent
-                           shareList:selectedClients
+                           shareList:nil
                          authOptions:authOptions
                        statusBarTips:YES
                               result:nil];
@@ -602,13 +633,16 @@
     {
         _keyboardHeight = keyboardFrame.size.width;
         
-        fixedHeight = (self.view.height + self.navigationController.navigationBar.height) - ([UIScreen mainScreen].bounds.size.width - _keyboardHeight - 20);
+        int screen_width = [UIScreen mainScreen].bounds.size.width;
+        int screen_height = [UIScreen mainScreen].bounds.size.height;
+        
+        fixedHeight = (self.height /*+ self.navigationController.navigationBar.height*/) - (screen_width - _keyboardHeight - 35);
     }
     else
     {
         _keyboardHeight = keyboardFrame.size.height;
         
-        fixedHeight = _keyboardHeight - ([UIScreen mainScreen].bounds.size.height - self.view.height - self.navigationController.navigationBar.height - 20) / 2;
+        fixedHeight = _keyboardHeight - ([UIScreen mainScreen].bounds.size.height - self.height - self.navigationController.navigationBar.height - 20) / 2;
     }
     
     [UIView beginAnimations:@"change" context:nil];
@@ -621,15 +655,15 @@
         _toolbarBG.hidden = NO;
         _atTipsLabel.hidden = NO;
         _wordCountLabel.hidden = NO;
-        _keyboardHeight = keyboardFrame.size.height;
+        //_keyboardHeight = keyboardFrame.size.height;
         
         _contentBG.frame = CGRectMake(PADDING_LEFT,
                                       PADDING_TOP,
-                                      self.view.width - PADDING_LEFT - PADDING_RIGHT,
-                                      self.view.height - TOOLBAR_HEIGHT - VERTICAL_GAP - PADDING_BOTTOM - fixedHeight);
+                                      self.width - PADDING_LEFT - PADDING_RIGHT,
+                                      self.height - TOOLBAR_HEIGHT - VERTICAL_GAP - PADDING_BOTTOM - fixedHeight);
         _toolbarBG.frame = CGRectMake(PADDING_LEFT + 1,
                                       _contentBG.bottom + VERTICAL_GAP,
-                                      self.view.width - PADDING_LEFT - PADDING_RIGHT - 2,
+                                      self.width - PADDING_LEFT - PADDING_RIGHT - 2,
                                       TOOLBAR_HEIGHT);
         
         if (_image)
@@ -648,7 +682,7 @@
         }
         
         
-        _toolbar.frame = CGRectMake(_toolbarBG.left + 2, _toolbarBG.top, _toolbarBG.width - 4, _toolbarBG.height);
+        //_toolbar.frame = CGRectMake(_toolbarBG.left + 2, _toolbarBG.top, _toolbarBG.width - 4, _toolbarBG.height);
         
         _atButton.frame = CGRectMake(_contentBG.left + AT_BUTTON_PADDING_LEFT, _contentBG.bottom - AT_BUTTON_PADDING_BOTTOM - AT_BUTTON_HEIGHT, AT_BUTTON_WIDTH, AT_BUTTON_HEIGHT);
         _atTipsLabel.frame = CGRectMake(_atButton.right + AT_BUTTON_HORIZONTAL_GAP,
@@ -662,79 +696,7 @@
     }
     else
     {
-        if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation))
-        {
-            _toolbarBG.hidden = YES;
-            _atTipsLabel.hidden = YES;
-            _wordCountLabel.hidden = YES;
-            _keyboardHeight = keyboardFrame.size.width;
-            
-            _contentBG.frame = CGRectMake(PADDING_LEFT,
-                                          PADDING_TOP,
-                                          self.view.width - PADDING_LEFT - PADDING_RIGHT,
-                                          self.view.height - PADDING_BOTTOM - _keyboardHeight);
-            
-            if (_image)
-            {
-                _textView.frame = CGRectMake(PADDING_LEFT,
-                                             PADDING_TOP + 1,
-                                             _picBG.left - HORIZONTAL_GAP - PADDING_LEFT,
-                                             _contentBG.bottom - AT_BUTTON_PADDING_BOTTOM - AT_BUTTON_HEIGHT - VERTICAL_GAP - 1);
-            }
-            else
-            {
-                _textView.frame = CGRectMake(PADDING_LEFT,
-                                             PADDING_TOP + 1,
-                                             _contentBG.right - PADDING_RIGHT - PADDING_LEFT,
-                                             _contentBG.bottom - AT_BUTTON_PADDING_BOTTOM - AT_BUTTON_HEIGHT - VERTICAL_GAP - 1);
-            }
-            
-            _atButton.frame = CGRectMake(_contentBG.left + AT_BUTTON_PADDING_LEFT, _contentBG.bottom - AT_BUTTON_PADDING_BOTTOM - AT_BUTTON_HEIGHT, AT_BUTTON_WIDTH, AT_BUTTON_HEIGHT);
-            _toolbar.frame = CGRectMake(_atButton.right + HORIZONTAL_GAP, _contentBG.bottom - TOOLBAR_HEIGHT,_picBG.left - _atButton.right - 2 *HORIZONTAL_GAP, TOOLBAR_HEIGHT);
-        }
-        else
-        {
-            _toolbarBG.hidden = NO;
-            _atTipsLabel.hidden = NO;
-            _wordCountLabel.hidden = NO;
-            _keyboardHeight = keyboardFrame.size.height;
-            
-            _contentBG.frame = CGRectMake(PADDING_LEFT,
-                                          PADDING_TOP,
-                                          self.view.width - PADDING_LEFT - PADDING_RIGHT,
-                                          self.view.height - TOOLBAR_HEIGHT - VERTICAL_GAP - PADDING_BOTTOM - _keyboardHeight);
-            _toolbarBG.frame = CGRectMake(PADDING_LEFT + 1,
-                                          _contentBG.bottom + VERTICAL_GAP,
-                                          self.view.width - PADDING_LEFT - PADDING_RIGHT - 2,
-                                          TOOLBAR_HEIGHT);
-            
-            if (_image)
-            {
-                _textView.frame = CGRectMake(PADDING_LEFT,
-                                             PADDING_TOP + 1,
-                                             _picBG.left - HORIZONTAL_GAP - PADDING_LEFT,
-                                             _contentBG.bottom - AT_BUTTON_PADDING_BOTTOM - AT_BUTTON_HEIGHT - VERTICAL_GAP - 1);
-            }
-            else
-            {
-                _textView.frame = CGRectMake(PADDING_LEFT,
-                                             PADDING_TOP + 1,
-                                             _contentBG.right - PADDING_RIGHT - PADDING_LEFT,
-                                             _contentBG.bottom - AT_BUTTON_PADDING_BOTTOM - AT_BUTTON_HEIGHT - VERTICAL_GAP - 1);
-            }
-            
-            _toolbar.frame = CGRectMake(_toolbarBG.left + 2, _toolbarBG.top, _toolbarBG.width - 4, _toolbarBG.height);
-
-            _atButton.frame = CGRectMake(_contentBG.left + AT_BUTTON_PADDING_LEFT, _contentBG.bottom - AT_BUTTON_PADDING_BOTTOM - AT_BUTTON_HEIGHT, AT_BUTTON_WIDTH, AT_BUTTON_HEIGHT);
-            _atTipsLabel.frame = CGRectMake(_atButton.right + AT_BUTTON_HORIZONTAL_GAP,
-                                            _atButton.top + (_atButton.height - _atTipsLabel.height) / 2,
-                                            _atTipsLabel.width,
-                                            _atTipsLabel.height);
-            _wordCountLabel.frame = CGRectMake(_contentBG.right - WORD_COUNT_LABEL_PADDING_RIGHT - _wordCountLabel.width,
-                                               _contentBG.bottom - WORD_COUNT_LABEL_PADDING_BOTTOM - _wordCountLabel.height,
-                                               _wordCountLabel.width,
-                                               _wordCountLabel.height);
-        }
+        
     }
     [UIView commitAnimations];
 }
@@ -753,11 +715,11 @@
     
     _contentBG.frame = CGRectMake(PADDING_LEFT,
                                   PADDING_TOP,
-                                  self.view.width - PADDING_LEFT - PADDING_RIGHT,
-                                  self.view.height - TOOLBAR_HEIGHT - VERTICAL_GAP - PADDING_BOTTOM - _keyboardHeight);
+                                  self.width - PADDING_LEFT - PADDING_RIGHT,
+                                  self.height - TOOLBAR_HEIGHT - VERTICAL_GAP - PADDING_BOTTOM - _keyboardHeight);
     _toolbarBG.frame = CGRectMake(PADDING_LEFT + 1,
                                   _contentBG.bottom + VERTICAL_GAP,
-                                  self.view.width - PADDING_LEFT - PADDING_RIGHT - 2,
+                                  self.width - PADDING_LEFT - PADDING_RIGHT - 2,
                                   TOOLBAR_HEIGHT);
     
     if (_image)
@@ -775,7 +737,7 @@
                                      _contentBG.bottom - AT_BUTTON_PADDING_BOTTOM - AT_BUTTON_HEIGHT - VERTICAL_GAP - 1);
     }
     
-    _toolbar.frame = CGRectMake(_toolbarBG.left + 2, _toolbarBG.top, _toolbarBG.width - 4, _toolbarBG.height);
+    //_toolbar.frame = CGRectMake(_toolbarBG.left + 2, _toolbarBG.top, _toolbarBG.width - 4, _toolbarBG.height);
     
     _atButton.frame = CGRectMake(_contentBG.left + AT_BUTTON_PADDING_LEFT, _contentBG.bottom - AT_BUTTON_PADDING_BOTTOM - AT_BUTTON_HEIGHT, AT_BUTTON_WIDTH, AT_BUTTON_HEIGHT);
     _atTipsLabel.frame = CGRectMake(_atButton.right + AT_BUTTON_HORIZONTAL_GAP,

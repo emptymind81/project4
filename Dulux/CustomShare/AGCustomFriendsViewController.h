@@ -12,7 +12,7 @@
 #import <AGCommon/CMRefreshTableHeaderView.h>
 #import "AGCustomFriendListViewToolbar.h"
 
-@class AGAppDelegate;
+@class AppDelegate;
 
 /**
  *	@brief	自定义好友列表视图控制器
@@ -36,8 +36,11 @@
     NSInteger _page;
     id _changeHandler;
     
-    AGAppDelegate *_appDelegate;
+    AppDelegate *_appDelegate;
 }
+
+@property (readonly) int width;
+@property (readonly) int height;
 
 /**
  *	@brief	初始化视图控制器

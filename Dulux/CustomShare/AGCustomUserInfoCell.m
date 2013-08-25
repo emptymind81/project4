@@ -8,6 +8,7 @@
 
 #import "AGCustomUserInfoCell.h"
 #import <AGCommon/UIImage+Common.h>
+#import "UIView+Common.h"
 
 #define LEFT_PADDING 7.0
 #define RIGHT_PADDING 7.0
@@ -23,6 +24,15 @@
 
 @implementation AGCustomUserInfoCell
 
+-(int) width
+{
+    return self.contentView.frame.size.width;
+}
+-(int) height
+{
+    return self.contentView.frame.size.height;
+}
+
 @synthesize userInfo = _userInfo;
 
 - (id)initWithStyle:(UITableViewCellStyle)style
@@ -34,16 +44,17 @@
     if (self)
     {
         _shareType = shareType;
-        _cacheManager = [imageCacheManager retain];
+        _cacheManager = imageCacheManager;
         
         //头像
         _iconImageView = [[CMImageView alloc] initWithFrame:CGRectMake(LEFT_PADDING,
-                                                                     (self.contentView.height - ICON_HEIGHT) / 2,
+                                                                     (self.height - ICON_HEIGHT) / 2,
                                                                      ICON_WIDTH,
                                                                      ICON_HEIGHT)];
-        _iconImageView.defaultImage = [UIImage imageNamed:@"defaultAvatar.png"];
+        _iconImageView.image = [UIImage imageNamed:@"defaultAvatar.png"];
         [self.contentView addSubview:_iconImageView];
-        [_iconImageView release];
+        
+        CGRect temp = _iconImageView.frame;
         
         //Loading
         _indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -53,19 +64,22 @@
                                           _indicatorView.width,
                                           _indicatorView.height);
         [self.contentView addSubview:_indicatorView];
-        [_indicatorView release];
+        
+        temp = _indicatorView.frame;
         
         //图标
         _vipImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, VIP_ICON_WIDTH, VIP_ICON_HEIGHT)];
         [self.contentView addSubview:_vipImageView];
-        [_vipImageView release];
+        
+        temp = _vipImageView.frame;
         
         //昵称
         _nickNameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _nickNameLabel.backgroundColor = [UIColor clearColor];
         _nickNameLabel.font = [UIFont systemFontOfSize:16];
         [self.contentView addSubview:_nickNameLabel];
-        [_nickNameLabel release];
+        
+        temp = _nickNameLabel.frame;
         
         //描述
         _descLabel = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -73,12 +87,14 @@
         _descLabel.font = [UIFont systemFontOfSize:13];
         _descLabel.textColor = [UIColor grayColor];
         [self.contentView addSubview:_descLabel];
-        [_descLabel release];
+        
+        temp = _descLabel.frame;
         
         //性别
         _sexImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, GENDER_ICON_WIDTH, GENDER_ICON_HEIGHT)];
         [self.contentView addSubview:_sexImageView];
-        [_sexImageView release];
+        
+        temp = _sexImageView.frame;
     }
     return self;
 }
@@ -86,7 +102,6 @@
 - (void)dealloc
 {
     [_loader removeAllNotificationWithTarget:self];
-    SAFE_RELEASE(_loader);
     
     _iconImageView = nil;
     _vipImageView = nil;
@@ -94,17 +109,10 @@
     _descLabel = nil;
     _indicatorView = nil;
     _sexImageView = nil;
-    
-    SAFE_RELEASE(_userInfo);
-    SAFE_RELEASE(_cacheManager);
-    
-    [super dealloc];
 }
 
 - (void)setUserInfo:(NSDictionary *)userInfo
 {
-    [userInfo retain];
-    SAFE_RELEASE(_userInfo);
     _userInfo = userInfo;
     
     _iconImageView.image = nil;
@@ -254,9 +262,8 @@
         }
         
         [_loader removeAllNotificationWithTarget:self];
-        SAFE_RELEASE(_loader);
         
-        _loader = [[_cacheManager getImage:icon cornerRadius:5.0 size:_iconImageView.frame.size] retain];
+        _loader = [_cacheManager getImage:icon cornerRadius:5.0 size:_iconImageView.frame.size];
         if (_loader.state == ImageLoaderStateReady)
         {
             _iconImageView.image = _loader.content;
@@ -273,7 +280,7 @@
                                       action:@selector(iconLoadErrorHandler:)];
         }
         
-        _iconImageView.frame = CGRectMake(LEFT_PADDING, (self.contentView.height - ICON_HEIGHT) / 2, ICON_WIDTH, ICON_HEIGHT);
+        _iconImageView.frame = CGRectMake(LEFT_PADDING, (self.height - ICON_HEIGHT) / 2, ICON_WIDTH, ICON_HEIGHT);
         _indicatorView.frame = CGRectMake(_iconImageView.left + (_iconImageView.width - _indicatorView.width) / 2,
                                           _iconImageView.top + (_iconImageView.height - _indicatorView.height) / 2,
                                           _indicatorView.width,
@@ -380,8 +387,8 @@
                 break;
         }
         
-        CGFloat top = (self.contentView.height - _nickNameLabel.height - _descLabel.height - VERTICAL_GAP) / 2;
-        CGFloat width = self.contentView.width - _iconImageView.right - HORIZONTAL_GAG - RIGHT_PADDING;
+        CGFloat top = (self.height - _nickNameLabel.height - _descLabel.height - VERTICAL_GAP) / 2;
+        CGFloat width = self.width - _iconImageView.right - HORIZONTAL_GAG - RIGHT_PADDING;
         CGFloat nickNameWidth = _nickNameLabel.width;
         if (!_sexImageView.hidden)
         {
@@ -424,7 +431,6 @@
     [_indicatorView stopAnimating];
     
     [_loader removeAllNotificationWithTarget:self];
-    SAFE_RELEASE(_loader);
 }
 
 - (void)iconLoadErrorHandler:(NSNotification *)notif
@@ -432,7 +438,6 @@
     [_indicatorView stopAnimating];
     
     [_loader removeAllNotificationWithTarget:self];
-    SAFE_RELEASE(_loader);
 }
 
 @end

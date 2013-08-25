@@ -8,10 +8,20 @@
 
 #import "AGCustomFriendListViewToolbar.h"
 #import "AGCustomUserItemView.h"
+#import "UIView+Common.h"
 
 #define ITEM_ID @"ITEM"
 
 @implementation AGCustomFriendListViewToolbar
+
+-(int) width
+{
+    return self.frame.size.width;
+}
+-(int) height
+{
+    return self.frame.size.height;
+}
 
 - (id)initWithFrame:(CGRect)frame
       selectedArray:(NSMutableArray *)selectedArray
@@ -23,8 +33,8 @@
     self = [super initWithFrame:frame];
     if (self)
     {
-        _selectedArray = [selectedArray retain];
-        _imageCacheManager = [imageCacheManager retain];
+        _selectedArray = selectedArray;
+        _imageCacheManager = imageCacheManager;
         _shareType = shareType;
         _itemClickHandler = [itemClickHandler copy];
         _completeHandler = [completeHandler copy];
@@ -33,7 +43,8 @@
         _bgView.frame = CGRectMake(0.0, 0.0, self.width, self.height);
         _bgView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         [self addSubview:_bgView];
-        [_bgView release];
+        
+        CGRect temp = _bgView.frame;
         
         _completeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [_completeButton setTitle:@"完成(0/20)" forState:UIControlStateNormal];
@@ -46,6 +57,8 @@
         _completeButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
         [self addSubview:_completeButton];
         
+        temp = _completeButton.frame;
+        
         _tableView = [[CMHTableView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.width - _completeButton.width - 8, self.height)];
         _tableView.dataSource = self;
         _tableView.delegate = self;
@@ -53,22 +66,18 @@
         _tableView.showsHorizontalScrollIndicator = NO;
         _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self addSubview:_tableView];
-        [_tableView release];
+        
+        temp = _tableView.frame;
     }
     return self;
 }
 
 - (void)dealloc
 {
-    SAFE_RELEASE(_selectedArray);
-    SAFE_RELEASE(_imageCacheManager);
-    SAFE_RELEASE(_itemClickHandler);
-    SAFE_RELEASE(_completeHandler);
     
     _completeButton = nil;
     _tableView = nil;
-    
-    [super dealloc];
+
 }
 
 - (void)reloadData
@@ -98,11 +107,10 @@
     AGCustomUserItemView *itemView = (AGCustomUserItemView *)[tableView dequeueReusableItemWithIdentifier:ITEM_ID];
     if (itemView == nil)
     {
-        itemView = [[[AGCustomUserItemView alloc] initWithReuseIdentifier:ITEM_ID
+        itemView = [[AGCustomUserItemView alloc] initWithReuseIdentifier:ITEM_ID
                                                         imageCacheManager:_imageCacheManager
                                                                 shareType:_shareType
-                                                             clickHandler:_itemClickHandler]
-                    autorelease];
+                                                             clickHandler:_itemClickHandler];
     }
     
     if (indexPath.row < [_selectedArray count])

@@ -27,6 +27,9 @@
     UIImageView *_maskImageView;
 }
 
+@property (readonly) int width;
+@property (readonly) int height;
+
 /**
  *	@brief	用户信息
  */
