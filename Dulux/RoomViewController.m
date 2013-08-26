@@ -22,6 +22,7 @@
 #import "UIImage+Tint.h"
 #import "UIImage+Alpha.h"
 #import "AGCustomShareViewController.h"
+#import "DoorsViewController.h"
 
 #import "WeiboSDK.h"
 #import "Weibo.h"
@@ -176,7 +177,7 @@ typedef enum
     //add animation
     [self addSwitchViewAnimation:initReason];
     
-    NSString* left_button_pic = @"leftbutton.png";
+    /*NSString* left_button_pic = @"leftbutton.png";
     UIImage* left_button_image = [UIImage imageNamed:left_button_pic];
     UIButton* left_button = [[UIButton alloc] init];
     [left_button setImage:left_button_image forState:UIControlStateNormal];
@@ -188,7 +189,7 @@ typedef enum
     UIButton* right_button = [[UIButton alloc] init];
     [right_button setImage:right_button_image forState:UIControlStateNormal];
     [right_button addTarget:self action:@selector(goRight:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:right_button];
+    [self.view addSubview:right_button];*/
     
     UIView* color_band_view = [[UIView alloc] init];
     color_band_view.backgroundColor = [UIColor colorWithRed:0.827 green:0.827 blue:0.827 alpha:1];
@@ -264,17 +265,17 @@ typedef enum
     [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:(UIButton*)share_button another:color_band_view attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeTop offset:44]];
     [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:dulux_icon another:color_band_view attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeTop offset:28]];
     
-    
+    /*
     [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:left_button another:self.view attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeTop offset:263]];
     [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:left_button another:self.view attr:NSLayoutAttributeLeft anotherAttr:NSLayoutAttributeLeft offset:0]];
     
     [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:right_button another:self.view attr:NSLayoutAttributeTop anotherAttr:NSLayoutAttributeTop offset:263]];
     [self.view addConstraint:[AutoLayoutHelper viewOffsetsToAnother:right_button another:self.view attr:NSLayoutAttributeRight anotherAttr:NSLayoutAttributeRight offset:0]];
-    
+    */
     
     [self initNavigateButtons];
     
-    [self initSwipeRecognizers];
+    //[self initSwipeRecognizers];
 }
 
 - (void)didReceiveMemoryWarning
@@ -341,7 +342,7 @@ typedef enum
    //m_paint_tool_view.layer.borderWidth = 1;
     [self.view addSubview:m_paint_tool_view];
    
-   [self disableRecognizers];
+   //[self disableRecognizers];
    
    /*bool isTransparent1 = [m_paint_tool_view.image isPointTransparent:CGPointMake(20, 20)];
    isTransparent1 = [m_paint_tool_view.image isPointTransparent:CGPointMake(140, 20)];
@@ -541,7 +542,7 @@ typedef enum
       [m_paint_tool_view removeFromSuperview];
    }
     
-    [self enableRecognizers];
+    //[self enableRecognizers];
 }
 
 - (void) colorButtonClicked:(id)sender
@@ -582,7 +583,7 @@ typedef enum
         UIView* view = sub_views[i];
         [view removeFromSuperview];
     }
-    [self clearRecognizers];
+    //[self clearRecognizers];
     
     m_wall_views = [[NSMutableArray alloc] init];
     m_wall_color_button_indexs = [[NSMutableArray alloc] init];
@@ -613,6 +614,7 @@ typedef enum
     }
 }
 
+/*
 - (void) initSwipeRecognizers
 {
     UISwipeGestureRecognizer* swipe_left_recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeLeft:)];
@@ -651,7 +653,7 @@ typedef enum
         UIGestureRecognizer* recognizer = self.view.gestureRecognizers[i];
         recognizer.enabled = true;
     }
-}
+}*/
 
 - (void)handleSwipeLeft:(UISwipeGestureRecognizer *)swipeRecognizer
 {
@@ -717,6 +719,20 @@ typedef enum
 
 - (void) navigateBack:(id)sender
 {
+    for (int i=0; i<self.navigationController.viewControllers.count; i++)
+    {
+        UIViewController* controller = self.navigationController.viewControllers[i];
+        if ([controller isKindOfClass:[DoorsViewController class]])
+        {
+            DoorsViewController* doors_view_controller = (DoorsViewController*)controller;
+            if (doors_view_controller.seriIndex == self.seriIndex)
+            {
+                [self.navigationController popToViewController:controller animated:TRUE];
+                return;
+            }
+        }
+    }
+    
     [self.navigationController popViewControllerAnimated:TRUE];
 }
 
@@ -886,8 +902,8 @@ typedef enum
     id<ISSCAttachment> share_image_attachment = [ShareSDK imageWithPath:imagePath];
     UIImage* share_image = [self getFinalImage];
 
-    
-    AGCustomShareViewController *vc = [[AGCustomShareViewController alloc] initWithImage:share_image content:@"多乐士臻彩时尚旅程"];
+    NSString* content = @"时尚灵感 焕新我家 这就是我的臻彩家居配搭！ 想了解更多臻彩旅程及产品，请登录http://www.icidulux.com.cn/ambiance/theme 想更了解自己的色彩品味吗？更多CQ色彩型格测试，即刻体验 http://www.letscolor.com.cn/cq";
+    AGCustomShareViewController *vc = [[AGCustomShareViewController alloc] initWithImage:share_image content:content];
     UINavigationController *naVC = [[UINavigationController alloc] initWithRootViewController:vc];
     
     naVC.modalPresentationStyle = UIModalPresentationFormSheet;
