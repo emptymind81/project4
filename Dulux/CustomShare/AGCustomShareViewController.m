@@ -579,7 +579,7 @@
     //return;
     static Weibo* m_weibo = nil;
     if (m_weibo == nil) {
-        m_weibo = [[Weibo alloc] initWithAppKey:@"568898243" withAppSecret:@"38a4f8204cc784f81f9f0daaf31e02e3"];
+        m_weibo = [[Weibo alloc] initWithAppKey:@"1181359548" withAppSecret:@"de330123e67881dbb8941eaa377eeaf0"];
     }
     
     [Weibo setWeibo:m_weibo];

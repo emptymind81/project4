@@ -22,7 +22,7 @@
         self.accessTokenURL = accessTokenURL;
         self.appKey = appKey;
         self.appSecret = appSecret;
-        self.redirectURI = @"http://www.sharesdk.cn";
+        self.redirectURI = @"http://dulux.com";
     }
     return self;
 }

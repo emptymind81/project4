@@ -100,13 +100,13 @@
     
     
     
-    [ShareSDK connectSinaWeiboWithAppKey:@"568898243"
+    /*[ShareSDK connectSinaWeiboWithAppKey:@"568898243"
                                appSecret:@"38a4f8204cc784f81f9f0daaf31e02e3"
-                             redirectUri:@"http://www.sharesdk.cn"];
+                             redirectUri:@"http://www.sharesdk.cn"];*/
     
-   /*[ShareSDK connectSinaWeiboWithAppKey:@"1181359548"
+   [ShareSDK connectSinaWeiboWithAppKey:@"1181359548"
                               appSecret:@"de330123e67881dbb8941eaa377eeaf0"
-                            redirectUri:@"http://dulux.com"];*/
+                            redirectUri:@"http://dulux.com"];
     
     /*[ShareSDK connectSinaWeiboWithAppKey:@"3326691039"
                                appSecret:@"75dd27596a081b28651d214e246c1b15"
