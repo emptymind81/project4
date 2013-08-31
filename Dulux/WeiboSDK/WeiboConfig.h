@@ -9,8 +9,8 @@
 //#define kAppKey @"3326691039"
 //#define kAppSecret @"75dd27596a081b28651d214e246c1b15"
 
-#define kAppKey @"568898243"
-#define kAppSecret @"38a4f8204cc784f81f9f0daaf31e02e3"
+#define kAppKey @"1181359548"
+#define kAppSecret @"de330123e67881dbb8941eaa377eeaf0"
 
 #define kWeiboAuthorizeURL          @"https://api.weibo.com/oauth2/authorize"
 #define kWeiboAccessTokenURL        @"https://api.weibo.com/oauth2/access_token"
